@@ -9,6 +9,7 @@ class GardensController < ApplicationController
 		@garden = Garden.new(garden_params)
 
 		if @garden.save
+			# add user association
 			redirect_to @garden
 		else
 			render :new
