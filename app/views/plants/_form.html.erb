@@ -1,5 +1,11 @@
 <%= form_for plant do |f| %> <br>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.submit %>
+<%= f.label 'Common Name:' %>
+<p><%= f.text_field :name %></p>
+<%= f.label :genus %>
+<p><%= f.text_field :genus %></p>
+<%= f.label :species %>
+<p><%= f.text_field :species %></p>
+<%= f.label 'Water Frequency' %>
+<p><%= f.number_field :water_frequency %></p>
+<p><%= f.submit %></p>
 <% end %>

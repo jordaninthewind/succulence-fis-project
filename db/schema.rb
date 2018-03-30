@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(version: 20180330141029) do
 
   create_table "plants", force: :cascade do |t|
     t.string "name"
+    t.string "genus"
+    t.string "species"
+    t.integer "water_frequency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

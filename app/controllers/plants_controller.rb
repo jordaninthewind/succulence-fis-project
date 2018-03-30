@@ -19,7 +19,9 @@ class PlantsController < ApplicationController
 	end
 
 	def update
+		@plant.update(plant_params)
 
+		redirect_to @plant
 	end
 
 	def show
