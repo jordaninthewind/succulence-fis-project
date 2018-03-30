@@ -22,3 +22,104 @@ Migrating to CreateGardenPlants (20180330141029)
   [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-03-30 14:13:23.368876"], ["updated_at", "2018-03-30 14:13:23.368876"]]
   [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/gardens" for 127.0.0.1 at 2018-03-30 10:35:55 -0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GardensController#index as HTML
+  Rendering gardens/index.html.erb within layouts/application
+  Rendered gardens/index.html.erb within layouts/application (7.9ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <% @gardens.each do |garden| %>
+    2: <p><%= link_to garden.name, garden %></p>
+    3: <% end %>
+  
+app/views/gardens/index.html.erb:1:in `_app_views_gardens_index_html_erb__2722578699983294815_70226483185140'
+Started GET "/gardens" for 127.0.0.1 at 2018-03-30 10:37:04 -0400
+Started GET "/gardens/new" for 127.0.0.1 at 2018-03-30 10:37:15 -0400
+Processing by GardensController#index as HTML
+  Rendering gardens/index.html.erb within layouts/application
+  Rendered gardens/index.html.erb within layouts/application (3.2ms)
+Completed 500 Internal Server Error in 14ms
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <% @gardens.each do |garden| %>
+    2: <p><%= link_to garden.name, garden %></p>
+    3: <% end %>
+  
+app/views/gardens/index.html.erb:1:in `_app_views_gardens_index_html_erb__2722578699983294815_70226519634840'
+Processing by GardensController#new as HTML
+  Rendering gardens/new.html.erb within layouts/application
+  Rendered gardens/_form.html.erb (10.9ms)
+  Rendered gardens/new.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 473ms (Views: 451.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/gardens/new" for 127.0.0.1 at 2018-03-30 10:37:48 -0400
+Processing by GardensController#new as HTML
+  Rendering gardens/new.html.erb within layouts/application
+  Rendered gardens/_form.html.erb (11.5ms)
+  Rendered gardens/new.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 50ms (Views: 45.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gardens" for 127.0.0.1 at 2018-03-30 10:38:14 -0400
+Processing by GardensController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vb4df+MIYCnbLQFXPAGv1tI0QcuOFClwmYvQ7MljP/YNerzFSkRbUOpu22ZpF+nkvZZym92aFTY8evq/fodZ7g==", "garden"=>{"name"=>"Home"}, "commit"=>"Create Garden"}
+No template found for GardensController#create, rendering head :no_content
+Completed 204 No Content in 101671ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/gardens/new" for 127.0.0.1 at 2018-03-30 10:40:02 -0400
+Processing by GardensController#new as HTML
+  Rendering gardens/new.html.erb within layouts/application
+  Rendered gardens/_form.html.erb (2.2ms)
+  Rendered gardens/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 50ms (Views: 32.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/gardens" for 127.0.0.1 at 2018-03-30 10:40:06 -0400
+Processing by GardensController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5nBjUdLR+h+aV//rLlXjDNusZ8VEc6Fpayo/1XeJA+dWtMLre53BZqsUJdp7Q6U+tA5UlRf9nS/O2xWGwG1l/w==", "garden"=>{"name"=>"Home"}, "commit"=>"Create Garden"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Home"], ["created_at", "2018-03-30 14:40:06.061061"], ["updated_at", "2018-03-30 14:40:06.061061"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 4.2ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"gardens"}, missing required keys: [:id]):
+  
+app/controllers/gardens_controller.rb:11:in `create'
+Started POST "/gardens" for 127.0.0.1 at 2018-03-30 10:40:20 -0400
+Processing by GardensController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5nBjUdLR+h+aV//rLlXjDNusZ8VEc6Fpayo/1XeJA+dWtMLre53BZqsUJdp7Q6U+tA5UlRf9nS/O2xWGwG1l/w==", "garden"=>{"name"=>"Home"}, "commit"=>"Create Garden"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Home"], ["created_at", "2018-03-30 14:40:20.106153"], ["updated_at", "2018-03-30 14:40:20.106153"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gardens/2
+Completed 302 Found in 24ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/gardens/2" for 127.0.0.1 at 2018-03-30 10:40:20 -0400
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  Rendered gardens/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 11053ms (Views: 54.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gardens/2" for 127.0.0.1 at 2018-03-30 10:42:29 -0400
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  Rendered gardens/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 65ms (Views: 39.7ms | ActiveRecord: 1.4ms)
+
+
