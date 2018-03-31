@@ -31,6 +31,11 @@ class PlantsController < ApplicationController
 		@plants = Plant.all
 	end
 
+	def destroy
+		@plant.destroy
+		redirect_to :index
+	end
+
 	private
 
 	def set_plant
@@ -38,7 +43,7 @@ class PlantsController < ApplicationController
 	end
 
 	def plant_params
-		params.require(:plant).permit(:name)
+		params.require(:plant).permit(:name, :genus, :species, :water_frequency)
 	end
 
 
