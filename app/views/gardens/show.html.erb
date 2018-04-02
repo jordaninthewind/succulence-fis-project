@@ -3,6 +3,9 @@
 
 <ul>
 <% @garden.garden_plants.each do |gp| %>
-<li><%= link_to gp.plant.name, garden_garden_plant_path(gp) %>, Last Watered: <%= gp.updated_at %></li>
+<li><%= link_to gp.plant.name, garden_garden_plant_path(gp) %>, Last Watered: <%= gp.updated_at %>
+	<%= link_to 'Mulch Plant', garden_garden_plant_path(gp),
+                    method: :delete, data: { confirm: 'Are you sure?' } %>
+</li>
 <% end %>
 </ul>
