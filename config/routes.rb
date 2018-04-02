@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
-  root 'gardens#welcome'
+  root 'welcome#home'
 
   resources :plants
 
   resources :gardens do
-  	resources :plants
+  	resources :garden_plants
   end
 
 end

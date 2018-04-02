@@ -1,6 +1,8 @@
-<%= @garden.name %>
+<h2>Garden Name: <%= @garden.name %> 
+<%= link_to "Add Plant", new_garden_garden_plant_path(@garden) %>
+
 <ul>
-<% @garden.garden_plants.each do |garden_plant| %>
-<li><%= link_to garden_plant.plant.name, garden_plant %>, Last Watered: <%= garden_plant.updated_at %></li>
+<% @garden.garden_plants.each do |gp| %>
+<li><%= link_to gp.plant.name, garden_garden_plant_path(gp) %>, Last Watered: <%= gp.updated_at %></li>
 <% end %>
 </ul>

@@ -1,5 +1,7 @@
-<%= form_for garden_plant do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
+<%= form_for :garden_plant, :url => {:action => 'create'} do |f| %>
+
+<%= f.label :plant_id %>
+<%= f.text_field :plant_id %>
+<%= f.hidden_field :garden_id, value: params[:garden_id] %>
 <%= f.submit %>
 <% end %>
