@@ -2,3 +2,7 @@
 <p>Species: <%= @plant.species %></p>
 <p>Genus: <%= @plant.genus %></p>
 <p>Watering Frequency: Every <%= @plant.water_frequency %> Days</p>
+<p>Planted On: <%= formatted_time(@plant.created_at) %></p>
+<p>Last Watered: <%= formatted_time(@plant.updated_at) %></p>
+<!-- add functionality for overdue watering here -->
+<%= link_to "Water Plant", water_plant_path %>

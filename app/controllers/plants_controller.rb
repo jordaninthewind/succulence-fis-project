@@ -42,6 +42,12 @@ class PlantsController < ApplicationController
 		redirect_to :index
 	end
 
+	def water_plant
+		@plant.touch
+
+		redirect_to @plant
+	end
+
 	private
 
 	def set_plant
