@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180330141029) do
-
-  create_table "garden_plants", force: :cascade do |t|
-    t.integer "garden_id"
-    t.integer "plant_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20180330140938) do
 
   create_table "gardens", force: :cascade do |t|
     t.string "name"
@@ -31,6 +24,7 @@ ActiveRecord::Schema.define(version: 20180330141029) do
     t.string "genus"
     t.string "species"
     t.integer "water_frequency"
+    t.integer "garden_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

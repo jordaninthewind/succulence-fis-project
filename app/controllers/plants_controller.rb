@@ -6,6 +6,7 @@ class PlantsController < ApplicationController
 	end
 
 	def create
+		binding.pry
 		@plant = Plant.new(plant_params)
 
 		if @plant.save
@@ -32,7 +33,10 @@ class PlantsController < ApplicationController
 	end
 
 	def destroy
+		binding.pry
+		@garden = Garden.find(plant.garden_id)
 		@plant.destroy
+		
 		redirect_to :index
 	end
 
