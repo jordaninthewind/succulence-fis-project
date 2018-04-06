@@ -1,3 +1,6 @@
+<h2>All Gardens: </h2>
+<ul>
 <% @gardens.each do |garden| %>
-<p><%= link_to garden.name, garden %></p>
+<li><%= link_to garden.name, garden_path(garden) %></li>
 <% end %>
+</ul>

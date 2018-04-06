@@ -4331,3 +4331,90 @@ Processing by GardensController#index as HTML
 Completed 200 OK in 59ms (Views: 52.1ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/gardens/" for 127.0.0.1 at 2018-04-06 14:39:50 -0400
+Processing by GardensController#index as HTML
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  Rendered gardens/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 57ms (Views: 53.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/gardens/" for 127.0.0.1 at 2018-04-06 14:41:23 -0400
+Processing by GardensController#index as HTML
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (3.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  Rendered gardens/index.html.erb within layouts/application (49.2ms)
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 3.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"gardens"}, missing required keys: [:id]):
+    1: <h2>All Gardens: </h2>
+    2: <ul>
+    3: <% @gardens.each do |garden| %>
+    4: <li><%= link_to garden.name, garden_path %></li>
+    5: <% end %>
+    6: </ul>
+  
+app/views/gardens/index.html.erb:4:in `block in _app_views_gardens_index_html_erb___4553213199358665733_70171793052160'
+app/views/gardens/index.html.erb:3:in `_app_views_gardens_index_html_erb___4553213199358665733_70171793052160'
+Started GET "/gardens/" for 127.0.0.1 at 2018-04-06 14:41:28 -0400
+Processing by GardensController#index as HTML
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (1.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens"[0m
+  Rendered gardens/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 55ms (Views: 51.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/gardens/1" for 127.0.0.1 at 2018-04-06 14:41:32 -0400
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  Rendered gardens/show.html.erb within layouts/application (30.6ms)
+Completed 200 OK in 85ms (Views: 67.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/gardens/3/plants/1" for 127.0.0.1 at 2018-04-06 14:41:34 -0400
+Processing by PlantsController#show as HTML
+  Parameters: {"garden_id"=>"3", "id"=>"1"}
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Plant with 'id'=1):
+  
+app/controllers/plants_controller.rb:48:in `set_plant'
+Started GET "/gardens/3/plants/1" for 127.0.0.1 at 2018-04-06 14:42:06 -0400
+Processing by PlantsController#show as HTML
+  Parameters: {"garden_id"=>"3", "id"=>"1"}
+  [1m[36mPlant Load (1.3ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 131072ms (ActiveRecord: 3.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Plant with 'id'=1):
+  
+app/controllers/plants_controller.rb:49:in `set_plant'
+  [1m[36mPlant Load (5.0ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/gardens/1" for 127.0.0.1 at 2018-04-06 14:54:08 -0400
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (1.3ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (1.4ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  Rendered gardens/show.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 131ms (Views: 89.5ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/plants/3" for 127.0.0.1 at 2018-04-06 14:54:10 -0400
+Processing by PlantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPlant Load (0.6ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering plants/show.html.erb within layouts/application
+  Rendered plants/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 47ms (Views: 35.8ms | ActiveRecord: 0.6ms)
+
+
