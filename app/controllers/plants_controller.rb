@@ -11,6 +11,7 @@ class PlantsController < ApplicationController
 		if @plant.save
 			redirect_to @plant
 		else
+			# work in error
 			render :new
 		end
 	end
@@ -43,7 +44,8 @@ class PlantsController < ApplicationController
 	end
 
 	def water_plant
-		@plant.touch
+		@plant.last_watered = Time.now
+		@plant.save
 
 		redirect_to @plant
 	end

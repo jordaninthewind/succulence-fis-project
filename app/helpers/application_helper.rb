@@ -24,8 +24,7 @@ module ApplicationHelper
     end
   end
 
-  def formatted_time(time)
-    time.strftime("%m/%d/%Y at %I:%m%p")
-  end
-
+  # def formatted_time(time)
+  #   time.strftime("%m/%d/%Y at %I:%m%p")
+  # end
 end
