@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :plants
 
   resources :gardens do
-  	resources :garden_plants
+  	resources :plants
   end
 
 end
