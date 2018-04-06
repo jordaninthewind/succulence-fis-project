@@ -12,7 +12,7 @@ class GardensController < ApplicationController
 
 			redirect_to @garden
 		else
-			
+
 			render :new
 		end
 	end
