@@ -23,8 +23,9 @@ class PlantsController < ApplicationController
 
 	def update
 		@plant.update(plant_params)
+		@garden = @plant.garden
 
-		redirect_to @plant
+		redirect_to garden_plant_path(@garden, @plant)
 	end
 
 	def show

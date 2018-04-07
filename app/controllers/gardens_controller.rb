@@ -9,7 +9,7 @@ class GardensController < ApplicationController
 		@garden = Garden.new(garden_params)
 
 		if @garden.save
-			# add in nested params for plant
+			# add in nested params for plant at garden creation
 			redirect_to garden_path(@garden)
 		else
 

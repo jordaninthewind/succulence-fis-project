@@ -21,6 +21,7 @@ Plants have a time period that they are to be watered during, X, when the timest
 Big Details
 
 - Add User Logic
+- Add Omniauth with new instructions from Lab
 - Add more information to views for UI flow
 - Begin to work in control flow and authentication/authorization
 
