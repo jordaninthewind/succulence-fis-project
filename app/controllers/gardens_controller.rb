@@ -10,7 +10,7 @@ class GardensController < ApplicationController
 
 		if @garden.save
 			# add in nested params for plant
-			redirect_to @garden
+			redirect_to garden_path(@garden)
 		else
 
 			render :new

@@ -49,8 +49,9 @@ class PlantsController < ApplicationController
 	def water_plant
 		@plant.last_watered = Time.now
 		@plant.save
+		@garden = @plant.garden
 
-		redirect_to garden_plant_path(@plant)
+		redirect_to garden_plant_path(@garden, @plant)
 	end
 
 	private
