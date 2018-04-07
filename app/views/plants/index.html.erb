@@ -4,5 +4,5 @@
 
 <br>
 <% @plants.each do |plant| %>
-<p><%= link_to plant.name, garden_plant_path(plant) %></p>
+<p><%= link_to plant.name, plant_path(plant) %></p>
 <% end %>

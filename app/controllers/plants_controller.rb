@@ -11,7 +11,7 @@ class PlantsController < ApplicationController
 		if @plant.save
 			redirect_to @plant
 		else
-			# work in error
+			# work in error notification
 			render :new
 		end
 	end
