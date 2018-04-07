@@ -1,3 +1,8 @@
 Edit This Garden:
 
-<%= render partial: 'form', locals: {:garden => @garden} %> 
+<%#= render partial: 'form', locals: {:garden => @garden} %> 
+<%= form_for @garden, :url => {:controller => 'gardens', :action => 'update'} do |f| %>
+<p><%= f.label :name %></p>
+<p><%= f.text_field :name %></p>
+<p><%= f.submit %></p>
+<% end %>

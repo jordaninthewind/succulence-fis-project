@@ -1,4 +1,4 @@
-<h1>Garden: <%= @plant.garden.name %></h1>
+<h1>Garden: <%= link_to @plant.garden.name, @plant.garden %></h1>
 
 <h2>Common Name: <%= @plant.name %></h2>
 <p>Species: <%= @plant.species %></p>

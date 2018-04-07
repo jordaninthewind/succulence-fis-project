@@ -13,8 +13,5 @@ Rails.application.routes.draw do
   	resources :plants
   end
 
-  # resources :plants
-
-
-
+  resources :plants
 end
