@@ -28,3 +28,7 @@ Big Details
 Little Details
 
 - Add time formatting for views
+
+V2 Goals
+
+- Implement garden_plants join table to enable plants as single entries

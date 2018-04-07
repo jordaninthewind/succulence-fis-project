@@ -11,7 +11,7 @@ class PlantsController < ApplicationController
 
 		if @plant.save	
 
-			redirect_to @plant.garden
+			redirect_to garden_plant_path(@plant.garden, @plant)
 		else
 			# work in error notification
 			render :new
@@ -23,9 +23,8 @@ class PlantsController < ApplicationController
 
 	def update
 		@plant.update(plant_params)
-		@garden = @plant.garden
 
-		redirect_to garden_plant_path(@garden, @plant)
+		redirect_to garden_plant_path(@plant.garden, @plant)
 	end
 
 	def show
@@ -50,9 +49,8 @@ class PlantsController < ApplicationController
 	def water_plant
 		@plant.last_watered = Time.now
 		@plant.save
-		@garden = @plant.garden
 
-		redirect_to garden_plant_path(@garden, @plant)
+		redirect_to garden_plant_path(@plant.garden, @plant)
 	end
 
 	private

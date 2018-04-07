@@ -1,8 +1,8 @@
-<h1>Garden: <%= link_to @plant.garden.name, @plant.garden %></h1>
+<h2>Garden: <%= link_to @plant.garden.name, @plant.garden %></h2>
 
-<h2>Common Name: <%= @plant.name %></h2>
-<p>Species: <%= @plant.species %></p>
+<h2><strong>Common Name: </strong><%= @plant.name %></h2>
 <p>Genus: <%= @plant.genus %></p>
+<p>Species: <%= @plant.species %></p>
 <p>Watering Frequency: Every <%= @plant.water_frequency %> Days</p>
 <p>Planted On: <%= @plant.created_at %></p>
 <p>Last Watered: <%= @plant.last_watered %></p>
