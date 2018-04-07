@@ -2,6 +2,7 @@ class PlantsController < ApplicationController
 	before_action :set_plant, except: [:new, :create, :index]
 
 	def new
+		# @garden = Garden.find(params[:id])
 		@plant = Plant.new
 	end
 
@@ -9,6 +10,8 @@ class PlantsController < ApplicationController
 		@plant = Plant.new(plant_params)
 
 		if @plant.save
+			@plant.garden = Garden.find(params[:id])
+
 			redirect_to @plant
 		else
 			# work in error notification
@@ -47,7 +50,7 @@ class PlantsController < ApplicationController
 		@plant.last_watered = Time.now
 		@plant.save
 
-		redirect_to @plant
+		redirect_to garden_plant_path(@plant)
 	end
 
 	private
