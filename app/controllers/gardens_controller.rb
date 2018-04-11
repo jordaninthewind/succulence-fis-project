@@ -7,6 +7,7 @@ class GardensController < ApplicationController
 
 	def create
 		@garden = Garden.new(garden_params)
+		@garden.user = current_user
 
 		if @garden.save
 			# add in nested params for plant at garden creation

@@ -1,7 +1,7 @@
 class Plant < ApplicationRecord
 	# validates_uniqueness_of :name
 	belongs_to :garden
-	# delegate :name, to: :user
+
 	before_create :set_last_watered_to_now
 
   	def set_last_watered_to_now
