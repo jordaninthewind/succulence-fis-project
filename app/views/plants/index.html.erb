@@ -1,8 +1,9 @@
 <h1>All Plants</h1>
 
-<% if @garden %> Garden Name: <%= @garden.name %> <% end %>
+<% if @garden %><h3>Garden Name: <%= @garden.name %></h3><% end %>
 
 <br>
 <% @plants.each do |plant| %>
-<p><%= link_to plant.name, plant_path(plant) %></p>
+<p><%= link_to plant.name, plant_path(plant) %> <%= link_to "Edit", edit_plant_path(plant) %></p>
+
 <% end %>

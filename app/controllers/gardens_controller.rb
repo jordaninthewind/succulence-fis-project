@@ -22,6 +22,9 @@ class GardensController < ApplicationController
 	end
 
 	def update
+		@garden.update(garden_params)
+
+		redirect_to @garden
 	end
 
 	def show

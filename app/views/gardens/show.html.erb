@@ -1,11 +1,13 @@
 <h3>Garden Name: <%= @garden.name %></h3>
+<h4><%= link_to "Edit Garden", edit_garden_path(@garden) %></h4>
 <%= link_to "Add Plant", new_garden_plant_path(@garden) %>
 
 <ul>
 <% @garden.plants.reverse.each do |gp| %>
 <li><%= link_to gp.name, garden_plant_path(@garden, gp) %>, Last Watered: <%= gp.updated_at %>
+	 - <%= link_to "Edit", edit_garden_plant_path(@garden, gp) %> - 
 	<%= link_to 'Mulch Plant', plant_path(gp),
-                    method: :delete, data: { confirm: 'Are you sure?' } %>
+			method: :delete, data: { confirm: 'Are you sure?' } %>
 </li>
 <% end %>
 </ul>
