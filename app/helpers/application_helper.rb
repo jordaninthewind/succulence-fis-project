@@ -14,7 +14,7 @@ module ApplicationHelper
   
   def display_sign_out
     if current_user
-      content_tag(:div, link_to("Sign out", destroy_user_session_path))#, method: :delete), :class => 'navbar-link'
+      content_tag(:div, link_to("Sign out", destroy_user_session_path, method: :delete))#, :class => 'navbar-link'
     end
   end
 
