@@ -24,6 +24,12 @@ module ApplicationHelper
     end
   end
 
+  def return_home
+    if current_user
+      link_to "Home", gardens_path
+    end
+  end
+
   # def formatted_time(time)
   #   time.strftime("%m/%d/%Y at %I:%m%p")
   # end

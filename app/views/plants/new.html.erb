@@ -1,5 +1,11 @@
 <h2>Make a New Plant:</h2> 
 
+<% if @errors %>
+<% @errors.messages.each do |e| %>
+<%= content_tag(:div, e.join(" ").capitalize) %>
+<% end %>
+<% end %>
+
 <%#= render partial: 'form', locals: {:plant => @plant, :garden => @garden} %>
 <%= form_for @plant, :url => {:controller => 'plants', :action => 'create'} do |f| %> <br>
 
