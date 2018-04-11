@@ -1,5 +1,5 @@
 class GardensController < ApplicationController
-	before_action :set_garden, except: [:new, :create, :index]
+	before_action :set_garden, only: [:show, :edit, :update]
 
 	def new
 		@garden = Garden.new
@@ -27,7 +27,12 @@ class GardensController < ApplicationController
 	end
 
 	def index
-		@gardens = Garden.all
+		if current_user
+			@gardens = current_user.gardens
+		else
+			# add admin flow
+			@gardens = Garden.all
+		end
 	end
 
 	private

@@ -1,5 +1,6 @@
 A user is able to make gardens.
 	-	Should be able to edit gardens and plants in gardens
+	
 
 A garden can have plants associated with it.
 	-	A garden should be able to make a new plant and associate the plant with itself
