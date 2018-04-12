@@ -10,7 +10,7 @@ class PlantsController < ApplicationController
 		@plant.garden = Garden.find(params[:garden_id])
 		# how to reorganize for garden_plants join model
 
-		if @plant.valid?
+		if @plant.valid? # && params[:garden_id]
 			@plant.save
 
 			redirect_to garden_plant_path(@plant.garden, @plant)
@@ -34,10 +34,13 @@ class PlantsController < ApplicationController
 	end
 
 	def index
-		if params[:garden_id]
+		# add in logic to mitigate permissions
+		if params[:garden_id] # && current_user.gardens.include?(Garden.find(params[:garden_id]))
 		  @garden = Garden.find(params[:garden_id])
-		  binding.pry
-	      @plants = @garden.plants
+		  @plants = @garden.plants
+		  @garden_plants = GardenPlant.where("garden_id = #{@garden.id}")
+	      binding.pry
+
 	    else
 	      @plants = Plant.all
 	    end
