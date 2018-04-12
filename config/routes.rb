@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   resources :plants
 
-  get 'garden/:garden_id/plants/:id/water_plant', to: 'garden_plants#water_plant', as: 'water_plant'
+  get 'gardens/:garden_id/plants/:id/water_plant', to: 'garden_plants#water_plant', as: 'water_plant'
   # how to refactor this into a post route
 end

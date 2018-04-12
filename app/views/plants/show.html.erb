@@ -7,4 +7,4 @@
 <p>Planted On: <%= @garden_plant.created_at %></p>
 <p>Last Watered: <%= @garden_plant.last_watered %></p>
 <!-- add functionality for overdue watering here -->
-<%= link_to "Water Plant", water_garden_plant_path(@garden_plant) %>
+<%= link_to "Water Plant", water_plant_path(@garden_plant) %>
