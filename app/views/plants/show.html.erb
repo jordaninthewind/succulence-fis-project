@@ -1,10 +1,10 @@
-<h2>Garden: <%= link_to @plant.garden.name, @plant.garden %></h2>
+<% if @garden %> <h2>Garden: <%= link_to @garden.name, @garden %></h2><%end%>
 
 <h2><strong>Common Name: </strong><%= @plant.name %></h2>
 <p>Genus: <%= @plant.genus %></p>
 <p>Species: <%= @plant.species %></p>
 <p>Watering Frequency: Every <%= @plant.water_frequency %> Days</p>
-<p>Planted On: <%= @plant.created_at %></p>
-<p>Last Watered: <%= @plant.last_watered %></p>
+<p>Planted On: <%= @garden_plant.created_at %></p>
+<p>Last Watered: <%= @garden_plant.last_watered %></p>
 <!-- add functionality for overdue watering here -->
-<%= link_to "Water Plant", water_plant_path(@plant) %>
+<%= link_to "Water Plant", water_garden_plant_path(@garden_plant) %>

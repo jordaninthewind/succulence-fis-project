@@ -15905,3 +15905,279 @@ Completed 200 OK in 954424ms (Views: 141.3ms | ActiveRecord: 6.7ms)
   [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "David"], ["email", "david@david.gov"], ["encrypted_password", "$2a$11$AnVVqtIjugpS0K45Z.s5XOd8Jo73Z0w4/Cpb2/9NPfJHXCJfMDTfG"], ["created_at", "2018-04-12 18:33:30.862516"], ["updated_at", "2018-04-12 18:33:30.862516"]]
   [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/gardens/1/plants" for 127.0.0.1 at 2018-04-12 11:48:06 -0700
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PlantsController#index as HTML
+  Parameters: {"garden_id"=>"1"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/users" for 127.0.0.1 at 2018-04-12 11:48:06 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-04-12 11:48:16 -0700
+Started GET "/users" for 127.0.0.1 at 2018-04-12 11:49:00 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-04-12 11:49:08 -0700
+Processing by WelcomeController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gardens
+Completed 302 Found in 34ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-04-12 11:49:08 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.6ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered gardens/index.html.erb within layouts/application (70.7ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 552ms (Views: 492.9ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2018-04-12 11:49:14 -0700
+Processing by RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (31.1ms)
+  Rendered layouts/_header.html.erb (5.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 212ms (Views: 195.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/gardens/1" for 127.0.0.1 at 2018-04-12 11:49:30 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mPlant Load (0.4ms)[0m  [1m[34mSELECT "plants".* FROM "plants" INNER JOIN "garden_plants" ON "plants"."id" = "garden_plants"."plant_id" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  Rendered gardens/show.html.erb within layouts/application (57.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.6ms)
+  Rendered layouts/_footer.html.erb (2.1ms)
+Completed 200 OK in 149ms (Views: 137.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/gardens/1/plants/1" for 127.0.0.1 at 2018-04-12 11:49:41 -0700
+Processing by PlantsController#show as HTML
+  Parameters: {"garden_id"=>"1", "id"=>"1"}
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering plants/show.html.erb within layouts/application
+  Rendered plants/show.html.erb within layouts/application (10.4ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `garden' for #<Plant:0x00007fe4387cbe00>
+Did you mean?  gardens
+               gardens=):
+    1: <h2>Garden: <%= link_to @plant.garden.name, @plant.garden %></h2>
+    2: 
+    3: <h2><strong>Common Name: </strong><%= @plant.name %></h2>
+    4: <p>Genus: <%= @plant.genus %></p>
+  
+app/views/plants/show.html.erb:1:in `_app_views_plants_show_html_erb___4041287083185536543_70309120464080'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" LIMIT ?[0m  [["LIMIT", 11]]
+Started PUT "/__web_console/repl_sessions/19ec9ccccd653ec9176cf0879b16aa2c" for 127.0.0.1 at 2018-04-12 11:51:14 -0700
+Started PUT "/__web_console/repl_sessions/19ec9ccccd653ec9176cf0879b16aa2c" for 127.0.0.1 at 2018-04-12 11:51:14 -0700
+Started PUT "/__web_console/repl_sessions/19ec9ccccd653ec9176cf0879b16aa2c" for 127.0.0.1 at 2018-04-12 11:51:16 -0700
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.8ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" INNER JOIN "garden_plants" ON "gardens"."id" = "garden_plants"."garden_id" WHERE "garden_plants"."plant_id" = ? LIMIT ?[0m  [["plant_id", 1], ["LIMIT", 11]]
+Started PUT "/__web_console/repl_sessions/19ec9ccccd653ec9176cf0879b16aa2c" for 127.0.0.1 at 2018-04-12 11:51:37 -0700
+Started PUT "/__web_console/repl_sessions/19ec9ccccd653ec9176cf0879b16aa2c" for 127.0.0.1 at 2018-04-12 11:52:12 -0700
+Started PUT "/__web_console/repl_sessions/19ec9ccccd653ec9176cf0879b16aa2c" for 127.0.0.1 at 2018-04-12 11:54:48 -0700
+Started PUT "/__web_console/repl_sessions/19ec9ccccd653ec9176cf0879b16aa2c" for 127.0.0.1 at 2018-04-12 11:55:22 -0700
+  [1m[36mGardenPlant Load (0.5ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE (garden_id = 1 AND plant_id = 1) LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/gardens/1/plants/1" for 127.0.0.1 at 2018-04-12 11:57:56 -0700
+Processing by PlantsController#show as HTML
+  Parameters: {"garden_id"=>"1", "id"=>"1"}
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGardenPlant Load (0.9ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE (garden_id = 1 AND plant_id = 1)[0m
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering plants/show.html.erb within layouts/application
+  Rendered plants/show.html.erb within layouts/application (20.2ms)
+Completed 500 Internal Server Error in 261615ms (ActiveRecord: 6.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `garden' for #<Plant:0x00007fe43ea0c538>
+Did you mean?  gardens
+               gardens=):
+    1: <h2>Garden: <%= link_to @plant.garden.name, @plant.garden %></h2>
+    2: 
+    3: <h2><strong>Common Name: </strong><%= @plant.name %></h2>
+    4: <p>Genus: <%= @plant.genus %></p>
+  
+app/views/plants/show.html.erb:1:in `_app_views_plants_show_html_erb___4041287083185536543_70309118475920'
+Started GET "/gardens/1/plants/1" for 127.0.0.1 at 2018-04-12 12:02:18 -0700
+Processing by PlantsController#show as HTML
+  Parameters: {"garden_id"=>"1", "id"=>"1"}
+  [1m[36mPlant Load (0.5ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGardenPlant Load (0.6ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE (garden_id = 1 AND plant_id = 1) LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 106ms (ActiveRecord: 7.8ms)
+
+
+  
+  [1m[36mCACHE GardenPlant Load (0.0ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE (garden_id = 1 AND plant_id = 1) LIMIT ?[0m  [["LIMIT", 11]]
+NoMethodError (undefined method `garden' for #<GardenPlant::ActiveRecord_Relation:0x00007fe438c04eb8>):
+  
+app/controllers/plants_controller.rb:38:in `show'
+Started PUT "/__web_console/repl_sessions/f1919eee988804325766f447a10b597e" for 127.0.0.1 at 2018-04-12 12:02:35 -0700
+Started PUT "/__web_console/repl_sessions/f1919eee988804325766f447a10b597e" for 127.0.0.1 at 2018-04-12 12:02:37 -0700
+  [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE (garden_id = 1 AND plant_id = 1) LIMIT ?[0m  [["LIMIT", 11]]
+Started PUT "/__web_console/repl_sessions/f1919eee988804325766f447a10b597e" for 127.0.0.1 at 2018-04-12 12:02:41 -0700
+Started PUT "/__web_console/repl_sessions/f1919eee988804325766f447a10b597e" for 127.0.0.1 at 2018-04-12 12:02:41 -0700
+  [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE (garden_id = 1 AND plant_id = 1) LIMIT ?[0m  [["LIMIT", 11]]
+Started PUT "/__web_console/repl_sessions/f1919eee988804325766f447a10b597e" for 127.0.0.1 at 2018-04-12 12:02:55 -0700
+Started PUT "/__web_console/repl_sessions/f1919eee988804325766f447a10b597e" for 127.0.0.1 at 2018-04-12 12:03:03 -0700
+Started PUT "/__web_console/repl_sessions/f1919eee988804325766f447a10b597e" for 127.0.0.1 at 2018-04-12 12:03:04 -0700
+  [1m[36mGardenPlant Load (0.5ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE (garden_id = 1 AND plant_id = 1) LIMIT ?[0m  [["LIMIT", 11]]
+Started PUT "/__web_console/repl_sessions/f1919eee988804325766f447a10b597e" for 127.0.0.1 at 2018-04-12 12:56:19 -0700
+Started PUT "/__web_console/repl_sessions/f1919eee988804325766f447a10b597e" for 127.0.0.1 at 2018-04-12 12:56:20 -0700
+  [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE (garden_id = 1 AND plant_id = 1) LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/gardens/1/plants/1" for 127.0.0.1 at 2018-04-12 12:56:47 -0700
+Processing by PlantsController#show as HTML
+  Parameters: {"garden_id"=>"1", "id"=>"1"}
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE (garden_id = 1 AND plant_id = 1) ORDER BY "garden_plants"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering plants/show.html.erb within layouts/application
+  Rendered plants/show.html.erb within layouts/application (16.7ms)
+Completed 500 Internal Server Error in 175ms (ActiveRecord: 4.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `garden' for #<Plant:0x00007fe43da69928>
+Did you mean?  gardens
+               gardens=):
+    1: <h2>Garden: <%= link_to @plant.garden.name, @plant.garden %></h2>
+    2: 
+    3: <h2><strong>Common Name: </strong><%= @plant.name %></h2>
+    4: <p>Genus: <%= @plant.genus %></p>
+  
+app/views/plants/show.html.erb:1:in `_app_views_plants_show_html_erb___4041287083185536543_70309131797360'
+Started PUT "/__web_console/repl_sessions/9ddb1addf281f8756862db0dcba29f2a" for 127.0.0.1 at 2018-04-12 12:56:51 -0700
+Started PUT "/__web_console/repl_sessions/9ddb1addf281f8756862db0dcba29f2a" for 127.0.0.1 at 2018-04-12 12:56:55 -0700
+Started PUT "/__web_console/repl_sessions/9ddb1addf281f8756862db0dcba29f2a" for 127.0.0.1 at 2018-04-12 12:56:59 -0700
+Started PUT "/__web_console/repl_sessions/9ddb1addf281f8756862db0dcba29f2a" for 127.0.0.1 at 2018-04-12 12:57:01 -0700
+Started GET "/gardens/1/plants/1" for 127.0.0.1 at 2018-04-12 12:57:59 -0700
+Processing by PlantsController#show as HTML
+  Parameters: {"garden_id"=>"1", "id"=>"1"}
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGardenPlant Load (0.5ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE (garden_id = 1 AND plant_id = 1) ORDER BY "garden_plants"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering plants/show.html.erb within layouts/application
+  Rendered plants/show.html.erb within layouts/application (12.8ms)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `garden' for #<Plant:0x00007fe43d9c2bc8>
+Did you mean?  gardens
+               gardens=):
+    1: <% if @garden %> <h2>Garden: <%= link_to @garden.name, @plant.garden %></h2><%end%>
+    2: 
+    3: <h2><strong>Common Name: </strong><%= @plant.name %></h2>
+    4: <p>Genus: <%= @plant.genus %></p>
+  
+app/views/plants/show.html.erb:1:in `_app_views_plants_show_html_erb___4041287083185536543_70309087583580'
+Started GET "/gardens/1/plants/1" for 127.0.0.1 at 2018-04-12 12:58:45 -0700
+Processing by PlantsController#show as HTML
+  Parameters: {"garden_id"=>"1", "id"=>"1"}
+  [1m[36mPlant Load (0.4ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGardenPlant Load (0.4ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE (garden_id = 1 AND plant_id = 1) ORDER BY "garden_plants"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering plants/show.html.erb within layouts/application
+  Rendered plants/show.html.erb within layouts/application (20.8ms)
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `last_watered' for #<Plant:0x00007fe43d9ba748>):
+     5: <p>Species: <%= @plant.species %></p>
+     6: <p>Watering Frequency: Every <%= @plant.water_frequency %> Days</p>
+     7: <p>Planted On: <%= @plant.created_at %></p>
+     8: <p>Last Watered: <%= @plant.last_watered %></p>
+     9: <!-- add functionality for overdue watering here -->
+    10: <%= link_to "Water Plant", water_plant_path(@plant) %>
+  
+app/views/plants/show.html.erb:8:in `_app_views_plants_show_html_erb___4041287083185536543_70309139160660'
+Started GET "/gardens/1/plants/1" for 127.0.0.1 at 2018-04-12 12:59:04 -0700
+Processing by PlantsController#show as HTML
+  Parameters: {"garden_id"=>"1", "id"=>"1"}
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE (garden_id = 1 AND plant_id = 1) ORDER BY "garden_plants"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering plants/show.html.erb within layouts/application
+  Rendered plants/show.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (10.1ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 110ms (Views: 96.5ms | ActiveRecord: 1.9ms)
+
+

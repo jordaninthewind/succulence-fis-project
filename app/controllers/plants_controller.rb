@@ -1,7 +1,7 @@
 class PlantsController < ApplicationController
 	before_action :set_plant, except: [:new, :create, :index]
 
-	def new
+	def new # adds a new plant, not garden_plant
 		@plant = Plant.new
 	end
 
@@ -31,6 +31,14 @@ class PlantsController < ApplicationController
 	end
 
 	def show
+		if params[:garden_id]
+			@garden_plant = GardenPlant.where("garden_id = #{params[:garden_id]} AND plant_id = #{params[:id]}").first
+			@garden = @garden_plant.garden
+			@plant = @garden_plant.plant
+		else
+			binding.pry
+		end
+
 	end
 
 	def index
