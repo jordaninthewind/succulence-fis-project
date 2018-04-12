@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 20180412165618) do
     t.string "genus"
     t.string "species"
     t.integer "water_frequency"
-    t.integer "garden_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "username", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.datetime "created_at", null: false

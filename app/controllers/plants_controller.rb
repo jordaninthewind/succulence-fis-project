@@ -8,6 +8,7 @@ class PlantsController < ApplicationController
 	def create
 		@plant = Plant.new(plant_params)
 		@plant.garden = Garden.find(params[:garden_id])
+		# how to reorganize for garden_plants join model
 
 		if @plant.valid?
 			@plant.save
@@ -35,6 +36,7 @@ class PlantsController < ApplicationController
 	def index
 		if params[:garden_id]
 		  @garden = Garden.find(params[:garden_id])
+		  binding.pry
 	      @plants = @garden.plants
 	    else
 	      @plants = Plant.all
