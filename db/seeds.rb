@@ -2,9 +2,12 @@ DATA_plants = {
     :plant_keys =>
         ["name", "species", "genus", "water_frequency"],
     :plants => [
-        ["Panda Plant", "pandius", "plantus", 4],
-        ["Aloe Vera", "aloe", "barbensis", 5],
-        ["Ice Plant", "isum", "plantus", 7]
+        ["Copper Leaf", "Multicaulus", "Echeveria", 15],
+        ["Papierrosie", "Arachnoidea", "Hawarthia", 10],
+        ["Sentry Plant", "Americana", "Agave", 10],
+        ["Panda Plant", "Tomentosa", "Kalanchoe", 25],
+        ["Aloe Vera", "Asphodeloideae", "Aloe", 15],
+        ["Ice Plant", "Crystallinum", "Mesembryanthemum", 17]
     ]
 }
 

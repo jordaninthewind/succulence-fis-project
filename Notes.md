@@ -10,7 +10,7 @@ A plant can only belong to one garden.
 
 First Phase
 
-When a user logs in, they are presented with an index page that shows their gardens and an option to make a new garden. By clicking on the garden link, they will be shown details about the garden, including any plants that are present. There is also the ability to add a plant to a garden.
+When a user logs in, they are presented with an index page that shows their gardens and an option to make a new garden. By clicking on the garden link, they will be shown details about the garden, including any garden_plants that are present. There is also the ability to add a plant to a garden.
 
 ---
 
@@ -21,15 +21,15 @@ Plants have a time period that they are to be watered during, X, when the timest
 ---
 Big Details
 
-- Add User Logic
+X - Implement garden_plants join table to enable plants as single entries
+X - Add User Logic
 - Add Omniauth with new instructions from Lab
-- Add more information to views for UI flow
+X - Add more information to views for UI flow
 - Begin to work in control flow and authentication/authorization
 
 Little Details
 
 - Add time formatting for views
 
-V2 Goals
-
-- Implement garden_plants join table to enable plants as single entries
+V2 Ideas
+- Add regions for dynamic watering schedules

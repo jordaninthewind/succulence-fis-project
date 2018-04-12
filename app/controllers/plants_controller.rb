@@ -2,6 +2,7 @@ class PlantsController < ApplicationController
 	before_action :set_plant, except: [:new, :create, :index]
 
 	def new # adds a new plant, not garden_plant
+		binding.pry
 		@plant = Plant.new
 	end
 
@@ -35,7 +36,7 @@ class PlantsController < ApplicationController
 			@garden_plant = GardenPlant.where("garden_id = #{params[:garden_id]} AND plant_id = #{params[:id]}").first
 			@garden = @garden_plant.garden
 			@plant = @garden_plant.plant
-		else
+		elsee
 			binding.pry
 		end
 
@@ -59,13 +60,6 @@ class PlantsController < ApplicationController
 		@plant.destroy
 		
 		redirect_to garden_path(@garden)
-	end
-
-	def water_plant
-		@plant.last_watered = Time.now
-		@plant.save
-
-		redirect_to garden_plant_path(@plant.garden, @plant)
 	end
 
 	private

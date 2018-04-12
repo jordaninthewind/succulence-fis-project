@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :registrations => "registrations" }
-
+  
   root 'welcome#home'
 
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
   resources :gardens do
-  	resources :plants
+  	resources :plants#, only: [:show]
   end
 
   resources :plants

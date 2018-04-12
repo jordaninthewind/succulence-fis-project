@@ -2,16 +2,18 @@ Specifications for the Rails Assessment
 Specs:
 
 X - Using Ruby on Rails for the project
-0 - Include at least one has_many relationship (x has_many y e.g. User has_many Recipes)
+X - Include at least one has_many relationship (x has_many y e.g. User has_many Recipes)
 	- Gardens & Plants 
-0 - Include at least one belongs_to relationship (x belongs_to y e.g. Post belongs_to User)
+X - Include at least one belongs_to relationship (x belongs_to y e.g. Post belongs_to User)
 	- Users & Gardens
-0 - Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients)
+X - Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients)
 	- garden_plants
-0 - The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity)
-	- Watered Time?????
-0 - Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
-	- Presence & Uniqueness
+
+	? - The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity)
+		- Watered Time?????
+
+X - Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
+	- Presence & Uniqueness for Plant Entry
 0 - Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
 	- 'Gardens with plant'
  Include signup (how e.g. Devise)
