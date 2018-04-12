@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180411205927) do
+ActiveRecord::Schema.define(version: 20180412165618) do
+
+  create_table "garden_plants", force: :cascade do |t|
+    t.integer "garden_id"
+    t.integer "plant_id"
+    t.datetime "last_watered"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "gardens", force: :cascade do |t|
     t.string "name"
@@ -27,11 +35,9 @@ ActiveRecord::Schema.define(version: 20180411205927) do
     t.integer "garden_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "last_watered"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.datetime "created_at", null: false
