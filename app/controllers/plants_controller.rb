@@ -8,7 +8,7 @@ class PlantsController < ApplicationController
 	def create
 		@plant = Plant.new(plant_params)
 		@plant.garden = Garden.find(params[:garden_id])
-		
+
 		if @plant.valid?
 			@plant.save
 
