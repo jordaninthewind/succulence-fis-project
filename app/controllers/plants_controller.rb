@@ -7,15 +7,14 @@ class PlantsController < ApplicationController
 
 	def create
 		@plant = Plant.new(plant_params)
-		# @plant.garden = Garden.find(params[:garden_id])
 
 		if @plant.valid?
 			@plant.save
 
-			redirect_to garden_plant_path(@plant.garden, @plant)
+			redirect_to plant_path(@plant.garden, @plant)
 		else
 			@errors = @plant.errors
-			# work in error notification
+
 			render :new
 		end
 	end
@@ -24,9 +23,18 @@ class PlantsController < ApplicationController
 	end
 
 	def update
+		binding.pry
 		@plant.update(plant_params)
 
-		redirect_to garden_plant_path(@plant.garden, @plant)
+		if @plant.valid?
+			@plant.save
+
+			redirect_to plant_path(@plant.garden, @plant)
+		else
+			@errors = @plant.errors
+
+			render :new
+		end
 	end
 
 	def show
