@@ -6,11 +6,13 @@ class PlantsController < ApplicationController
 	end
 
 	def create
-		binding.pry
-		@plant = Plant.new(plant_params)
-		binding.pry
-
-		if @plant.valid? && params[:garden_id]
+		if params[:garden_id]#params[:plant_id] && 
+			@garden = Garden.find(params[:garden_id])
+			@garden.plants << Plant.find(plant_params[:id])
+			
+			redirect_to @garden
+		elsif params[:garden_id] #@plant.valid? &&
+			@plant = Plant.new(plant_params)
 			@plant.gardens << Garden.find(params[:garden_id])
 			@plant.save
 

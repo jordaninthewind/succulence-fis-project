@@ -4,8 +4,8 @@
 <%= content_tag(:li, e.join(" ").gsub("_", " ").capitalize) %>
 <% end %><% end %>
 
-<%= form_tag @plant do %>
-<%= collection_select :plant_id, :id, Plant.all, :id, :name %>
+<%= form_tag garden_plants_path, :method => :post do %>
+<%= collection_select :plant, :id, Plant.all, :id, :name %>
 <%= submit_tag %>
 <% end %>
 
