@@ -6,23 +6,4 @@ class GardenPlantsController < ActionController::Base
 
 		redirect_to garden_plant_path(@garden_plant.garden, @garden_plant.plant)
 	end
-
-	def new
-	end
-
-	def create
-	end
-
-	def edit
-	end
-
-	def update
-	end
-
-	def destroy
-
-	end
-
-
-
 end

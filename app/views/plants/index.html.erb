@@ -1,5 +1,5 @@
 <h1>All Plants</h1>
-<%= link_to "Add Plant", new_garden_plant_path %>
+<%= link_to "Add Plant", new_garden_plant_path unless !@garden %>
 <% if @garden %><h3>Garden Name: <%= @garden.name %></h3><% end %>
 
 <br>

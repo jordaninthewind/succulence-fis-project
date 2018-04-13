@@ -8,10 +8,10 @@ class PlantsController < ApplicationController
 
 	def create
 		@plant = Plant.new(plant_params)
-		@plant.garden = Garden.find(params[:garden_id])
-		# how to reorganize for garden_plants join model
+		binding.pry
 
-		if @plant.valid? # && params[:garden_id]
+		if @plant.valid? && params[:garden_id]
+			@plant.gardens << Garden.find(params[:garden_id])
 			@plant.save
 
 			redirect_to garden_plant_path(@plant.garden, @plant)
@@ -36,8 +36,8 @@ class PlantsController < ApplicationController
 			@garden_plant = GardenPlant.where("garden_id = #{params[:garden_id]} AND plant_id = #{params[:id]}").first
 			@garden = @garden_plant.garden
 			@plant = @garden_plant.plant
-		elsee
-			binding.pry
+		else
+			@plant = Plant.find(params[:id])
 		end
 
 	end
@@ -48,7 +48,7 @@ class PlantsController < ApplicationController
 		  @garden = Garden.find(params[:garden_id])
 		  @plants = @garden.plants
 		  @garden_plants = GardenPlant.where("garden_id = #{@garden.id}")
-	      binding.pry
+	      # binding.pry
 
 	    else
 	      @plants = Plant.all

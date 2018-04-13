@@ -24,13 +24,13 @@ end
 
 DATA_users = {
     :user_keys =>
-      ["username", "email", "password"],
+        ["username", "email", "password"],
     :users => [
-    ['Jordan', 'jordan@jordan.gov', 'word'],
-    ['Paul', 'paul@paul.gov', 'word'],
-    ['Philip', 'philip@philip.gov', 'word'],
-    ['Warner', 'warner@warner.gov', 'word'],
-    ['David', 'david@david.gov', 'word']
+        ['Jordan', 'jordan@jordan.gov', 'word'],
+        ['Paul', 'paul@paul.gov', 'word'],
+        ['Philip', 'philip@philip.gov', 'word'],
+        ['Warner', 'warner@warner.gov', 'word'],
+        ['David', 'david@david.gov', 'word']
     ]
 }
 

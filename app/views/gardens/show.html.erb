@@ -4,9 +4,10 @@
 
 <ul>
 <% @garden.plants.reverse.each do |gp| %>
+<% binding.pry %>
 <li><%= link_to gp.name, garden_plant_path(@garden, gp) %>, Last Watered: <%= gp.updated_at %>
 	 - <%= link_to "Edit", edit_garden_plant_path(@garden, gp) %> - 
-	<%= link_to 'Mulch Plant', plant_path(gp),
+	<%= link_to 'Mulch Plant', garden_plant_path(@garden, gp),
 			method: :delete, data: { confirm: 'Are you sure?' } %>
 </li>
 <% end %>
