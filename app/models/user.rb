@@ -3,11 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable, 
   # :recoverable, :rememberable, :trackable, :validatable, 
   devise :database_authenticatable, :registerable
-  validates :email, presence: true
-  validates_uniqueness_of :email
-  validates :password, presence: true
+  # validates :email, presence: true
+  # validates_uniqueness_of :email
+  # validates :password, presence: true
 
-  has_many :gardens
-  has_many :plants, through: :gardens
+  has_many :plant_schedules
+  has_many :plants, through: :plant_schedules
 
 end

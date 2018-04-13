@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :plant_schedules
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   root 'welcome#home'

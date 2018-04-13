@@ -1,0 +1,2 @@
+module PlantSchedulesHelper
+end

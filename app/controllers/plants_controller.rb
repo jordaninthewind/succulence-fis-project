@@ -7,7 +7,7 @@ class PlantsController < ApplicationController
 
 	def create
 		@plant = Plant.new(plant_params)
-		@plant.garden = Garden.find(params[:garden_id])
+		# @plant.garden = Garden.find(params[:garden_id])
 
 		if @plant.valid?
 			@plant.save
@@ -62,7 +62,7 @@ class PlantsController < ApplicationController
 	end
 
 	def plant_params
-		params.require(:plant).permit(:name, :genus, :species, :water_frequency)
+		params.require(:plant).permit(:name, :genus, :water_frequency)
 	end
 
 
