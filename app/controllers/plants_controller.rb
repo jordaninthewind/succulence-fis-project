@@ -2,6 +2,9 @@ class PlantsController < ApplicationController
 	before_action :set_plant, except: [:new, :create, :index]
 
 	def new
+		if params[:garden_id]
+			@garden = Garden.find(params[:garden_id])
+		end
 		@plant = Plant.new
 	end
 
@@ -11,12 +14,14 @@ class PlantsController < ApplicationController
 			@garden.plants << Plant.find(plant_params[:id])
 			
 			redirect_to @garden
-		elsif params[:garden_id] #@plant.valid? &&
-			@plant = Plant.new(plant_params)
-			@plant.gardens << Garden.find(params[:garden_id])
-			@plant.save
+		# elsif params[:garden_id] #@plant.valid? &&
+		# 	@plant = Plant.new(plant_params)
+		# 	@plant.gardens << Garden.find(params[:garden_id])
+		# 	@plant.save
 
-			redirect_to garden_plant_path(@plant.garden, @plant)
+		# 	redirect_to garden_plant_path(@plant.garden, @plant)
+		elsif plant_params
+		
 		else
 			@errors = @plant.errors
 			# work in error notification

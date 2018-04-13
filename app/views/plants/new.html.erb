@@ -1,15 +1,21 @@
-<h2>Add a Plant to Your Garden:</h2>
+
 
 <% if @errors %><% @errors.messages.each do |e| %>
 <%= content_tag(:li, e.join(" ").gsub("_", " ").capitalize) %>
 <% end %><% end %>
+
+<% if @garden %>
+<h2>Add a Plant to Your Garden:</h2>
 
 <%= form_tag garden_plants_path, :method => :post do %>
 <%= collection_select :plant, :id, Plant.all, :id, :name %>
 <%= submit_tag %>
 <% end %>
 
-<h3>Or Make a New Plant:</h3> 
+<h3>Or</h3>
+<%end%>  
+
+<h3>Make a New Plant:</h3> 
 <%#= render partial: 'form', locals: {:plant => @plant, :garden => @garden} %>
 <%= form_for @plant, :url => {:controller => 'plants', :action => 'create'} do |f| %> <br>
 
