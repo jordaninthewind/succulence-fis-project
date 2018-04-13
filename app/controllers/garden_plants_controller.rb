@@ -6,4 +6,11 @@ class GardenPlantsController < ActionController::Base
 
 		redirect_to garden_plant_path(@garden_plant.garden, @garden_plant.plant)
 	end
+
+	def add_garden_plant
+		@garden = Garden.find(params[:garden_id])
+		@garden.plants << Plant.find(params[:id])
+
+		redirect_to garden_path(@garden)
+	end
 end
