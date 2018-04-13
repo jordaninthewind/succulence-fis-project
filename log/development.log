@@ -15812,3 +15812,96 @@ Migrating to CreatePlantSchedules (20180413184058)
   [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
   [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "plant_schedules" SET "last_watered" = ?, "updated_at" = ? WHERE "plant_schedules"."id" = ?[0m  [["last_watered", "2018-04-13 18:46:42.001551"], ["updated_at", "2018-04-13 18:46:44.618635"], ["id", 1]]
   [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPlant Load (0.6ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" INNER JOIN "plant_schedules" ON "plants"."id" = "plant_schedules"."plant_id" WHERE "plant_schedules"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mPlantSchedule Load (0.8ms)[0m  [1m[34mSELECT  "plant_schedules".* FROM "plant_schedules" WHERE "plant_schedules"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mPlantSchedule Load (0.3ms)[0m  [1m[34mSELECT  "plant_schedules".* FROM "plant_schedules" WHERE "plant_schedules"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mPlantSchedule Load (0.2ms)[0m  [1m[34mSELECT  "plant_schedules".* FROM "plant_schedules" WHERE "plant_schedules"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mPlantSchedule Load (0.4ms)[0m  [1m[34mSELECT "plant_schedules".* FROM "plant_schedules" WHERE "plant_schedules"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePlants (20180330140938)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "plants" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "genus" varchar, "water_frequency" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180330140938"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to DeviseCreateUsers (20180407211337)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar DEFAULT '' NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180407211337"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to RemoveIndexFromUsers (20180411205927)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP INDEX "index_users_on_reset_password_token"[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180411205927"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePlantSchedules (20180413184058)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "plant_schedules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "plant_id" integer, "last_watered" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180413184058"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-13 19:01:57.325248"], ["updated_at", "2018-04-13 19:01:57.325248"]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "plants" ("name", "genus", "water_frequency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Copper Leaf"], ["genus", "Echeveria"], ["water_frequency", 15], ["created_at", "2018-04-13 19:02:05.401872"], ["updated_at", "2018-04-13 19:02:05.401872"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "plants" ("name", "genus", "water_frequency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Papierrosie"], ["genus", "Hawarthia"], ["water_frequency", 10], ["created_at", "2018-04-13 19:02:05.407316"], ["updated_at", "2018-04-13 19:02:05.407316"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "plants" ("name", "genus", "water_frequency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Sentry Plant"], ["genus", "Agave"], ["water_frequency", 10], ["created_at", "2018-04-13 19:02:05.411162"], ["updated_at", "2018-04-13 19:02:05.411162"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "plants" ("name", "genus", "water_frequency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Panda Plant"], ["genus", "Kalanchoe"], ["water_frequency", 25], ["created_at", "2018-04-13 19:02:05.415331"], ["updated_at", "2018-04-13 19:02:05.415331"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "plants" ("name", "genus", "water_frequency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Aloe Vera"], ["genus", "Aloe"], ["water_frequency", 15], ["created_at", "2018-04-13 19:02:05.419403"], ["updated_at", "2018-04-13 19:02:05.419403"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "plants" ("name", "genus", "water_frequency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ice Plant"], ["genus", "Mesembryanthemum"], ["water_frequency", 17], ["created_at", "2018-04-13 19:02:05.423397"], ["updated_at", "2018-04-13 19:02:05.423397"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "Jordan"], ["email", "jordan@jordan.gov"], ["encrypted_password", "$2a$11$GqshvslyH1l4mJHzHi67q.iLBITzzqLEZCP8AK/0S3zKHTOtG.blm"], ["created_at", "2018-04-13 19:02:05.570237"], ["updated_at", "2018-04-13 19:02:05.570237"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "Paul"], ["email", "paul@paul.gov"], ["encrypted_password", "$2a$11$enE/PY/qGpPaqHT3YRd1M.QCdVK.47gKyU87M.UL2HWBy5akaqybu"], ["created_at", "2018-04-13 19:02:05.709427"], ["updated_at", "2018-04-13 19:02:05.709427"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "Philip"], ["email", "philip@philip.gov"], ["encrypted_password", "$2a$11$ti9Fg9PjyPP/wcm0oR1s/.4TCgFqPzytqToMb1OmxEVda68QI7ai."], ["created_at", "2018-04-13 19:02:05.848432"], ["updated_at", "2018-04-13 19:02:05.848432"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "Warner"], ["email", "warner@warner.gov"], ["encrypted_password", "$2a$11$PbwElcqdlz6s41chTnYWaOCas7rHk8Yagb2OMXeAuIMWxEYNeuTJy"], ["created_at", "2018-04-13 19:02:05.985859"], ["updated_at", "2018-04-13 19:02:05.985859"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "David"], ["email", "david@david.gov"], ["encrypted_password", "$2a$11$oUKGZT.6U0edzaI9/XjrWOTFkydC9bajKCK4RCLRoM770GYuiv4N6"], ["created_at", "2018-04-13 19:02:06.129128"], ["updated_at", "2018-04-13 19:02:06.129128"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" ORDER BY "plants"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "plant_schedules" ("user_id", "plant_id", "last_watered", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["plant_id", 1], ["last_watered", "2018-04-13 19:02:38.936652"], ["created_at", "2018-04-13 19:02:38.936305"], ["updated_at", "2018-04-13 19:02:38.936305"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" INNER JOIN "plant_schedules" ON "plants"."id" = "plant_schedules"."plant_id" WHERE "plant_schedules"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
