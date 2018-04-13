@@ -1,6 +1,8 @@
 class GardensController < ApplicationController
 	before_action :set_garden, only: [:show, :edit, :update]
 
+	# Add Authorizations
+
 	def new
 		@garden = Garden.new
 	end
@@ -10,7 +12,7 @@ class GardensController < ApplicationController
 		@garden.user = current_user
 
 		if @garden.save
-			# add in nested params for plant at garden creation
+
 			redirect_to garden_path(@garden)
 		else
 
@@ -34,7 +36,7 @@ class GardensController < ApplicationController
 		if current_user
 			@gardens = current_user.gardens
 		else
-			# add admin flow
+
 			@gardens = Garden.all
 		end
 	end

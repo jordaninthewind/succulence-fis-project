@@ -1,12 +1,12 @@
 class PlantsController < ApplicationController
 	before_action :set_plant, except: [:new, :create, :index]
 
-	def new # adds a new plant, not garden_plant
-		binding.pry
+	def new
 		@plant = Plant.new
 	end
 
 	def create
+		binding.pry
 		@plant = Plant.new(plant_params)
 		binding.pry
 
@@ -69,8 +69,7 @@ class PlantsController < ApplicationController
 	end
 
 	def plant_params
-		params.require(:plant).permit(:name, :genus, :species, :water_frequency)
+		params.require(:plant).permit(:name, :genus, :species, :water_frequency, :id)
 	end
-
 
 end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   resources :gardens do
-  	resources :plants#, only: [:show]
+  	resources :plants
   end
 
   resources :plants

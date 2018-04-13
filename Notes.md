@@ -1,5 +1,9 @@
+- Start with ability to select collection plant and draw association from there.
+- Later add ability to make new plant that has association in controller (or restrict to only admin flow)
+- # work in belongs to that allows plants through garden_plants (User model)
+- Add authorization manually
 A user is able to make gardens.
-	-	Should be able to edit gardens and plants in gardens
+	-	Should be able to edit gardens and garden_plants in gardens
 	
 
 A garden can have plants associated with it.

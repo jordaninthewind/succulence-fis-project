@@ -8,6 +8,6 @@ class User < ApplicationRecord
   validates :password, presence: true
 
   has_many :gardens
-  has_many :plants, through: :garden
+  has_many :garden_plants, through: :gardens
 
 end
