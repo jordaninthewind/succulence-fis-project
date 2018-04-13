@@ -12,5 +12,5 @@ Rails.application.routes.draw do
 
   get 'gardens_plants/:garden_plant_id/water_plant', to: 'garden_plants#water_plant', as: 'water_plant'
   get 'gardens/:garden_id/plants/:id/add_garden_plant', to: 'garden_plants#add_garden_plant', as: 'add_garden_plant'
-  # how to refactor this into a post route
+
 end
