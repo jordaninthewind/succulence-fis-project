@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  resources :plant_schedules
-  devise_for :users, :controllers => { :registrations => "registrations" }
+
+  devise_for :users, :paths => '/users/' :controllers => { :registrations => "registrations" }
 
   root 'welcome#home'
+
+  resource :user do
+  	resource :gardens
+  end
 
   resources :gardens do
   	resources :plants
@@ -10,6 +14,6 @@ Rails.application.routes.draw do
 
   resources :plants
 
-  get '/plants/:id/water_plant', to: 'plants#water_plant', as: 'water_plant'
+  # get '/plants/:id/water_plant', to: 'plants#water_plant', as: 'water_plant'
   # how to refactor this into a post route
 end
