@@ -3,7 +3,7 @@ Specs:
 
 X - Using Ruby on Rails for the project
 X - Include at least one has_many relationship (x has_many y e.g. User has_many Recipes)
-	- Gardens & Plants 
+	- Gardens & Plants
 X - Include at least one belongs_to relationship (x belongs_to y e.g. Post belongs_to User)
 	- Users & Gardens
 X - Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients)

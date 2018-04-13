@@ -9,22 +9,23 @@ class PlantsController < ApplicationController
 	end
 
 	def create
-		if params[:garden_id]#params[:plant_id] && 
-			@garden = Garden.find(params[:garden_id])
-			@garden.plants << Plant.find(plant_params[:id])
-			
-			redirect_to @garden
-		# elsif params[:garden_id] #@plant.valid? &&
-		# 	@plant = Plant.new(plant_params)
-		# 	@plant.gardens << Garden.find(params[:garden_id])
-		# 	@plant.save
+		@plant = Plant.create(plant_params)
 
-		# 	redirect_to garden_plant_path(@plant.garden, @plant)
-		elsif plant_params
-		
+		if @plant.valid?
+			if params[:garden_id]
+				@garden = Garden.find(params[:garden_id])
+
+				@garden.plants << @plant
+			
+				redirect_to @garden
+			else
+				@plant.save
+
+				redirect_to @plant
+			end		
 		else
 			@errors = @plant.errors
-			# work in error notification
+
 			render :new
 		end
 	end
@@ -40,8 +41,7 @@ class PlantsController < ApplicationController
 
 	def show
 		if params[:garden_id]
-			@garden_plant = GardenPlant.where("garden_id = #{params[:garden_id]} AND plant_id = #{params[:id]}").first
-			@garden = @garden_plant.garden
+			@garden_plant = GardenPlant.find(params[:id])
 			@plant = @garden_plant.plant
 		else
 			@plant = Plant.find(params[:id])
@@ -50,29 +50,35 @@ class PlantsController < ApplicationController
 	end
 
 	def index
-		# add in logic to mitigate permissions
 		if params[:garden_id] # && current_user.gardens.include?(Garden.find(params[:garden_id]))
 		  @garden = Garden.find(params[:garden_id])
 		  @plants = @garden.plants
-		  @garden_plants = GardenPlant.where("garden_id = #{@garden.id}")
-	      # binding.pry
+		  @garden_plants = @garden.garden_plant
 
 	    else
+	  
 	      @plants = Plant.all
 	    end
 	end
 
 	def destroy
-		@garden = @plant.garden
-		@plant.destroy
+		if params[:garden_id]
+			@garden_plant = GardenPlant.find(params[:id])
+			@garden_plant.destroy
+		else
+			@plant = Plant.find(params[:id])
+			@plant.destroy
+		end
 		
-		redirect_to garden_path(@garden)
+		redirect_to root_path
 	end
 
 	private
 
 	def set_plant
-		@plant = Plant.find(params[:id])
+		if !params[:garden_id]
+			@plant = Plant.find(params[:id])
+		end
 	end
 
 	def plant_params
