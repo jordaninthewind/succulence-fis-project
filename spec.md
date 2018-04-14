@@ -9,8 +9,8 @@ X - Include at least one belongs_to relationship (x belongs_to y e.g. Post belon
 X - Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients)
 	- garden_plants
 
-	? - The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity)
-		- Watered Time?????
+? - The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity)
+	- Watered Time?????
 
 X - Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
 	- Presence & Uniqueness for Plant Entry

@@ -1,6 +1,5 @@
 class GardensController < ApplicationController
 	before_action :set_garden, only: [:show, :edit, :update]
-
 	# Add Authorizations
 
 	def new
