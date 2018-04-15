@@ -3,6 +3,6 @@
 
 <ul>
 <% @gardens.each do |garden| %>
-<li><%= link_to garden.name, garden_path(garden) %></li>
+<li><%= link_to garden.name, garden_path(garden) %> - <%= garden.garden_plants.count %> Plants</li>
 <% end %>
 </ul>
