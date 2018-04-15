@@ -14,4 +14,11 @@ class GardenPlantsController < ActionController::Base
 
 		redirect_to garden_path(@garden)
 	end
+
+	def destroy
+		@garden_plant = GardenPlant.find(params[:id])
+		@garden_plant.destroy
+
+		redirect_to garden_path(@garden_plant.garden)
+	end
 end

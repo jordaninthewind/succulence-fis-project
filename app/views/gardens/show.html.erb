@@ -5,7 +5,7 @@
 <li><%= link_to gp.plant.name, plant_path(gp.plant) %>, Last Watered: <%= normalize_time(gp.last_watered) %>
 	- <%= link_to "View Plant", garden_plant_path(@garden, gp) %>
 	- <%= link_to "Water Plant", water_plant_path(gp) %>
- 	- <%= link_to 'Mulch Plant', garden_plant_path(@garden, gp),
+ 	- <%= link_to 'Mulch Plant', delete_garden_plant_path(gp),
 			method: :delete, data: { confirm: 'Are you sure?' } %>
 <p><%=overdue_notice(gp)%></p>
 </li><% end %>
