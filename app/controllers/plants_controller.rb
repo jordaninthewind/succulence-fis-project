@@ -14,10 +14,9 @@ class PlantsController < ApplicationController
 		if @plant.valid?
 			if params[:garden_id]
 				@garden = Garden.find(params[:garden_id])
-
 				@garden.plants << @plant
 			
-				redirect_to @garden
+				redirect_to garden_path(@garden)
 			else
 				@plant.save
 
@@ -36,7 +35,7 @@ class PlantsController < ApplicationController
 	def update
 		@plant.update(plant_params)
 
-		redirect_to garden_plant_path(@plant.garden, @plant)
+		redirect_to plant_path(@path)
 	end
 
 	def show
@@ -50,10 +49,10 @@ class PlantsController < ApplicationController
 	end
 
 	def index
-		if params[:garden_id] # && current_user.gardens.include?(Garden.find(params[:garden_id]))
+		if params[:garden_id]
 		  @garden = Garden.find(params[:garden_id])
 		  @plants = @garden.plants
-		  @garden_plants = @garden.garden_plant
+		  @garden_plants = @garden.garden_plants
 
 	    else
 	  

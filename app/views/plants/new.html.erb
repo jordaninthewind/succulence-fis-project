@@ -3,17 +3,5 @@
 <% end %><% end %>
 
 <h3>Make a New Plant:</h3> 
-<%#= render partial: 'form', locals: {:plant => @plant, :garden => @garden} %>
-<%= form_for @plant, :url => {:controller => 'plants', :action => 'create'} do |f| %> <br>
 
-<%= f.label 'Common Name:' %>
-<p><%= f.text_field :name %></p>
-
-<%= f.label :genus %>
-<p><%= f.text_field :genus %></p>
-
-<%= f.label 'Water Frequency' %>
-<p><%= f.number_field :water_frequency %></p>
-
-<p><%= f.submit %></p>
-<% end %>
+<%= render partial: 'form', locals: {:plant => @plant} %>
