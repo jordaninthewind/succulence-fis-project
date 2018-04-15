@@ -25659,3 +25659,612 @@ Processing by PlantsController#new as HTML
 Completed 200 OK in 88ms (Views: 81.3ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-04-15 14:53:39 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gardens
+Completed 302 Found in 31ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-04-15 14:53:39 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 5]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 6]]
+  Rendered gardens/index.html.erb within layouts/application (32.8ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 394ms (Views: 352.5ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-04-15 14:53:42 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"k/cgl47MhkxdEo2EOgvLiDd6gpWdT5U+hxFqzUumCaYrPQxUBviWKsXE673QAbgsN6PkTSSPDpjQJ0iWRPAs+Q=="}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 43ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-15 14:53:42 -0700
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (6.6ms)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `admin' for nil:NilClass):
+    1: <br>
+    2: <%= display_whoami %>
+    3: <%= display_update_account %>
+    4: <%= display_sign_out %>
+  
+app/helpers/application_helper.rb:26:in `display_whoami'
+app/views/layouts/_footer.html.erb:2:in `_app_views_layouts__footer_html_erb___1175405652959529729_70091574485140'
+app/views/layouts/application.html.erb:17:in `_app_views_layouts_application_html_erb___1537838357719237289_70091556985920'
+Started GET "/" for 127.0.0.1 at 2018-04-15 14:55:03 -0700
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 82ms (Views: 78.7ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-15 14:55:07 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (33.0ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 136ms (Views: 110.1ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-04-15 14:55:09 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SakBbiVYLnRAhCIkeKmQ7gw12cv9BZvneka7dPWSnZVEd9O+Aq+6lhYBhXsVXdnkkTqPJgekIUG8nOKB04ZHCg==", "user"=>{"email"=>"jordan@jordan.gov", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SakBbiVYLnRAhCIkeKmQ7gw12cv9BZvneka7dPWSnZVEd9O+Aq+6lhYBhXsVXdnkkTqPJgekIUG8nOKB04ZHCg==", "user"=>{"email"=>"jordan@jordan.gov", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (14.3ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 107ms (Views: 103.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-04-15 14:55:11 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ERsmA7TdVCPRTlVLRT2u0Dz2KTnMCJpe5MBd+VS65DIu8L3+murzLzA1pdnOwLbcRkMkSKEdYBXJHxu7m968Ng==", "user"=>{"email"=>"jordan@jordan.gov", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "jordan@jordan.gov"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 157ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-15 14:55:11 -0700
+Processing by WelcomeController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gardens
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-04-15 14:55:11 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 4]]
+  Rendered gardens/index.html.erb within layouts/application (35.8ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (1.7ms)
+Completed 200 OK in 105ms (Views: 90.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/gardens/2" for 127.0.0.1 at 2018-04-15 14:55:17 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 2]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered gardens/show.html.erb within layouts/application (78.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 143ms (Views: 130.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/gardens/2/plants/2/add_garden_plant?utf8=%E2%9C%93&plant%5Bid%5D=7&commit=Add+Plant" for 127.0.0.1 at 2018-04-15 14:56:15 -0700
+Processing by GardenPlantsController#add_garden_plant as HTML
+  Parameters: {"utf8"=>"✓", "plant"=>{"id"=>"7"}, "commit"=>"Add Plant", "garden_id"=>"2", "id"=>"2"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.4ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "garden_plants" ("garden_id", "plant_id", "last_watered", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["garden_id", 2], ["plant_id", 7], ["last_watered", "2018-04-15 21:56:15.657560"], ["created_at", "2018-04-15 21:56:15.657392"], ["updated_at", "2018-04-15 21:56:15.657392"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gardens/2
+Completed 302 Found in 37ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/gardens/2" for 127.0.0.1 at 2018-04-15 14:56:15 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 2]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered gardens/show.html.erb within layouts/application (17.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 72ms (Views: 66.0ms | ActiveRecord: 2.0ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddTimesWateredToGardenPlants (20180415221107)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "garden_plants" ADD "integer" times_watered[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180415221107"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/gardens/2" for 127.0.0.1 at 2018-04-15 15:14:39 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  Rendered gardens/show.html.erb within layouts/application (8.9ms)
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 1.7ms)
+
+
+  
+SyntaxError (/Users/jordankline/Desktop/code/Flatiron/rails/succulence-fis-project/app/models/garden_plant.rb:6: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG):
+  
+app/models/garden_plant.rb:6: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+app/views/gardens/show.html.erb:4:in `_app_views_gardens_show_html_erb__2723392440676641127_70091548362900'
+Started GET "/gardens/2" for 127.0.0.1 at 2018-04-15 15:14:48 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 2]]
+  [1m[36mPlant Load (0.4ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered gardens/show.html.erb within layouts/application (46.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (10.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 154ms (Views: 129.6ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/gardens_plants/23/water_plant" for 127.0.0.1 at 2018-04-15 15:14:51 -0700
+Processing by GardenPlantsController#water_plant as HTML
+  Parameters: {"garden_plant_id"=>"23"}
+  [1m[36mGardenPlant Load (0.4ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 28871ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `times_watered' for #<GardenPlant:0x00007f7ef0bb6a68>
+Did you mean?  time_zone_aware_types):
+  
+app/models/garden_plant.rb:10:in `add_water_count'
+app/controllers/garden_plants_controller.rb:5:in `water_plant'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGardens (20180330140843)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "gardens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180330140843"]]
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePlants (20180330140938)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "plants" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "genus" varchar, "species" varchar, "water_frequency" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180330140938"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to DeviseCreateUsers (20180407211337)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar DEFAULT '' NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "admin" boolean DEFAULT 'f', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180407211337"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to RemoveIndexFromUsers (20180411205927)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.6ms)[0m  [1m[35mDROP INDEX "index_users_on_reset_password_token"[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180411205927"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateGardenPlants (20180412165618)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "garden_plants" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "garden_id" integer, "plant_id" integer, "last_watered" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180412165618"]]
+  [1m[35m (5.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddTimesWateredToGardenPlants (20180415221107)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "garden_plants" ADD "times_watered" integer[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180415221107"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-15 22:16:02.061655"], ["updated_at", "2018-04-15 22:16:02.061655"]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "plants" WHERE "plants"."name" = ? LIMIT ?[0m  [["name", "Copper Leaf"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "plants" ("name", "genus", "species", "water_frequency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Copper Leaf"], ["genus", "Echeveria"], ["species", "Multicaulus"], ["water_frequency", 15], ["created_at", "2018-04-15 22:16:07.842191"], ["updated_at", "2018-04-15 22:16:07.842191"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "plants" WHERE "plants"."name" = ? LIMIT ?[0m  [["name", "Papierrosie"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "plants" ("name", "genus", "species", "water_frequency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Papierrosie"], ["genus", "Hawarthia"], ["species", "Arachnoidea"], ["water_frequency", 10], ["created_at", "2018-04-15 22:16:07.847653"], ["updated_at", "2018-04-15 22:16:07.847653"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "plants" WHERE "plants"."name" = ? LIMIT ?[0m  [["name", "Sentry Plant"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "plants" ("name", "genus", "species", "water_frequency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Sentry Plant"], ["genus", "Agave"], ["species", "Americana"], ["water_frequency", 10], ["created_at", "2018-04-15 22:16:07.852113"], ["updated_at", "2018-04-15 22:16:07.852113"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "plants" WHERE "plants"."name" = ? LIMIT ?[0m  [["name", "Panda Plant"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "plants" ("name", "genus", "species", "water_frequency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Panda Plant"], ["genus", "Kalanchoe"], ["species", "Tomentosa"], ["water_frequency", 25], ["created_at", "2018-04-15 22:16:07.856315"], ["updated_at", "2018-04-15 22:16:07.856315"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "plants" WHERE "plants"."name" = ? LIMIT ?[0m  [["name", "Aloe Vera"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "plants" ("name", "genus", "species", "water_frequency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Aloe Vera"], ["genus", "Aloe"], ["species", "Asphodeloideae"], ["water_frequency", 15], ["created_at", "2018-04-15 22:16:07.860546"], ["updated_at", "2018-04-15 22:16:07.860546"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "plants" WHERE "plants"."name" = ? LIMIT ?[0m  [["name", "Ice Plant"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "plants" ("name", "genus", "species", "water_frequency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Ice Plant"], ["genus", "Mesembryanthemum"], ["species", "Crystallinum"], ["water_frequency", 17], ["created_at", "2018-04-15 22:16:07.865009"], ["updated_at", "2018-04-15 22:16:07.865009"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jordan@jordan.gov"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "Jordan"], ["email", "jordan@jordan.gov"], ["encrypted_password", "$2a$11$WXztsvNN.7lIfl9uQwQEGu9BCAZmWhlnoILHVumrPIlSn0BoDeOra"], ["created_at", "2018-04-15 22:16:08.028726"], ["updated_at", "2018-04-15 22:16:08.028726"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "paul@paul.gov"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "Paul"], ["email", "paul@paul.gov"], ["encrypted_password", "$2a$11$R.m22d8Ol09nAMVTlkdf3Ooho5GFkOsMRjxTJQ0bbYyQF3SoNG6rO"], ["created_at", "2018-04-15 22:16:08.199182"], ["updated_at", "2018-04-15 22:16:08.199182"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "philip@philip.gov"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "Philip"], ["email", "philip@philip.gov"], ["encrypted_password", "$2a$11$z9ublLy2iB6hhV8QDHt.v.Z73gjkW18A.M1kolgLLopwlNHVoy16m"], ["created_at", "2018-04-15 22:16:08.357404"], ["updated_at", "2018-04-15 22:16:08.357404"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "warner@warner.gov"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "Warner"], ["email", "warner@warner.gov"], ["encrypted_password", "$2a$11$bAVW2pya0r8099GEsgAfJebfu61s4fsUVFJhMy0YVI2QTIOCIiDlW"], ["created_at", "2018-04-15 22:16:08.505764"], ["updated_at", "2018-04-15 22:16:08.505764"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "david@david.gov"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "David"], ["email", "david@david.gov"], ["encrypted_password", "$2a$11$DUh4qBpY.M6lAFwFGHtN9ONkLKH97gLsCjOvFGiBxw/ciYPqsZr.K"], ["created_at", "2018-04-15 22:16:08.655756"], ["updated_at", "2018-04-15 22:16:08.655756"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/gardens_plants/23/water_plant" for 127.0.0.1 at 2018-04-15 15:16:28 -0700
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GardenPlantsController#water_plant as HTML
+  Parameters: {"garden_plant_id"=>"23"}
+  [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+Completed 404 Not Found in 10ms (ActiveRecord: 1.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GardenPlant with 'id'=23):
+  
+app/controllers/garden_plants_controller.rb:3:in `water_plant'
+Started GET "/" for 127.0.0.1 at 2018-04-15 15:16:35 -0700
+Processing by WelcomeController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (5.2ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 93ms (Views: 80.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-04-15 15:16:37 -0700
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (14.3ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 74ms (Views: 73.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-04-15 15:16:38 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (9.4ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 107ms (Views: 102.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-04-15 15:16:42 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HtQMoq3XXWgXqkuZAhPDq4BIik8LE9yCevlhc+l2UTygpGofP0QG1Oyg82ViQ70425RXGuhDtcho/pWDm6N0mA==", "user"=>{"email"=>"jordan@jordan.gov", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "jordan@jordan.gov"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 148ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-15 15:16:42 -0700
+Processing by WelcomeController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gardens
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-04-15 15:16:42 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered gardens/index.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 58ms (Views: 45.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/gardens/new" for 127.0.0.1 at 2018-04-15 15:16:44 -0700
+Processing by GardensController#new as HTML
+  Rendering gardens/new.html.erb within layouts/application
+  Rendered gardens/new.html.erb within layouts/application (4.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 84ms (Views: 54.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/gardens" for 127.0.0.1 at 2018-04-15 15:16:47 -0700
+Processing by GardensController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xHMxWUomNVQoRTx57VTNYwScjyt8tqU2mhZCiDTG/IUFQaAn9v+yumWaAm+J4wawAdL59VxBwta6LNypBy7lOg==", "garden"=>{"name"=>"Home"}, "commit"=>"Create Garden"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Home"], ["user_id", 1], ["created_at", "2018-04-15 22:16:47.159062"], ["updated_at", "2018-04-15 22:16:47.159062"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gardens/1
+Completed 302 Found in 21ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/gardens/1" for 127.0.0.1 at 2018-04-15 15:16:47 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.8ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered gardens/show.html.erb within layouts/application (30.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.7ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 90ms (Views: 77.0ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/gardens/1/plants/1/add_garden_plant?utf8=%E2%9C%93&plant%5Bid%5D=1&commit=Add+Plant" for 127.0.0.1 at 2018-04-15 15:16:49 -0700
+Processing by GardenPlantsController#add_garden_plant as HTML
+  Parameters: {"utf8"=>"✓", "plant"=>{"id"=>"1"}, "commit"=>"Add Plant", "garden_id"=>"1", "id"=>"1"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "garden_plants" ("garden_id", "plant_id", "last_watered", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["garden_id", 1], ["plant_id", 1], ["last_watered", "2018-04-15 22:16:49.201045"], ["created_at", "2018-04-15 22:16:49.200876"], ["updated_at", "2018-04-15 22:16:49.200876"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gardens/1
+Completed 302 Found in 40ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/gardens/1" for 127.0.0.1 at 2018-04-15 15:16:49 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mGardenPlant Load (0.1ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 1]]
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered gardens/show.html.erb within layouts/application (5.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 59ms (Views: 53.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/gardens_plants/1/water_plant" for 127.0.0.1 at 2018-04-15 15:16:51 -0700
+Processing by GardenPlantsController#water_plant as HTML
+  Parameters: {"garden_plant_id"=>"1"}
+  [1m[36mGardenPlant Load (0.1ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 57100ms (ActiveRecord: 0.1ms)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/models/garden_plant.rb:10:in `add_water_count'
+app/controllers/garden_plants_controller.rb:5:in `water_plant'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGardens (20180330140843)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "gardens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180330140843"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePlants (20180330140938)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "plants" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "genus" varchar, "species" varchar, "water_frequency" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180330140938"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to DeviseCreateUsers (20180407211337)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar DEFAULT '' NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "admin" boolean DEFAULT 'f', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.4ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180407211337"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to RemoveIndexFromUsers (20180411205927)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP INDEX "index_users_on_reset_password_token"[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180411205927"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateGardenPlants (20180412165618)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "garden_plants" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "garden_id" integer, "plant_id" integer, "last_watered" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180412165618"]]
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddTimesWateredToGardenPlants (20180415221107)
+  [1m[35m (1.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "garden_plants" ADD "times_watered" integer DEFAULT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180415221107"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-15 22:18:38.207594"], ["updated_at", "2018-04-15 22:18:38.207594"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "plants" WHERE "plants"."name" = ? LIMIT ?[0m  [["name", "Copper Leaf"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "plants" ("name", "genus", "species", "water_frequency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Copper Leaf"], ["genus", "Echeveria"], ["species", "Multicaulus"], ["water_frequency", 15], ["created_at", "2018-04-15 22:18:50.938897"], ["updated_at", "2018-04-15 22:18:50.938897"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "plants" WHERE "plants"."name" = ? LIMIT ?[0m  [["name", "Papierrosie"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "plants" ("name", "genus", "species", "water_frequency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Papierrosie"], ["genus", "Hawarthia"], ["species", "Arachnoidea"], ["water_frequency", 10], ["created_at", "2018-04-15 22:18:50.943628"], ["updated_at", "2018-04-15 22:18:50.943628"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "plants" WHERE "plants"."name" = ? LIMIT ?[0m  [["name", "Sentry Plant"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "plants" ("name", "genus", "species", "water_frequency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Sentry Plant"], ["genus", "Agave"], ["species", "Americana"], ["water_frequency", 10], ["created_at", "2018-04-15 22:18:50.947954"], ["updated_at", "2018-04-15 22:18:50.947954"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "plants" WHERE "plants"."name" = ? LIMIT ?[0m  [["name", "Panda Plant"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "plants" ("name", "genus", "species", "water_frequency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Panda Plant"], ["genus", "Kalanchoe"], ["species", "Tomentosa"], ["water_frequency", 25], ["created_at", "2018-04-15 22:18:50.953554"], ["updated_at", "2018-04-15 22:18:50.953554"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "plants" WHERE "plants"."name" = ? LIMIT ?[0m  [["name", "Aloe Vera"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "plants" ("name", "genus", "species", "water_frequency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Aloe Vera"], ["genus", "Aloe"], ["species", "Asphodeloideae"], ["water_frequency", 15], ["created_at", "2018-04-15 22:18:50.958448"], ["updated_at", "2018-04-15 22:18:50.958448"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "plants" WHERE "plants"."name" = ? LIMIT ?[0m  [["name", "Ice Plant"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "plants" ("name", "genus", "species", "water_frequency", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Ice Plant"], ["genus", "Mesembryanthemum"], ["species", "Crystallinum"], ["water_frequency", 17], ["created_at", "2018-04-15 22:18:50.962525"], ["updated_at", "2018-04-15 22:18:50.962525"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jordan@jordan.gov"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "Jordan"], ["email", "jordan@jordan.gov"], ["encrypted_password", "$2a$11$1bEAxf/c7e1xEaYycLDhneAofSsgaq3xVipj4EiuWZIJaKSkm548y"], ["created_at", "2018-04-15 22:18:51.121890"], ["updated_at", "2018-04-15 22:18:51.121890"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "paul@paul.gov"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "Paul"], ["email", "paul@paul.gov"], ["encrypted_password", "$2a$11$yWvF4kuPdGIQ3TEgl.3vAejMM1U4i5Rndv/IgNiHMlFdkj/4dA3Yi"], ["created_at", "2018-04-15 22:18:51.276825"], ["updated_at", "2018-04-15 22:18:51.276825"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "philip@philip.gov"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "Philip"], ["email", "philip@philip.gov"], ["encrypted_password", "$2a$11$7Zai2ka4lJTSHwgT.WbAveHyrZbNK53ojkVtFSbEL03BCtMziSGv6"], ["created_at", "2018-04-15 22:18:51.425372"], ["updated_at", "2018-04-15 22:18:51.425372"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "warner@warner.gov"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "Warner"], ["email", "warner@warner.gov"], ["encrypted_password", "$2a$11$0p96jzGTNCmmnUmR.j7hDOkxhbefz5MVFRL3OdOBj51scGi5tbPre"], ["created_at", "2018-04-15 22:18:51.583092"], ["updated_at", "2018-04-15 22:18:51.583092"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "david@david.gov"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "David"], ["email", "david@david.gov"], ["encrypted_password", "$2a$11$l8LEZdDTI9AAAl/cTwJH0.j1JuM2Kq93IbeobI3G8gHwhnDL7MRXy"], ["created_at", "2018-04-15 22:18:51.731361"], ["updated_at", "2018-04-15 22:18:51.731361"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/gardens_plants/1/water_plant" for 127.0.0.1 at 2018-04-15 15:19:22 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GardenPlantsController#water_plant as HTML
+  Parameters: {"garden_plant_id"=>"1"}
+  [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 7ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GardenPlant with 'id'=1):
+  
+app/controllers/garden_plants_controller.rb:3:in `water_plant'
+Started GET "/gardens_plants/1/water_plant" for 127.0.0.1 at 2018-04-15 15:52:44 -0700
+Processing by GardenPlantsController#water_plant as HTML
+  Parameters: {"garden_plant_id"=>"1"}
+  [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 17ms (ActiveRecord: 2.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GardenPlant with 'id'=1):
+  
+app/controllers/garden_plants_controller.rb:3:in `water_plant'

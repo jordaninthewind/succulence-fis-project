@@ -2,6 +2,7 @@ class GardenPlantsController < ActionController::Base
 	def water_plant
 		@garden_plant = GardenPlant.find(params[:garden_plant_id])
 		@garden_plant.last_watered = Time.now
+		@garden_plant.add_water_count
 		@garden_plant.save
 
 		redirect_to garden_path(@garden_plant.garden)
