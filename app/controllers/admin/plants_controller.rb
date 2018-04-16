@@ -11,7 +11,7 @@ class Admin::PlantsController < ApplicationController
 	def update
 		@plant.update(plant_params)
 
-		redirect_to plant_path(@path)
+		redirect_to plant_path(@plant)
 	end
 
 	def destroy
@@ -31,5 +31,9 @@ class Admin::PlantsController < ApplicationController
 		unless current_user.admin
 			redirect_to root_path
 		end
+	end
+
+	def plant_params
+		params.require(:plant).permit(:name, :genus, :water_frequency)
 	end
 end

@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include ActiveModel::Validations
   before_action :authenticate_user!
 
-  def can?(object)
-  	current_user.id == object.user_id
-  end
+  # def can?(object)
+  # 	current_user.id == object.user_id
+  # end
 end
