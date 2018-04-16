@@ -60,17 +60,17 @@ class PlantsController < ApplicationController
 	    end
 	end
 
-	def destroy
-		if params[:garden_id]
-			@garden_plant = GardenPlant.find(params[:id])
-			@garden_plant.destroy
-		else
-			@plant = Plant.find(params[:id])
-			@plant.destroy
-		end
+	# def destroy
+	# 	if params[:garden_id]
+	# 		@garden_plant = GardenPlant.find(params[:id])
+	# 		@garden_plant.destroy
+	# 	else
+	# 		@plant = Plant.find(params[:id])
+	# 		@plant.destroy
+	# 	end
 		
-		redirect_to root_path
-	end
+	# 	redirect_to root_path
+	# end
 
 	private
 
