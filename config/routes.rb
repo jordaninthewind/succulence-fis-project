@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     resources :garden_plants, except: [:edit, :update]
   end
 
-  resources :plants
+  resources :plants, only: [:show, :index]
+
+  namespace :admin do
+    resources :plants
+  end
 
 
   # resources :garden_plants, only: [:destroy], as: 'delete_garden_plant'

@@ -1,6 +1,10 @@
 class PlantsController < ApplicationController
 	before_action :set_plant, except: [:new, :create, :index]
 
+	def index
+		@plants = Plant.all
+	end
+	
 	def new
 		if params[:garden_id]
 			@garden = Garden.find(params[:garden_id])
@@ -47,30 +51,6 @@ class PlantsController < ApplicationController
 		end
 
 	end
-
-	def index
-		if params[:garden_id]
-		  @garden = Garden.find(params[:garden_id])
-		  @plants = @garden.plants
-		  @garden_plants = @garden.garden_plants
-
-	    else
-	  
-	      @plants = Plant.all
-	    end
-	end
-
-	# def destroy
-	# 	if params[:garden_id]
-	# 		@garden_plant = GardenPlant.find(params[:id])
-	# 		@garden_plant.destroy
-	# 	else
-	# 		@plant = Plant.find(params[:id])
-	# 		@plant.destroy
-	# 	end
-		
-	# 	redirect_to root_path
-	# end
 
 	private
 
