@@ -1,6 +1,6 @@
 class GardenPlantsController < ActionController::Base
 	before_action :set_garden_plant, except: :add_garden_plant
-	# before_action :check_owner
+	# before_action :check_owner#, except: :add_garden_plant
 
 	def show
 		render layout: 'layouts/application'
@@ -40,7 +40,9 @@ class GardenPlantsController < ActionController::Base
 	end
 
 	# def check_owner
-	# 	current_user.id == @garden_plant.user_id
+	# 	binding.pry
+	# 	unless current_user.id == @garden_plant.garden.user.id
+	# 		redirect_to root_path
+	# 	end
 	# end
-
 end

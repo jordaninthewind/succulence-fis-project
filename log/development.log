@@ -30251,3 +30251,465 @@ Processing by GardenPlantsController#show as HTML
 Completed 200 OK in 85ms (Views: 82.3ms | ActiveRecord: 1.0ms)
 
 
+Started GET "/gardens/3" for 127.0.0.1 at 2018-04-16 11:20:21 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (1.8ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mGardenPlant Load (1.7ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[36mPlant Load (0.5ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (2.6ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered gardens/show.html.erb within layouts/application (199.2ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 458ms (Views: 370.7ms | ActiveRecord: 24.1ms)
+
+
+Started GET "/gardens/3/plants/3/add_garden_plant?utf8=%E2%9C%93&plant%5Bid%5D=6&commit=Add+Plant" for 127.0.0.1 at 2018-04-16 11:20:23 -0700
+Processing by GardenPlantsController#add_garden_plant as HTML
+  Parameters: {"utf8"=>"✓", "plant"=>{"id"=>"6"}, "commit"=>"Add Plant", "garden_id"=>"3", "id"=>"3"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 0.5ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<GardenPlant:0x00007f7f254056e0>):
+  
+app/models/garden_plant.rb:20:in `set_user'
+app/controllers/garden_plants_controller.rb:25:in `add_garden_plant'
+Started GET "/gardens/3" for 127.0.0.1 at 2018-04-16 11:20:38 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mGardenPlant Load (0.4ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered gardens/show.html.erb within layouts/application (71.4ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+Completed 200 OK in 270ms (Views: 189.1ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/gardens/3/plants/3/add_garden_plant?utf8=%E2%9C%93&plant%5Bid%5D=8&commit=Add+Plant" for 127.0.0.1 at 2018-04-16 11:20:41 -0700
+Processing by GardenPlantsController#add_garden_plant as HTML
+  Parameters: {"utf8"=>"✓", "plant"=>{"id"=>"8"}, "commit"=>"Add Plant", "garden_id"=>"3", "id"=>"3"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.6ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<GardenPlant:0x00007f7f29e9c730>):
+  
+app/models/garden_plant.rb:20:in `set_user'
+app/controllers/garden_plants_controller.rb:25:in `add_garden_plant'
+Started GET "/gardens/3" for 127.0.0.1 at 2018-04-16 11:20:56 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mGardenPlant Load (1.8ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.4ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered gardens/show.html.erb within layouts/application (116.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 420ms (Views: 373.1ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/gardens/3/plants/3/add_garden_plant?utf8=%E2%9C%93&plant%5Bid%5D=6&commit=Add+Plant" for 127.0.0.1 at 2018-04-16 11:21:00 -0700
+Processing by GardenPlantsController#add_garden_plant as HTML
+  Parameters: {"utf8"=>"✓", "plant"=>{"id"=>"6"}, "commit"=>"Add Plant", "garden_id"=>"3", "id"=>"3"}
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 47277ms (ActiveRecord: 1.1ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<GardenPlant:0x00007f7f2bbddc68>):
+  
+app/models/garden_plant.rb:21:in `set_user'
+app/controllers/garden_plants_controller.rb:25:in `add_garden_plant'
+Started GET "/gardens/3/garden_plants/24/water_plant" for 127.0.0.1 at 2018-04-16 11:23:03 -0700
+Processing by GardenPlantsController#water_plant as HTML
+  Parameters: {"garden_id"=>"3", "garden_plant_id"=>"24"}
+  [1m[36mGardenPlant Load (0.9ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :check_owner rendered or redirected
+Completed 302 Found in 28801ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-16 11:23:32 -0700
+Processing by WelcomeController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gardens
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-04-16 11:23:32 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 4]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 5]]
+  Rendered gardens/index.html.erb within layouts/application (39.4ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (3.2ms)
+Completed 200 OK in 210ms (Views: 190.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/gardens/3" for 127.0.0.1 at 2018-04-16 11:23:58 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mGardenPlant Load (0.8ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPlant Load (1.5ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.6ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered gardens/show.html.erb within layouts/application (163.7ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (1.8ms)
+Completed 200 OK in 375ms (Views: 276.1ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/gardens/3/garden_plants/24/water_plant" for 127.0.0.1 at 2018-04-16 11:24:01 -0700
+Processing by GardenPlantsController#water_plant as HTML
+  Parameters: {"garden_id"=>"3", "garden_plant_id"=>"24"}
+  [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35mSQL (3.0ms)[0m  [1m[33mUPDATE "garden_plants" SET "last_watered" = ?, "times_watered" = ?, "updated_at" = ? WHERE "garden_plants"."id" = ?[0m  [["last_watered", "2018-04-16 18:24:48.193804"], ["times_watered", 3], ["updated_at", "2018-04-16 18:24:48.197824"], ["id", 24]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gardens/3
+Completed 302 Found in 46506ms (ActiveRecord: 6.7ms)
+
+
+Started GET "/gardens/3" for 127.0.0.1 at 2018-04-16 11:24:48 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered gardens/show.html.erb within layouts/application (57.9ms)
+  Rendered layouts/_header.html.erb (7.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 201ms (Views: 152.5ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/gardens/3/garden_plants/24/water_plant" for 127.0.0.1 at 2018-04-16 11:24:59 -0700
+Processing by GardenPlantsController#water_plant as HTML
+  Parameters: {"garden_id"=>"3", "garden_plant_id"=>"24"}
+  [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Load (0.6ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "garden_plants" SET "last_watered" = ?, "times_watered" = ?, "updated_at" = ? WHERE "garden_plants"."id" = ?[0m  [["last_watered", "2018-04-16 18:24:59.454633"], ["times_watered", 4], ["updated_at", "2018-04-16 18:24:59.483102"], ["id", 24]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gardens/3
+Completed 302 Found in 93ms (ActiveRecord: 10.0ms)
+
+
+Started GET "/gardens/3" for 127.0.0.1 at 2018-04-16 11:24:59 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.6ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered gardens/show.html.erb within layouts/application (17.5ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 152ms (Views: 134.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/gardens/3/garden_plants/24/water_plant" for 127.0.0.1 at 2018-04-16 11:25:04 -0700
+Processing by GardenPlantsController#water_plant as HTML
+  Parameters: {"garden_id"=>"3", "garden_plant_id"=>"24"}
+  [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Load (1.4ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "garden_plants" SET "last_watered" = ?, "times_watered" = ?, "updated_at" = ? WHERE "garden_plants"."id" = ?[0m  [["last_watered", "2018-04-16 18:25:04.075467"], ["times_watered", 5], ["updated_at", "2018-04-16 18:25:04.084756"], ["id", 24]]
+  [1m[35m (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gardens/3
+Completed 302 Found in 78ms (ActiveRecord: 11.2ms)
+
+
+Started GET "/gardens/3" for 127.0.0.1 at 2018-04-16 11:25:04 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[36mPlant Load (3.9ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.5ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered gardens/show.html.erb within layouts/application (50.7ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 129ms (Views: 112.4ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/gardens/3/garden_plants/24/water_plant" for 127.0.0.1 at 2018-04-16 11:25:05 -0700
+Processing by GardenPlantsController#water_plant as HTML
+  Parameters: {"garden_id"=>"3", "garden_plant_id"=>"24"}
+  [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "garden_plants" SET "last_watered" = ?, "times_watered" = ?, "updated_at" = ? WHERE "garden_plants"."id" = ?[0m  [["last_watered", "2018-04-16 18:25:05.315447"], ["times_watered", 6], ["updated_at", "2018-04-16 18:25:05.320706"], ["id", 24]]
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gardens/3
+Completed 302 Found in 28ms (ActiveRecord: 8.2ms)
+
+
+Started GET "/gardens/3" for 127.0.0.1 at 2018-04-16 11:25:05 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.8ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered gardens/show.html.erb within layouts/application (15.4ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 90ms (Views: 80.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/gardens/3/garden_plants/24/water_plant" for 127.0.0.1 at 2018-04-16 11:25:06 -0700
+Processing by GardenPlantsController#water_plant as HTML
+  Parameters: {"garden_id"=>"3", "garden_plant_id"=>"24"}
+  [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.5ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "garden_plants" SET "last_watered" = ?, "times_watered" = ?, "updated_at" = ? WHERE "garden_plants"."id" = ?[0m  [["last_watered", "2018-04-16 18:25:06.271281"], ["times_watered", 7], ["updated_at", "2018-04-16 18:25:06.274891"], ["id", 24]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gardens/3
+Completed 302 Found in 26ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/gardens/3" for 127.0.0.1 at 2018-04-16 11:25:06 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mGardenPlant Load (0.1ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered gardens/show.html.erb within layouts/application (13.8ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+Completed 200 OK in 102ms (Views: 79.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/gardens/3/garden_plants/23/water_plant" for 127.0.0.1 at 2018-04-16 11:25:07 -0700
+Processing by GardenPlantsController#water_plant as HTML
+  Parameters: {"garden_id"=>"3", "garden_plant_id"=>"23"}
+  [1m[36mGardenPlant Load (8.5ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "garden_plants" SET "last_watered" = ?, "times_watered" = ?, "updated_at" = ? WHERE "garden_plants"."id" = ?[0m  [["last_watered", "2018-04-16 18:25:07.640630"], ["times_watered", 2], ["updated_at", "2018-04-16 18:25:07.644534"], ["id", 23]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gardens/3
+Completed 302 Found in 29ms (ActiveRecord: 11.8ms)
+
+
+Started GET "/gardens/3" for 127.0.0.1 at 2018-04-16 11:25:07 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (8.4ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.1ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.4ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered gardens/show.html.erb within layouts/application (17.9ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 128ms (Views: 102.6ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/gardens/3/garden_plants/23/water_plant" for 127.0.0.1 at 2018-04-16 11:25:08 -0700
+Processing by GardenPlantsController#water_plant as HTML
+  Parameters: {"garden_id"=>"3", "garden_plant_id"=>"23"}
+  [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "garden_plants" SET "last_watered" = ?, "times_watered" = ?, "updated_at" = ? WHERE "garden_plants"."id" = ?[0m  [["last_watered", "2018-04-16 18:25:08.564919"], ["times_watered", 3], ["updated_at", "2018-04-16 18:25:08.569163"], ["id", 23]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/gardens/3
+Completed 302 Found in 20ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/gardens/3" for 127.0.0.1 at 2018-04-16 11:25:08 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT  "plants".* FROM "plants" WHERE "plants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered gardens/show.html.erb within layouts/application (14.8ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 87ms (Views: 80.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/gardens/4" for 127.0.0.1 at 2018-04-16 11:25:12 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 4]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered gardens/show.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (1.8ms)
+Completed 200 OK in 95ms (Views: 88.6ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mGarden Load (0.5ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/gardens/2" for 127.0.0.1 at 2018-04-16 11:25:39 -0700
+Processing by GardensController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering gardens/show.html.erb within layouts/application
+  [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 2]]
+  [1m[36mPlant Load (0.3ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered gardens/show.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 91ms (Views: 82.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/gardens/2/plants/2/add_garden_plant?utf8=%E2%9C%93&plant%5Bid%5D=1&commit=Add+Plant" for 127.0.0.1 at 2018-04-16 11:25:42 -0700
+Processing by GardenPlantsController#add_garden_plant as HTML
+  Parameters: {"utf8"=>"✓", "plant"=>{"id"=>"1"}, "commit"=>"Add Plant", "garden_id"=>"2", "id"=>"2"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.1ms)
+
+
+  
+NoMethodError (undefined method `garden' for nil:NilClass):
+  
+app/controllers/garden_plants_controller.rb:44:in `check_owner'
+Started GET "/gardens/2/plants/2/add_garden_plant?utf8=%E2%9C%93&plant%5Bid%5D=1&commit=Add+Plant" for 127.0.0.1 at 2018-04-16 11:26:46 -0700
+Processing by GardenPlantsController#add_garden_plant as HTML
+  Parameters: {"utf8"=>"✓", "plant"=>{"id"=>"1"}, "commit"=>"Add Plant", "garden_id"=>"2", "id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `garden' for nil:NilClass):
+  
+app/controllers/garden_plants_controller.rb:44:in `check_owner'
+Started GET "/gardens/2/plants/2/add_garden_plant?utf8=%E2%9C%93&plant%5Bid%5D=1&commit=Add+Plant" for 127.0.0.1 at 2018-04-16 11:27:36 -0700
+Processing by GardenPlantsController#add_garden_plant as HTML
+  Parameters: {"utf8"=>"✓", "plant"=>{"id"=>"1"}, "commit"=>"Add Plant", "garden_id"=>"2", "id"=>"2"}
+  [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 404 Not Found in 14ms (ActiveRecord: 2.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find GardenPlant with 'id'=2):
+  
+app/controllers/garden_plants_controller.rb:38:in `set_garden_plant'
+Started GET "/gardens/2/plants/2/add_garden_plant?utf8=%E2%9C%93&plant%5Bid%5D=1&commit=Add+Plant" for 127.0.0.1 at 2018-04-16 11:28:49 -0700
+Processing by GardenPlantsController#add_garden_plant as HTML
+  Parameters: {"utf8"=>"✓", "plant"=>{"id"=>"1"}, "commit"=>"Add Plant", "garden_id"=>"2", "id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 575239ms (ActiveRecord: 3.9ms)
+
+
+  
+NoMethodError (undefined method `garden' for nil:NilClass):
+  
+app/controllers/garden_plants_controller.rb:44:in `check_owner'
+  [1m[36mGardenPlant Load (4.9ms)[0m  [1m[34mSELECT  "garden_plants".* FROM "garden_plants" ORDER BY "garden_plants"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" WHERE "gardens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]

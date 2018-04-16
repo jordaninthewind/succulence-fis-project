@@ -3,6 +3,7 @@ class GardenPlant < ApplicationRecord
 	belongs_to :plant
 
 	before_create :set_last_watered_to_now
+	# before_create :set_user
 
 	# scope :most_watered, -> {""}
 	def user
@@ -14,10 +15,6 @@ class GardenPlant < ApplicationRecord
 	end
 
 	private
-
-	def set_user
-		self.garden.user = current_user.id
-	end
 	
 	def set_last_watered_to_now
     	self.last_watered = Time.now
