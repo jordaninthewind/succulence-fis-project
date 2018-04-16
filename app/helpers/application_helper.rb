@@ -38,12 +38,6 @@ module ApplicationHelper
     end
   end
 
-  def return_home
-    if current_user
-      link_to "Home", gardens_path
-    end
-  end
-
   def gardens_link
     if current_user
       link_to "Gardens", gardens_path
@@ -52,9 +46,14 @@ module ApplicationHelper
 
   def plants_link
     if current_user
-      link_to "Plants", plants_path
+      link_to "Explore Plants", plants_path
     end
   end
+
+  # def garden_plants_link
+  #   if current_user
+  #     link_to "View All of Your Plants", garden_plants_path
+  #   end
 
   # def list_errors(errors)
   #   @errors.messages.each do |e|

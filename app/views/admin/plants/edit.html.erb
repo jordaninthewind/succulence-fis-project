@@ -1,0 +1,13 @@
+<%= form_for :plant, :url => {:controller => 'plants', :action => 'create'} do |f| %> <br>
+
+<%= f.label 'Common Name:' %>
+<p><%= f.text_field :name %></p>
+
+<%= f.label :genus %>
+<p><%= f.text_field :genus %></p>
+
+<%= f.label 'Water Frequency' %>
+<p><%= f.number_field :water_frequency, :min => 1 %></p>
+
+<p><%= f.submit %></p>
+<% end %>

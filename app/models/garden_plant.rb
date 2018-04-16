@@ -5,7 +5,11 @@ class GardenPlant < ApplicationRecord
 	before_create :set_last_watered_to_now
 	# before_create :set_user
 
-	# scope :most_watered, -> {""}
+	# scope :most_watered, -> {where("times_watered")}
+	# scope :overdue, -> {where("last_watered < ?", (self.plant.water_frequency * 86400) - Time.now)}
+
+	# (Time.now - garden_plant.last_watered) > (garden_plant.plant.water_frequency * 86400)
+
 	def user
 		self.garden.user
 	end

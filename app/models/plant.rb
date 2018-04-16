@@ -5,6 +5,6 @@ class Plant < ApplicationRecord
 	has_many :gardens, through: :garden_plants
 	
 	# add scope method for plants that need watering most frequently
-	scope :high_demand, -> {}
-	scope :low_demand, -> {}
+	scope :high_demand, -> {where("water_frequency > ?", 15).max}
+	scope :low_demand, -> {where("water_frequency < ?", 15)}
 end

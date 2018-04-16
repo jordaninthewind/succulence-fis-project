@@ -1,8 +1,8 @@
 <h1>All Plants</h1>
-<%= link_to "Add Plant", new_garden_plant_path unless !@garden %>
-<% if @garden %><h3>Garden Name: <%= @garden.name %></h3><% end %>
+
+<h2>Lowest Demand Plant: <%= Plant.high_demand.name %></h2>
 
 <br>
 <% @plants.each do |plant| %>
-<p><%= link_to plant.name, plant_path(plant) %> <%if current_user.admin %><%= link_to "Edit", edit_plant_path(plant) %><%end%></p>
+<p><%= link_to plant.name, plant_path(plant) %> <%if current_user.admin %><%= link_to "Edit", edit_admin_plant_path(plant) %><%end%></p>
 <% end %>
