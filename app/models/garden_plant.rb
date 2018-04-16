@@ -5,7 +5,6 @@ class GardenPlant < ApplicationRecord
 	before_create :set_last_watered_to_now
 
 	# scope :most_watered, -> {""}
-
 	def user
 		self.garden.user
 	end
@@ -14,7 +13,11 @@ class GardenPlant < ApplicationRecord
 		self.update(:times_watered => (self.times_watered + 1))
 	end
 
-	private 
+	private
+
+	def set_user
+		self.garden.user = current_user.id
+	end
 	
 	def set_last_watered_to_now
     	self.last_watered = Time.now

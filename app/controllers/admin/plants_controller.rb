@@ -1,13 +1,16 @@
 class Admin::PlantsController < ApplicationController
-	before_action :is_admin
+	before_action :is_admin, :set_plant
 
-	def index
-	      @plants = Plant.all
-	    end
+	def edit
+	end
+
+	def update
+		@plant.update(plant_params)
+
+		redirect_to plant_path(@path)
 	end
 
 	def destroy
-		@plant = Plant.find(params[:id])
 		@plant.garden_plants.destroy_all
 		@plant.destroy
 		
@@ -15,6 +18,10 @@ class Admin::PlantsController < ApplicationController
 	end
 
 	private
+
+	def set_plant
+		@plant = Plant.find(params[:id])
+	end
 
 	def is_admin
 		unless current_user.admin

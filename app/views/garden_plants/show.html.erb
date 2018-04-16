@@ -1,0 +1,13 @@
+<h2>Garden: <%= link_to @garden_plant.garden.name, @garden_plant.garden %></h2>
+
+<h2><strong>Common Name: </strong><%= @garden_plant.plant.name %></h2>
+
+<p>Genus: <%= @garden_plant.plant.genus %></p>
+<p>Watering Frequency: Every <%= @garden_plant.plant.water_frequency %> Days</p>
+
+<p> Planted On: <%= normalize_time(@garden_plant.created_at) %> </p>
+<p>Last Watered: <%= normalize_time(@garden_plant.last_watered) %></p>
+
+<%= overdue_notice(@garden_plant) %>
+
+<p><%= link_to "Water Plant", water_plant_path(@garden_plant.garden, @garden_plant) %></p>

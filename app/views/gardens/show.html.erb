@@ -7,7 +7,7 @@
  	- <%= link_to "Mulch Plant", garden_garden_plant_path(@garden, gp),
 			method: :delete, data: { confirm: 'Are you sure?' } %>
 
-<p><%=overdue_notice(gp)%></p></li><% end %></ul>
+<p><%= overdue_notice(gp) %></p></li><% end %></ul>
 
 <h3>Select a Plant to Add to Your Garden:</h3>
 

@@ -4,11 +4,11 @@ class PlantsController < ApplicationController
 	def index
 		@plants = Plant.all
 	end
-	
+
 	def new
-		if params[:garden_id]
-			@garden = Garden.find(params[:garden_id])
-		end
+		# if params[:garden_id]
+		# 	@garden = Garden.find(params[:garden_id])
+		# end
 		@plant = Plant.new
 	end
 
@@ -33,22 +33,13 @@ class PlantsController < ApplicationController
 		end
 	end
 
-	def edit
-	end
-
-	def update
-		@plant.update(plant_params)
-
-		redirect_to plant_path(@path)
-	end
-
 	def show
-		if params[:garden_id]
-			@garden_plant = GardenPlant.find(params[:id])
-			@plant = @garden_plant.plant
-		else
-			@plant = Plant.find(params[:id])
-		end
+		# if params[:garden_id]
+		# 	@garden_plant = GardenPlant.find(params[:id])
+		# 	@plant = @garden_plant.plant
+		# else
+		@plant = Plant.find(params[:id])
+		# end
 
 	end
 

@@ -1,5 +1,9 @@
 class GardenPlantsController < ActionController::Base
 	before_action :set_garden_plant, except: :add_garden_plant
+	# before_action :check_owner
+
+	def show
+	end
 
 	def water_plant
 		@garden_plant.last_watered = Time.now
@@ -18,6 +22,8 @@ class GardenPlantsController < ActionController::Base
 	def add_garden_plant
 		@garden = Garden.find(params[:garden_id])
 		@garden.plants << Plant.find(params[:plant][:id])
+		# @garden.garden_plants.last.user_id = current_user.id
+		# @garden.garden_plants.last.save
 
 		redirect_to garden_path(@garden)
 	end
@@ -31,5 +37,9 @@ class GardenPlantsController < ActionController::Base
 	  	@garden_plant = GardenPlant.find(params[:id])
 	  end
 	end
+
+	# def check_owner
+	# 	current_user.id == @garden_plant.user_id
+	# end
 
 end

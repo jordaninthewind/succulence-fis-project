@@ -44,6 +44,18 @@ module ApplicationHelper
     end
   end
 
+  def gardens_link
+    if current_user
+      link_to "Gardens", gardens_path
+    end
+  end
+
+  def plants_link
+    if current_user
+      link_to "Plants", plants_path
+    end
+  end
+
   # def list_errors(errors)
   #   @errors.messages.each do |e|
   #     content_tag(:div, e.join(" ").gsub("_", " ").capitalize)

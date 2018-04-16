@@ -1,6 +1,8 @@
 <%= display_sign_up %>
 <%= display_sign_in %>
-<%= return_home %> <br><br>
+<%= return_home %> - <%= gardens_link %> - <%= plants_link %> 
+
+<br><br>
 
 <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
 <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
