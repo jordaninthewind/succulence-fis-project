@@ -1,6 +1,6 @@
 class GardenPlantsController < ActionController::Base
 	before_action :set_garden_plant, except: :add_garden_plant
-	# before_action :check_owner#, except: :add_garden_plant
+	before_action :check_owner, except: :add_garden_plant
 
 	def show
 		render layout: 'layouts/application'
@@ -28,8 +28,6 @@ class GardenPlantsController < ActionController::Base
 		end
 
 		@garden.plants << Plant.find(params[:plant][:id])
-		# @garden.garden_plants.last.user_id = current_user.id
-		# @garden.garden_plants.last.save
 
 		redirect_to garden_path(@garden)
 	end
@@ -44,9 +42,10 @@ class GardenPlantsController < ActionController::Base
 	  end
 	end
 
-	def is_owner
-		binding.pry
+	def check_owner
 		unless current_user.id == @garden_plant.garden.user.id
+			flash[:notice] = "You Don't Have Permissions for This Plant!"
+
 			redirect_to root_path
 		end
 	end
