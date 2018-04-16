@@ -1,9 +1,6 @@
 <h2>Garden: <%= link_to @garden_plant.garden.name, @garden_plant.garden %></h2>
 
-<h2><strong>Common Name: </strong><%= @garden_plant.plant.name %></h2>
-
-<p>Genus: <%= @garden_plant.plant.genus %></p>
-<p>Watering Frequency: Every <%= @garden_plant.plant.water_frequency %> Days</p>
+<%= render partial: 'plants/plant', :locals => {:plant => @garden_plant.plant} %>
 
 <p> Planted On: <%= normalize_time(@garden_plant.created_at) %> </p>
 <p>Last Watered: <%= normalize_time(@garden_plant.last_watered) %></p>

@@ -3,6 +3,7 @@ class GardenPlantsController < ActionController::Base
 	# before_action :check_owner
 
 	def show
+		render layout: 'layouts/application'
 	end
 
 	def water_plant
