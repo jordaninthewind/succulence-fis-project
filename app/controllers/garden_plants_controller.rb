@@ -22,6 +22,11 @@ class GardenPlantsController < ActionController::Base
 
 	def add_garden_plant
 		@garden = Garden.find(params[:garden_id])
+		
+		unless current_user.id == @garden.user.id
+			redirect_to root_path
+		end
+
 		@garden.plants << Plant.find(params[:plant][:id])
 		# @garden.garden_plants.last.user_id = current_user.id
 		# @garden.garden_plants.last.save
@@ -39,10 +44,10 @@ class GardenPlantsController < ActionController::Base
 	  end
 	end
 
-	# def check_owner
-	# 	binding.pry
-	# 	unless current_user.id == @garden_plant.garden.user.id
-	# 		redirect_to root_path
-	# 	end
-	# end
+	def is_owner
+		binding.pry
+		unless current_user.id == @garden_plant.garden.user.id
+			redirect_to root_path
+		end
+	end
 end

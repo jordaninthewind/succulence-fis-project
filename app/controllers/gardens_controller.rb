@@ -1,6 +1,6 @@
 class GardensController < ApplicationController
 	before_action :set_garden, only: [:show, :edit, :update]
-	# Add Authorizations
+	before_action :is_owner, except: [:new, :create, :index]
 
 	def new
 		@garden = Garden.new
@@ -32,18 +32,25 @@ class GardensController < ApplicationController
 	end
 
 	def index
-		if current_user
-			@gardens = current_user.gardens
-		else
+		@gardens = current_user.gardens
 
-			@gardens = Garden.all
-		end
+		# flash[:notice] = "There "
+		# 	redirect_to 
+			# @gardens = Garden.all
+		# end
 	end
 
 	private
 
 	def set_garden
 		@garden = Garden.find(params[:id])
+	end
+
+	def is_owner
+		unless @garden.user == current_user
+			flash[:notice] = "You Do Not Have Permissions to View/Update This Garden"
+			redirect_to root_path
+		end
 	end
 
 	def garden_params
