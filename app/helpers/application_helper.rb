@@ -25,9 +25,9 @@ module ApplicationHelper
   def display_whoami
     if current_user
       if current_user.admin
-        content_tag(:div, "Signed in as #{current_user.username} - Admin")#, class: "nav-item")
+        content_tag(:div, "Signed in as #{current_user.email} - Admin")#, class: "nav-item")
       elsif current_user
-        content_tag(:div, "Signed in as #{current_user.username}")
+        content_tag(:div, "Signed in as #{current_user.email}")
       end
     end
   end

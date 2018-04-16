@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180415221107) do
+ActiveRecord::Schema.define(version: 20180416010443) do
 
   create_table "garden_plants", force: :cascade do |t|
     t.integer "garden_id"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20180415221107) do
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
