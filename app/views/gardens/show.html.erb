@@ -1,4 +1,6 @@
-<h3>Garden Name: <%= @garden.name %> - <%= link_to "Edit Garden", edit_garden_path(@garden) %></h3>
+<h3>Garden Name: <%= @garden.name %> - <%= link_to "Edit Garden", edit_garden_path(@garden) %>
+ 	<%= link_to "Delete Garden", garden_path(@garden), method: :delete, data: { confirm: 'Are you sure?' } %>
+</h3> 
 
 <ul><% @garden.garden_plants.reverse.each do |gp| %>
 <li><%= link_to gp.plant.name, plant_path(gp.plant) %>, Last Watered: <%= normalize_time(gp.last_watered) %>
@@ -12,7 +14,7 @@
 <h3>Select a Plant to Add to Your Garden:</h3>
 
 <%= form_tag add_garden_plant_path(@garden), :method => :get do %>
-<%= collection_select :plant, :id, Plant.all, :id, :name %>
+<%= collection_select :plant, :id, Plant.order('name ASC'), :id, :name %>
 <%= submit_tag "Add Plant" %>
 <% end %>
 

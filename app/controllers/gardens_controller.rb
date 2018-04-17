@@ -1,5 +1,5 @@
-class GardensController < ApplicationController
-	before_action :set_garden, only: [:show, :edit, :update]
+	class GardensController < ApplicationController
+	before_action :set_garden, only: [:show, :edit, :update, :destroy]
 	before_action :is_owner, except: [:new, :create, :index]
 
 	def new
@@ -29,6 +29,13 @@ class GardensController < ApplicationController
 	end
 
 	def show
+	end
+
+	def destroy
+		@garden.garden_plants.destroy_all
+		@garden.destroy
+
+		redirect_to root_path
 	end
 
 	def index

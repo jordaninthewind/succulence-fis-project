@@ -1,10 +1,6 @@
 class Admin::PlantsController < ApplicationController
 	before_action :is_admin, :set_plant#, except: [:index]
 
-	# def index
-	# 	@plants = Plant.all
-	# end
-
 	def edit
 	end
 
