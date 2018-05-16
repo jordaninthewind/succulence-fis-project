@@ -29,17 +29,17 @@ X - Include nested resource show or index (URL e.g. users/2/recipes)
 	- HOW TO CORRECT IDS?	NO LONGER A REQUIREMENT -->
 X - Include form display of validation errors (form URL e.g. /recipes/new)
  	- FIELDS WITH ERRORS CLASS FOR VALIDATIONS
-0 - Add README with requirements
+X - Add README with requirements
 X - Add plant seeds
 Confirm:
 
-0 - The application is pretty DRY
-0 - Limited logic in controllers
-0 - Views use helper methods if appropriate
-0 - Views use partials if appropriate
+X - The application is pretty DRY
+X - Limited logic in controllers
+X - Views use helper methods if appropriate
+X - Views use partials if appropriate
 0 - NO NESTED FORMS REQUIRED AT PRESENT
 X - Incorporate .build / activerecord methods
- Make sure no orphan data from plant deletion
+X - Make sure no orphan data from plant deletion
 
 Keep it....
 

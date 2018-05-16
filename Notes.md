@@ -1,3 +1,10 @@
+Notes during assessment:
+
+- Refer URL in Partial	
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
 - Start with ability to select collection plant and draw association from there.
 - Later add ability to make new plant that has association in controller (or restrict to only admin flow)
 - # work in belongs to that allows plants through garden_plants (User model)

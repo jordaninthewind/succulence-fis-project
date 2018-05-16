@@ -6,26 +6,26 @@ module ApplicationHelper
 
   def display_sign_in
     if !current_user
-      content_tag(:div, link_to("Log In", new_user_session_path))#, class: "nav-link"), class: "nav-item")
+      content_tag(:div, link_to("Log In", new_user_session_path))
     end
   end
   
   def display_sign_up
     if !current_user
-      content_tag(:div, link_to("Sign Up", new_user_registration_path))#, class: "nav-link"), class: "nav-item")
+      content_tag(:div, link_to("Sign Up", new_user_registration_path))
     end
   end
   
   def display_sign_out
     if current_user
-      content_tag(:div, link_to("Log Out", destroy_user_session_path, method: :delete))#, :class => 'navbar-link'
+      content_tag(:div, link_to("Log Out", destroy_user_session_path, method: :delete))
     end
   end
 
   def display_whoami
     if current_user
       if current_user.admin
-        content_tag(:div, "Signed in as #{current_user.email} - Admin")#, class: "nav-item")
+        content_tag(:div, "Signed in as #{current_user.email} - Admin")
       elsif current_user
         content_tag(:div, "Signed in as #{current_user.email}")
       end
@@ -49,6 +49,13 @@ module ApplicationHelper
       link_to "Explore Plants", plants_path
     end
   end
+
+  # def water_link(garden_plant)
+  #   if (Time.now - garden_plant.last_watered) < (garden_plant.plant.water_frequency * 86400)
+  #     # :div, link_to(
+  #       content_tag(link_to "Water Plant", water_plant_path(garden_plant.id))
+  #   end
+  # end
 
   # def garden_plants_link
   #   if current_user
