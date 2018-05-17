@@ -41,6 +41,10 @@
 	def index
 		@gardens = current_user.gardens
 
+		respond_to do |f|
+			f.html
+			f.json {render json: @garden.plants}
+		end
 		# flash[:notice] = "There "
 		# 	redirect_to 
 			# @gardens = Garden.all
