@@ -1,6 +1,6 @@
-	class GardensController < ApplicationController
-	before_action :set_garden, only: [:show, :edit, :update, :destroy]
-	before_action :is_owner, except: [:new, :create, :index]
+class GardensController < ApplicationController
+before_action :set_garden, only: [:show, :edit, :update, :destroy]
+before_action :is_owner, except: [:new, :create, :index]
 
 	def new
 		@garden = Garden.new
@@ -29,6 +29,11 @@
 	end
 
 	def show
+		@garden_plants = @garden.plants
+		respond_to do |f|
+			f.html
+			f.json {render json: @garden_plants}
+		end
 	end
 
 	def destroy
@@ -43,7 +48,7 @@
 
 		respond_to do |f|
 			f.html
-			f.json {render json: @garden.plants}
+			f.json {render json: @garden}
 		end
 		# flash[:notice] = "There "
 		# 	redirect_to 

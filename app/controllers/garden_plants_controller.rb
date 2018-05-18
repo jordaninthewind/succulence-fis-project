@@ -3,7 +3,6 @@ class GardenPlantsController < ActionController::Base
 	before_action :check_owner, except: :add_garden_plant
 
 	def show
-		# binding.pry
 		respond_to do |f|
 			f.html
 			f.json {render json: @garden_plant}

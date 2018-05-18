@@ -1,4 +1,4 @@
-<h3><%= link_to "Make New Garden", new_garden_path %></h3>
+<h3><%= link_to "Make New Garden", new_garden_path, id: "new-garden" %></h3>
 <%unless current_user.gardens%>
 <h2>All <%if current_user.username != "" %><%= current_user.username + "'s " %><% end %>Gardens: </h2>
 <%end%>
