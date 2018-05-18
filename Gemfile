@@ -33,14 +33,20 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'rack-cors'
-
+# auth & Oauth
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
+
+#debugging
 gem 'pry'
+
+#javascript stuff
 gem 'handlebars_assets'
 gem 'jquery-rails'
+
+#serializers for json
 gem 'active_model_serializers'
 
 group :development, :test do
