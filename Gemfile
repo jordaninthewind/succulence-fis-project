@@ -41,6 +41,7 @@ gem 'omniauth-github'
 gem 'pry'
 gem 'handlebars_assets'
 gem 'jquery-rails'
+gem 'active_model_serializers'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
