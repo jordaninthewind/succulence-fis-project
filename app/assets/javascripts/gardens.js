@@ -26,7 +26,12 @@ function addGardenInput() {
 function createGarden() {
 	const gardenName = $("#garden-name").val();
 	if (gardenName) {
-		console.log(gardenName);
+		$.ajax({
+ 		   url: '/gardens',
+		   type: 'POST',
+		   data: {'name': gardenName}
+		});
+ 
 	} else {
 		console.log("You got it wrong.");
 	}

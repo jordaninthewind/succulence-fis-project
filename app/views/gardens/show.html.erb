@@ -2,6 +2,7 @@
  	<%= link_to "Delete Garden", garden_path(@garden), method: :delete, data: { confirm: 'Are you sure?' } %>
 </h3> 
 
+<div id="garden_plants">
 <ul><% @garden.garden_plants.reverse.each do |gp| %>
 <li><%= link_to gp.plant.name, plant_path(gp.plant) %>, Last Watered: <%= normalize_time(gp.last_watered) %>
 	- <%= link_to "View Plant", garden_garden_plant_path(@garden, gp) %>
@@ -10,6 +11,7 @@
 			method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <p><%= overdue_notice(gp) %></p></li><% end %></ul>
+</div>
 
 <h3>Select a Plant to Add to Your Garden:</h3>
 

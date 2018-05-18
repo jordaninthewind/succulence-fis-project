@@ -7,6 +7,7 @@ before_action :is_owner, except: [:new, :create, :index]
 	end
 
 	def create
+		# binding.pry
 		@garden = Garden.new(garden_params)
 		@garden.user = current_user
 
@@ -48,7 +49,7 @@ before_action :is_owner, except: [:new, :create, :index]
 
 		respond_to do |f|
 			f.html
-			f.json {render json: @garden}
+			f.json {render json: @gardens}
 		end
 		# flash[:notice] = "There "
 		# 	redirect_to 

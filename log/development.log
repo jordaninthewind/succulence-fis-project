@@ -40381,3 +40381,342 @@ Processing by GardensController#index as HTML
 Completed 200 OK in 139ms (Views: 123.2ms | ActiveRecord: 2.8ms)
 
 
+Started POST "/gardens" for 127.0.0.1 at 2018-05-18 12:43:31 -0700
+Processing by GardensController#create as */*
+  Parameters: {"this"=>nil}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 400 Bad Request in 25ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: garden):
+  
+app/controllers/gardens_controller.rb:73:in `garden_params'
+app/controllers/gardens_controller.rb:10:in `create'
+Started POST "/gardens" for 127.0.0.1 at 2018-05-18 12:43:57 -0700
+Processing by GardensController#create as */*
+  Parameters: {"this"=>nil}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 400 Bad Request in 128919ms (ActiveRecord: 2.8ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: garden):
+  
+app/controllers/gardens_controller.rb:74:in `garden_params'
+app/controllers/gardens_controller.rb:11:in `create'
+Started POST "/gardens" for 127.0.0.1 at 2018-05-18 12:46:14 -0700
+Processing by GardensController#create as */*
+  Parameters: {"name"=>"this"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 400 Bad Request in 496024ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: garden):
+  
+app/controllers/gardens_controller.rb:74:in `garden_params'
+app/controllers/gardens_controller.rb:11:in `create'
+Started GET "/gardens" for 127.0.0.1 at 2018-05-18 13:38:25 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (1.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 4]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 5]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 6]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 15]]
+  Rendered gardens/index.html.erb within layouts/application (96.2ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 522ms (Views: 434.6ms | ActiveRecord: 6.3ms)
+
+
+Started POST "/gardens" for 127.0.0.1 at 2018-05-18 13:38:32 -0700
+Processing by GardensController#create as */*
+  Parameters: {"name"=>"this"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Started POST "/gardens" for 127.0.0.1 at 2018-05-18 13:38:33 -0700
+Processing by GardensController#create as */*
+  Parameters: {"name"=>"this"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Started POST "/gardens" for 127.0.0.1 at 2018-05-18 13:38:34 -0700
+Processing by GardensController#create as */*
+  Parameters: {"name"=>"this"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Started POST "/gardens" for 127.0.0.1 at 2018-05-18 13:38:34 -0700
+Processing by GardensController#create as */*
+  Parameters: {"name"=>"this"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Started POST "/gardens" for 127.0.0.1 at 2018-05-18 13:38:35 -0700
+Processing by GardensController#create as */*
+  Parameters: {"name"=>"this"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 400 Bad Request in 5862ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: garden):
+  
+app/controllers/gardens_controller.rb:74:in `garden_params'
+app/controllers/gardens_controller.rb:11:in `create'
+Started POST "/gardens" for 127.0.0.1 at 2018-05-18 13:38:44 -0700
+Processing by GardensController#create as */*
+  Parameters: {"name"=>"this"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 400 Bad Request in 40577ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: garden):
+  
+app/controllers/gardens_controller.rb:74:in `garden_params'
+app/controllers/gardens_controller.rb:11:in `create'
+Started GET "/gardens" for 127.0.0.1 at 2018-05-18 13:39:25 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 4]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 5]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 6]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 15]]
+  Rendered gardens/index.html.erb within layouts/application (10.0ms)
+  Rendered layouts/_header.html.erb (2.8ms)
+  Rendered layouts/_footer.html.erb (1.8ms)
+Completed 200 OK in 277ms (Views: 268.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-05-18 13:39:26 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 4]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 5]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 6]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 15]]
+  Rendered gardens/index.html.erb within layouts/application (10.1ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (11.7ms)
+Completed 200 OK in 108ms (Views: 99.8ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/gardens" for 127.0.0.1 at 2018-05-18 13:39:32 -0700
+Processing by GardensController#create as */*
+  Parameters: {"name"=>"gardenName"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 400 Bad Request in 1419619ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: garden):
+  
+app/controllers/gardens_controller.rb:74:in `garden_params'
+app/controllers/gardens_controller.rb:11:in `create'
+Started POST "/gardens" for 127.0.0.1 at 2018-05-18 14:03:12 -0700
+Completed 400 Bad Request in 1495964ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: garden):
+  
+app/controllers/gardens_controller.rb:74:in `garden_params'
+app/controllers/gardens_controller.rb:11:in `create'
+Completed 400 Bad Request in 1509197ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: garden):
+  
+app/controllers/gardens_controller.rb:74:in `garden_params'
+app/controllers/gardens_controller.rb:11:in `create'
+Completed 400 Bad Request in 1510954ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: garden):
+  
+app/controllers/gardens_controller.rb:74:in `garden_params'
+app/controllers/gardens_controller.rb:11:in `create'
+Completed 400 Bad Request in 1512980ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: garden):
+  
+app/controllers/gardens_controller.rb:74:in `garden_params'
+app/controllers/gardens_controller.rb:11:in `create'
+Processing by GardensController#create as */*
+Started GET "/plants" for 127.0.0.1 at 2018-05-18 14:03:45 -0700
+  Parameters: {"name"=>"gardenName"}
+Started GET "/gardens" for 127.0.0.1 at 2018-05-18 14:03:45 -0700
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 400 Bad Request in 27ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: garden):
+  
+app/controllers/gardens_controller.rb:74:in `garden_params'
+app/controllers/gardens_controller.rb:11:in `create'
+Processing by PlantsController#index as HTML
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = ?[0m  [["user_id", 7]]
+  Rendering plants/index.html.erb within layouts/application
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE (water_frequency > 15)[0m
+  [1m[36mPlant Load (0.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered plants/index.html.erb within layouts/application (13.5ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 295ms (Views: 226.3ms | ActiveRecord: 4.7ms)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 4]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 5]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 6]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 15]]
+Started GET "/plants" for 127.0.0.1 at 2018-05-18 14:03:46 -0700
+Started GET "/plants" for 127.0.0.1 at 2018-05-18 14:03:46 -0700
+  Rendered gardens/index.html.erb within layouts/application (278.3ms)
+Processing by PlantsController#index as HTML
+Processing by PlantsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering plants/index.html.erb within layouts/application
+  [1m[36mPlant Load (0.4ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE (water_frequency > 15)[0m
+  [1m[36mPlant Load (0.5ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered plants/index.html.erb within layouts/application (20.8ms)
+  Rendering plants/index.html.erb within layouts/application
+  [1m[36mPlant Load (1.4ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE (water_frequency > 15)[0m
+  [1m[36mPlant Load (0.6ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendered plants/index.html.erb within layouts/application (124.4ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 302ms (Views: 275.8ms | ActiveRecord: 1.5ms)
+
+
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 843ms (Views: 781.9ms | ActiveRecord: 4.1ms)
+
+
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 471ms (Views: 426.4ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-05-18 14:03:49 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.7ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 4]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 5]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 6]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 15]]
+  Rendered gardens/index.html.erb within layouts/application (18.1ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 92ms (Views: 77.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-05-18 14:04:45 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 4]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 5]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 6]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 15]]
+  Rendered gardens/index.html.erb within layouts/application (12.8ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 142ms (Views: 133.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-05-18 14:05:18 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 4]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 5]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 6]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 15]]
+  Rendered gardens/index.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 76ms (Views: 69.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-05-18 14:06:44 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 4]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 5]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 6]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 15]]
+  Rendered gardens/index.html.erb within layouts/application (13.1ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 360ms (Views: 237.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-05-18 14:09:26 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-05-18 14:10:03 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 4]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 5]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 6]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = ?[0m  [["garden_id", 15]]
+  Rendered gardens/index.html.erb within layouts/application (29.6ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 176ms (Views: 142.1ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-05-18 14:10:06 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = ?[0m  [["user_id", 7]]
+Completed 200 OK in 9ms (Views: 5.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-05-18 14:10:42 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = ?[0m  [["user_id", 7]]
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-05-18 14:11:04 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.5ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = ?[0m  [["user_id", 7]]
+Completed 200 OK in 9ms (Views: 4.6ms | ActiveRecord: 0.9ms)
+
+
