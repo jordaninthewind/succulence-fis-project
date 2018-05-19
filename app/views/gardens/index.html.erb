@@ -2,7 +2,7 @@
 <%unless current_user.gardens%>
 <h2>All <%if current_user.username != "" %><%= current_user.username + "'s " %><% end %>Gardens: </h2>
 <%end%>
-
+<br>
 <ul id="garden_plants">
 <% @gardens.each do |garden| %>
 <li><%= link_to garden.name, garden_path(garden) %> - <%= garden.garden_plants.count %> Plants Live Here</li>

@@ -15,7 +15,7 @@ function addGardenInput() {
 	$("#newGarden").on("click", function(e) {
 		e.preventDefault();
 		if (gardenInputs === 0){
-			$("#newGarden").append("<br><form action='/gardens' id='garden_name' name='garden'><input type='text' id='name'><button onclick='newGardenSubmit(event)'>Make Garden</input></form>");
+			$("#newGarden").append("<form action='/gardens' id='garden_name' name='garden'><input type='text' id='name' onsubmit='newGardenSubmit(event)'><button onclick='newGardenSubmit(event)'>Make Garden</input></form>");
 			gardenInputs++;
 			// attachGardenSubmit();
 		}
@@ -29,10 +29,13 @@ function newGardenSubmit(event) {
 
 	  if (gardenName) {
 		$.post('/gardens', gardenName)
-		  .done(getGardens());
+		gardenInputs = 0;
+		$("form").remove()
 	  } else {
 		console.log("You got it wrong.");
 	  }
+
+	getGardens();	
 }
 
 // function createGarden() {

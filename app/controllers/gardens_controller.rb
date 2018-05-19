@@ -18,7 +18,7 @@ before_action :is_owner, except: [:new, :create, :index]
 		if @garden.save
 
 			respond_to do |f|
-			  f.html
+			  f.html 
 			  f.json {render json: @garden}
 			end
 		else
