@@ -3,6 +3,7 @@
 
 document.addEventListener("DOMContentLoaded", function(event) { 
   attachListeners();
+  // getGardens();
 });
 
 var gardenInputs = 0;
@@ -14,45 +15,49 @@ function attachListeners() {
 function addGardenInput() {
 	$("#newGarden").on("click", function(e) {
 		e.preventDefault();
-		if (gardenInputs === 0){
-			$("#newGarden").append("<form action='/gardens' id='garden_name' name='garden'><input type='text' id='name' onsubmit='newGardenSubmit(event)'><button onclick='newGardenSubmit(event)'>Make Garden</input></form>");
+		if (!gardenInputs){
+			$("#newGarden").append("<form action='/gardens' id='garden_name' name='garden'><input type='text' id='name' placeholder='Garden Name' onsubmit='newGardenSubmit(event)'><button onclick='newGardenSubmit(event)'>Make Garden</button></form>");
 			gardenInputs++;
-			// attachGardenSubmit();
 		}
 	});
 }
 
-function newGardenSubmit(event) {
-	// Stop form from submitting normally
-	event.preventDefault();
-	const gardenName = {"garden": {"name": $("input#name").val()}};
+function newGardenSubmit(e) {
+	e.preventDefault();
 
-	  if (gardenName) {
+	let input = $("input#name").val();
+	const gardenName = {"garden": {"name": input}};
+
+	  if (input) {
 		$.post('/gardens', gardenName)
-		gardenInputs = 0;
-		$("form").remove()
+			// -- COULD ADD HANDLING FOR INDIVIDUAL LI ADD HERE --
+			.then(function(res) {
+				gardenLiMaker(res);
+			})
+			
+			$("form").remove()
+			gardenInputs = 0;
 	  } else {
 		console.log("You got it wrong.");
 	  }
-
-	getGardens();	
 }
 
 function getGardens() {
+	$("#garden_plants").empty();
 	fetch('/gardens.json', {credentials: 'same-origin'})
 		.then(function(res) {
 			return res.json();
 		})
-		.then(function (json) {
-		  $("#garden_plants").empty();
+		.then(function(json) {
 			json.forEach((garden) => {
-			var html = `<li><a href='/gardens/${garden.id}'>${garden.name}</a> - ${garden.garden_plants.length} Plants Live Here</li>`
-			$("#garden_plants").append(html);
+				// var html = `<li><a href='/gardens/${garden.id}'>${garden.name}</a> - ${garden.garden_plants.length} Plants Live Here</li>`
+				// $("ul#garden_plants").append(html);
+				gardenLiMaker(garden);
 			});
 		  });
 }
 
-// 	gardens.forEach((garden) => {
-// 	var html = `<li><a href='/gardens/${garden.id}'>${garden.name}<\a><\li>`;
-// 	$("ul").append(html);
-// });
+function gardenLiMaker(garden) {
+	var html = `<li><a href='/gardens/${garden.id}'>${garden.name}</a> - ${garden.garden_plants.length} Plants Live Here</li>`
+	$("ul#garden_plants").append(html);
+}

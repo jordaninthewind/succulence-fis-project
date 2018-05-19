@@ -30,10 +30,9 @@ before_action :is_owner, except: [:new, :create, :index]
 	end
 
 	def show
-		@garden_plants = @garden.plants
 		respond_to do |f|
 			f.html
-			f.json {render json: @garden_plants}
+			f.json {render json: @garden}
 		end
 	end
 
