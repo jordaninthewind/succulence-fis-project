@@ -1,3 +1,3 @@
 class PlantSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :genus, :species, :water_frequency
 end

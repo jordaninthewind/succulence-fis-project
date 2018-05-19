@@ -30,13 +30,12 @@ function newGardenSubmit(e) {
 
 	  if (input) {
 		$.post('/gardens', gardenName)
-			// -- COULD ADD HANDLING FOR INDIVIDUAL LI ADD HERE --
 			.then(function(res) {
 				gardenLiMaker(res);
+				$("form").remove();
+				gardenInputs = 0;
 			})
-			
-			$("form").remove()
-			gardenInputs = 0;
+		
 	  } else {
 		console.log("You got it wrong.");
 	  }

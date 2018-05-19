@@ -3,6 +3,11 @@ class PlantsController < ApplicationController
 
 	def index
 		@plants = Plant.all
+
+		respond_to do |format|
+			format.html
+			format.json { render json: @plants }
+		end
 	end
 
 	def new
@@ -10,6 +15,8 @@ class PlantsController < ApplicationController
 		# 	@garden = Garden.find(params[:garden_id])
 		# end
 		@plant = Plant.new
+
+		render layout: false
 	end
 
 	def create
@@ -52,7 +59,7 @@ class PlantsController < ApplicationController
 	end
 
 	def plant_params
-		params.require(:plant).permit(:name, :genus, :water_frequency, :id)
+		params.require(:plant).permit(:id, :name, :genus, :water_frequency)
 	end
 
 end
