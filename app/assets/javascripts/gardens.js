@@ -38,27 +38,21 @@ function newGardenSubmit(event) {
 	getGardens();	
 }
 
-// function createGarden() {
-// 	const gardenName = {"garden": {"name": $("#garden-name").val()}};
-// 	if (gardenName) {
-// 		$.post('/gardens', gardenName.serialize());
- 
-// 	} else {
-// 		console.log("You got it wrong.");
-// 	}
-// }
-
 function getGardens() {
-	$.get('/gardens.json', function(res) {
-		$("#garden_plants").empty();
-		res.forEach((garden) => {
+	fetch('/gardens.json', {credentials: 'same-origin'})
+		.then(function(res) {
+			return res.json();
+		})
+		.then(function (json) {
+		  $("#garden_plants").empty();
+			json.forEach((garden) => {
 			var html = `<li><a href='/gardens/${garden.id}'>${garden.name}</a> - ${garden.garden_plants.length} Plants Live Here</li>`
 			$("#garden_plants").append(html);
-		});
-	});
+			});
+		  });
+}
 
 // 	gardens.forEach((garden) => {
 // 	var html = `<li><a href='/gardens/${garden.id}'>${garden.name}<\a><\li>`;
 // 	$("ul").append(html);
 // });
-}

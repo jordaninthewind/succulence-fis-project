@@ -7,22 +7,15 @@ before_action :is_owner, except: [:new, :create, :index]
 	end
 
 	def create
-		if garden_params
-			@garden = Garden.new(garden_params) 
-		else
-			@garden = Garden.new(:name => params[:name])
-		end
-
+		@garden = Garden.new(garden_params)
 		@garden.user = current_user
 
 		if @garden.save
-
 			respond_to do |f|
-			  f.html 
 			  f.json {render json: @garden}
+			  f.html {redirect_to @garden}
 			end
 		else
-
 			render :new
 		end
 	end
