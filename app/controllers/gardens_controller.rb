@@ -7,7 +7,7 @@ before_action :is_owner, except: [:new, :create, :index]
 	end
 
 	def create
-		# binding.pry
+		binding.pry
 		@garden = Garden.new(garden_params)
 		@garden.user = current_user
 
