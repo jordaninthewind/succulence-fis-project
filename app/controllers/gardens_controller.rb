@@ -7,13 +7,20 @@ before_action :is_owner, except: [:new, :create, :index]
 	end
 
 	def create
-		binding.pry
-		@garden = Garden.new(garden_params)
+		if garden_params
+			@garden = Garden.new(garden_params) 
+		else
+			@garden = Garden.new(:name => params[:name])
+		end
+
 		@garden.user = current_user
 
 		if @garden.save
 
-			redirect_to garden_path(@garden)
+			respond_to do |f|
+			  f.html
+			  f.json {render json: @garden}
+			end
 		else
 
 			render :new

@@ -15,7 +15,7 @@ function addGardenInput() {
 	$("#newGarden").on("click", function(e) {
 		e.preventDefault();
 		if (gardenInputs === 0){
-			$("#newGarden").append("<br><form action='/gardens' id='garden_name'><input type='text' id='name'><button onclick='newGardenSubmit(event)'>Make Garden</input></form>");
+			$("#newGarden").append("<br><form action='/gardens' id='garden_name' name='garden'><input type='text' id='name'><button onclick='newGardenSubmit(event)'>Make Garden</input></form>");
 			gardenInputs++;
 			// attachGardenSubmit();
 		}
@@ -25,30 +25,25 @@ function addGardenInput() {
 function newGardenSubmit(event) {
 	// Stop form from submitting normally
 	event.preventDefault();
-	debugger;
+	const gardenName = {"garden": {"name": $("input#name").val()}};
 
-
-	// Get some values from elements on the page:
-	var $form = $("#newGarden" ),
-      term = $form.find("input[name='name']").val(),
-      url = $form.attr("action");
- 
-    // Send the data using post
-    var posting = $.post( url, { name: term } );
- 
-    // Put the results in a div
-    posting.done(getGardens())
-}
-
-function createGarden() {
-	const gardenName = {"name": $("#garden-name").val()};
-	if (gardenName) {
-		$.post('/gardens', gardenName.serialize());
- 
-	} else {
+	  if (gardenName) {
+		$.post('/gardens', gardenName)
+		  .done(getGardens());
+	  } else {
 		console.log("You got it wrong.");
-	}
+	  }
 }
+
+// function createGarden() {
+// 	const gardenName = {"garden": {"name": $("#garden-name").val()}};
+// 	if (gardenName) {
+// 		$.post('/gardens', gardenName.serialize());
+ 
+// 	} else {
+// 		console.log("You got it wrong.");
+// 	}
+// }
 
 function getGardens() {
 	$.get('/gardens.json', function(res) {

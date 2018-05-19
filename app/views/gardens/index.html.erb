@@ -5,6 +5,6 @@
 
 <ul id="garden_plants">
 <% @gardens.each do |garden| %>
-<li><%= link_to garden.name, garden_path(garden) %> - <%= garden.garden_plants.count %> Plants Live Here`</li>
+<li><%= link_to garden.name, garden_path(garden) %> - <%= garden.garden_plants.count %> Plants Live Here</li>
 <% end %>
 </ul>
