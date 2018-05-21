@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 
 var gardenInputs = 0;
-	
+
 function attachGardensListeners() {
 	console.log('gardens listener')
 	addGardenInput();
@@ -23,6 +23,10 @@ function addGardenInput() {
 			gardenInputs++;
 		}
 	});
+}
+
+function showGardenPlants() {
+	$(".garden_plant a")
 }
 
 function newGardenSubmit(e) {
@@ -63,3 +67,4 @@ function gardenLiMaker(garden) {
 	var html = `<li><a href='/gardens/${garden.id}'>${garden.name}</a> - ${garden.plants.length} Plants Live Here</li>`
 	$("ul#garden_plants").append(html);
 }
+

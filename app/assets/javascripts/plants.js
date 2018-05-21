@@ -1,6 +1,15 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
+class Plant {
+	constructor(object) {
+		this.id = id;
+		this.name = name;
+		this.genus = genus;
+		this.water_frequency = water_frequency;
+	}
+}
+
 var plants = "Plants.js is accessible.";
 
 document.addEventListener("DOMContentLoaded", function(event) { 
@@ -10,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 function attachPlantsListeners() {
 	console.log('plants listener')
+	getPlantInfo();
+	
 }
 
 // function addNewPlantForm() {
@@ -33,6 +44,22 @@ function getPlants() {
 }
 
 function plantLiMaker(plant) {
-	var html = `<li><a href='/plants/${plant.id}'>${plant.name}</a></li>`
-	$("ul#plants-index").append(html);
+	// var html = 
+	return `<li><a href='/plants/${plant.id}'>${plant.name}</a>${plant.genus} - ${plant.water_frequency}</li>`
+	// $("ul#plants-index").append(html);
 }
+
+function getPlantInfo() {
+	$("li a").on('click', function(e) {
+		e.preventDefault();
+
+		var url = $(this).attr('href');
+		fetch(`${url}.json`, {credentials: 'same-origin'})
+			.then((res) => res.json())
+			.then((json) => $(this).append(plantLiMaker(json)))
+			});
+
+		// var newPlant = new Plant(plant);
+		// console.log(newPlant)
+	};
+

@@ -47,7 +47,10 @@ class PlantsController < ApplicationController
 		# else
 		@plant = Plant.find(params[:id])
 		# end
-
+		respond_to do |format|
+			format.html {render layout: false}
+			format.json {render json: @plant}
+		end
 	end
 
 	private

@@ -6,4 +6,5 @@ class GardenSerializer < ActiveModel::Serializer
   def plants
   	object.garden_plants.map{|gp| {plant: gp.plant, last_watered: gp.last_watered, garden_plant_id: gp.id}}
   end
+
 end
