@@ -1,14 +1,17 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
+var gardens = "Gardens.js is accessible."
+
 document.addEventListener("DOMContentLoaded", function(event) { 
-  attachListeners();
+  attachGardensListeners();
   // getGardens();
 });
 
 var gardenInputs = 0;
-
-function attachListeners() {
+	
+function attachGardensListeners() {
+	console.log('gardens listener')
 	addGardenInput();
 }
 
@@ -57,6 +60,6 @@ function getGardens() {
 }
 
 function gardenLiMaker(garden) {
-	var html = `<li><a href='/gardens/${garden.id}'>${garden.name}</a> - ${garden.garden_plants.length} Plants Live Here</li>`
+	var html = `<li><a href='/gardens/${garden.id}'>${garden.name}</a> - ${garden.plants.length} Plants Live Here</li>`
 	$("ul#garden_plants").append(html);
 }

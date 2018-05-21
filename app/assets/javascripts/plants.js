@@ -1,10 +1,21 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
+var plants = "Plants.js is accessible.";
+
 document.addEventListener("DOMContentLoaded", function(event) { 
-  attachListeners();
-  getPlants();
+  attachPlantsListeners();
+  // getPlants();
 });
+
+function attachPlantsListeners() {
+	console.log('plants listener')
+}
+
+// function addNewPlantForm() {
+// 	$("#")
+
+// }
 
 function getPlants() {
 	$("ul#plants-index").empty();

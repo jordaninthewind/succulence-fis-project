@@ -2,7 +2,7 @@ Specifications for the Rails with jQuery Assessment
 Specs:
 
  Use jQuery for implementing new requirements
- -
+ - Used jQuery & vanilla JS
  Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
  -
  Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
