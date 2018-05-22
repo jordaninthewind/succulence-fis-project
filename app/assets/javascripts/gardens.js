@@ -13,6 +13,7 @@ var gardenInputs = 0;
 function attachGardensListeners() {
 	console.log('gardens listener')
 	addGardenInput();
+	loadGardenPlants();
 }
 
 function addGardenInput() {
@@ -25,10 +26,6 @@ function addGardenInput() {
 	});
 }
 
-function showGardenPlants() {
-	$(".garden_plant a")
-}
-
 function newGardenSubmit(e) {
 	e.preventDefault();
 
@@ -38,7 +35,7 @@ function newGardenSubmit(e) {
 	  if (input) {
 		$.post('/gardens', gardenName)
 			.then(function(res) {
-				gardenLiMaker(res);
+				$("ul#garden_plants").append(gardenLiMaker(res));
 				$("form").remove();
 				gardenInputs = 0;
 			})
@@ -56,15 +53,36 @@ function getGardens() {
 		})
 		.then(function(json) {
 			json.forEach((garden) => {
-				// var html = `<li><a href='/gardens/${garden.id}'>${garden.name}</a> - ${garden.garden_plants.length} Plants Live Here</li>`
-				// $("ul#garden_plants").append(html);
-				gardenLiMaker(garden);
+				$("ul#garden_plants").append(gardenLiMaker(garden));
 			});
 		  });
 }
 
+function loadGardenPlants() {
+	$('#garden_plants li a').on('click', function(e) { //find out how to remove event listener
+		e.preventDefault();
+		const li = $(this.parentNode);
+		var url = $(this).attr('href')
+		var returnHTML;
+		fetch(`${url}.json`, {credentials: 'same-origin'})
+			.then((res) => res.json())
+			.then(function (object){
+				object.plants.forEach(function(plant) {
+					// debugger;
+					li.append(gardenPlantsLiMaker(plant));
+					// console.log(gardenPlantsLiMaker(plant));
+				})
+
+			})		//$(this).after(plantLiMaker(object)))
+
+	});
+}
+
 function gardenLiMaker(garden) {
-	var html = `<li><a href='/gardens/${garden.id}'>${garden.name}</a> - ${garden.plants.length} Plants Live Here</li>`
-	$("ul#garden_plants").append(html);
+	return `<div><a href='/gardens/${garden.id}'>${garden.name}</a> - ${garden.plants.length} Plants Live Here</div>`;
+}
+
+function gardenPlantsLiMaker(plant) {
+	return `<div>   - <a href='/plants/${plant.plant.id}'>${plant.plant.name}</a></div>`; //- ${plant.last_watered}</div>
 }
 

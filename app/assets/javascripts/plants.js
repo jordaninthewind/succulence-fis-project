@@ -44,19 +44,17 @@ function getPlants() {
 }
 
 function plantLiMaker(plant) {
-	// var html = 
-	return `<li><a href='/plants/${plant.id}'>${plant.name}</a>${plant.genus} - ${plant.water_frequency}</li>`
-	// $("ul#plants-index").append(html);
+	return `<br><div><strong>Genus:</strong> ${plant.genus} - <strong>Watering Frequency:</strong> Every ${plant.water_frequency} Days</div><br>`
 }
 
 function getPlantInfo() {
-	$("li a").on('click', function(e) {
+	$("ul#plants-index li a").on('click', function(e) {
 		e.preventDefault();
 
 		var url = $(this).attr('href');
 		fetch(`${url}.json`, {credentials: 'same-origin'})
 			.then((res) => res.json())
-			.then((json) => $(this).append(plantLiMaker(json)))
+			.then((object) => $(this).after(plantLiMaker(object)))
 			});
 
 		// var newPlant = new Plant(plant);
