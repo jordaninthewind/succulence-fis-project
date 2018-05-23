@@ -1,3 +1,5 @@
+<div id="header">
+<h3 id="title"> Succulence </h3>
 <%= display_sign_up %>
 <%= display_sign_in %>
 <%= gardens_link %> <br> 
@@ -9,3 +11,4 @@
 <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
 <%= content_tag(:div, flash[:alert], :id => "flash_alert", :class => "field_with_errors") if flash[:alert] %>
 <% if flash[:notice] %> <br><br> <% end %>
+</div>

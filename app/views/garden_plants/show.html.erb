@@ -1,10 +1,12 @@
-<h2>Garden: <%= link_to @garden_plant.garden.name, @garden_plant.garden %></h2>
+<!-- <h2>Garden: <%#= link_to @garden_plant.garden.name, @garden_plant.garden %></h2> -->
 
-<%= render partial: 'plants/plant', :locals => {:plant => @garden_plant.plant} %>
+<!-- <%#= render partial: 'plants/plant', :locals => {:plant => @garden_plant.plant} %> -->
 
-<p> Planted On: <%= normalize_time(@garden_plant.created_at) %> </p>
-<p>Last Watered: <%= normalize_time(@garden_plant.last_watered) %></p>
+<!-- <section class="thumbnail col-sm-3"> -->
+	<p>Planted On: <%= normalize_time(@garden_plant.created_at) %> </p>
+	<p>Last Watered: <%= normalize_time(@garden_plant.last_watered) %></p>
 
-<%= overdue_notice(@garden_plant) %>
+	<%= overdue_notice(@garden_plant) %>
 
-<p><%= link_to "Water Plant", water_plant_path(@garden_plant.garden, @garden_plant) %></p>
+	<p><%= link_to "Water Plant", water_plant_path(@garden_plant.garden, @garden_plant) %></p>
+<!-- </section> <br><br> -->
