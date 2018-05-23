@@ -5,7 +5,6 @@ var gardens = "Gardens.js is accessible."
 
 document.addEventListener("DOMContentLoaded", function(event) { 
   attachGardensListeners();
-  // getGardens();
 });
 
 var gardenInputs = 0;
@@ -68,18 +67,27 @@ function loadGardenPlants() {
 			.then((res) => res.json())
 			.then(function (object){
 				object.plants.forEach(function(plant) {
-					// debugger;
 					li.append(gardenPlantsLiMaker(plant));
 					// console.log(gardenPlantsLiMaker(plant));
 				})
-
 			})		//$(this).after(plantLiMaker(object)))
 
+	$(this).off();
+	$(this).on('click', function() {
+		debugger;
+		var li = this;
+		removeGardenPlants(node);
+	})
 	});
 }
 
+function removeGardenPlants(node) {
+		debugger;
+		$(this.parentNode);
+}
+
 function gardenLiMaker(garden) {
-	return `<div><a href='/gardens/${garden.id}'>${garden.name}</a> - ${garden.plants.length} Plants Live Here</div>`;
+	return `<li><a href='/gardens/${garden.id}'>${garden.name}</a> - ${garden.plants.length} Plants Live Here</li>`;
 }
 
 function gardenPlantsLiMaker(plant) {
