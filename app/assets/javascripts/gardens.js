@@ -13,7 +13,10 @@ function attachGardensListeners() {
 	console.log('gardens listener')
 	addGardenInput();
 	loadGardenPlants();
+	// getGardens()
 }
+
+// FUNCTIONS TO ADD INPUT FORM AND MAKE NEW GARDEN
 
 function addGardenInput() {
 	$("a#newGarden").on("click", function(e) {
@@ -53,6 +56,8 @@ function newGardenSubmit(e) {
 	  }
 }
 
+// FUNCTIONS TO LOAD GARDEN PLANTS
+
 function getGardens() {
 	$("#garden_plants").empty();
 	fetch('/gardens.json', {credentials: 'same-origin'})
@@ -77,7 +82,12 @@ function loadGardenPlants() {
 			.then(function (object){
 				object.plants.forEach(function(plant) {
 					li.append(gardenPlantsLiMaker(plant));
-					// console.log(gardenPlantsLiMaker(plant));
+					$(li.context.lastChild).one('click', function(e) {
+						e.preventDefault();
+						const li = this;
+						loadGardenPlantPartial(li);
+					})
+					// debugger;
 				})
 			})		//$(this).after(plantLiMaker(object)))
 
@@ -89,7 +99,7 @@ function loadGardenPlants() {
 		// var li = this;
 		// alert('you fucked up.');
 		// removeGardenPlants(node);
-	})
+		})
 	});
 }
 
@@ -99,10 +109,19 @@ function removeGardenPlants(node) {
 }
 
 function gardenLiMaker(garden) {
-	return `<li><a href='/gardens/${garden.id}'>${garden.name}</a> - ${garden.plants.length} Plants Live Here</li>`;
+	return `<li><a href='/gardens/${garden.id}' class='garden_li'>${garden.name}</a> - ${garden.plants.length} Plants Live Here</li>`;
 }
 
 function gardenPlantsLiMaker(plant) {
-	return `<div>   - <a href='/plants/${plant.plant.id}'>${plant.plant.name}</a>GP ID: ${plant.garden_plant_id}</div>`; //- ${plant.last_watered}</div>
+	return `<div>   - <a href='/garden_plants/${plant.garden_plant_id} '>${plant.plant.name}</a>GP ID: ${plant.garden_plant_id}</div>`; //- ${plant.last_watered}</div>
 }
 
+function loadGardenPlantPartial(el) {
+	const url = el.childNodes[1].href;
+	// const html = 
+	fetch(url, {credentials: 'same-origin'})
+		.then((res) => res.text())
+		.then((html) => $(el).after(html));
+		// .then((html) => console.log(html));
+
+}

@@ -4,7 +4,7 @@ class GardenPlantsController < ActionController::Base
 
 	def show
 		respond_to do |f|
-			f.html
+			f.html {render :layout => false}
 			f.json {render json: @garden_plant}
 		end
 	end

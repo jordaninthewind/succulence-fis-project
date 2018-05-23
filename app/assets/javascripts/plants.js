@@ -37,8 +37,6 @@ function getPlants() {
 		.then(function(json) {
 			json.forEach((plant) => {
 				plantLiMaker(plant)
-				// var html = `<li><a href='/gardens/${garden.id}'>${garden.name}</a> - ${garden.garden_plants.length} Plants Live Here</li>`
-				// $("ul#garden_plants").append(html);
 			});
 		  });
 }
