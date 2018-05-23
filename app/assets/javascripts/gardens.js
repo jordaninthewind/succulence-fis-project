@@ -1,6 +1,12 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
+class Garden {
+	constructor(name) {
+		this.name = name;
+	}
+}
+
 var gardens = "Gardens.js is accessible."
 
 document.addEventListener("DOMContentLoaded", function(event) { 
