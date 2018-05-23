@@ -16,12 +16,21 @@ function attachGardensListeners() {
 }
 
 function addGardenInput() {
-	$("#newGarden").on("click", function(e) {
+	$("a#newGarden").on("click", function(e) {
 		e.preventDefault();
-		if (!gardenInputs){
-			$("#newGarden").append("<form action='/gardens' id='garden_name' name='garden'><input type='text' id='name' placeholder='Garden Name' onsubmit='newGardenSubmit(event)'><button onclick='newGardenSubmit(event)'>Make Garden</button></form>");
-			gardenInputs++;
-		}
+		// if (!gardenInputs){
+			$("#newGarden").after("<form action='/gardens' id='garden_name' name='garden'><input type='text' id='name' placeholder='Garden Name' onsubmit='newGardenSubmit(event)'><button onclick='newGardenSubmit(event)'>Make Garden</button></form>");
+			// gardenInputs++;
+			$("a#newGarden").off();
+			removeGardenInput();
+	})
+}
+
+function removeGardenInput() {
+	$("a#newGarden").one("click", function(e) {
+		e.preventDefault();
+		$("form#garden_name").empty();
+		addGardenInput();
 	});
 }
 
@@ -73,16 +82,19 @@ function loadGardenPlants() {
 			})		//$(this).after(plantLiMaker(object)))
 
 	$(this).off();
-	$(this).on('click', function() {
+
+	$(this).on('click', function(e) {
+		e.preventDefault();
 		debugger;
-		var li = this;
-		removeGardenPlants(node);
+		// var li = this;
+		// alert('you fucked up.');
+		// removeGardenPlants(node);
 	})
 	});
 }
 
 function removeGardenPlants(node) {
-		debugger;
+		// debugger;
 		$(this.parentNode);
 }
 
@@ -91,6 +103,6 @@ function gardenLiMaker(garden) {
 }
 
 function gardenPlantsLiMaker(plant) {
-	return `<div>   - <a href='/plants/${plant.plant.id}'>${plant.plant.name}</a></div>`; //- ${plant.last_watered}</div>
+	return `<div>   - <a href='/plants/${plant.plant.id}'>${plant.plant.name}</a>GP ID: ${plant.garden_plant_id}</div>`; //- ${plant.last_watered}</div>
 }
 
