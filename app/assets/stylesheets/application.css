@@ -15,7 +15,7 @@
  */
 
 body {
-	margin-top: 10%;
+	margin-top: 120px;
 	/*padding-left: 3%;*/
 }
 
@@ -35,4 +35,16 @@ body {
 	background-color: white;
 	border-bottom: : 1px solid lightgrey;	
 	width: 100%;
+}
+
+#garden_plant_container {
+	margin-top: 7%;
+	font-family: Helvetica;
+	/*border: 1px solid lightgrey;*/
+}
+
+.alert_class {
+	/*font-color: red;*/
+	font-size: 1.2em;
+	font-weight: bold;
 }

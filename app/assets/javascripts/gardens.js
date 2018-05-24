@@ -2,10 +2,15 @@
 // All this logic will automatically be available in application.js.
 
 class Garden {
-	constructor(name) {
-		this.name = name;
+	constructor(obj) {
+		this.name = obj.name,
+		this.id = obj.id,
+		this.user_id = obj.user_id,
+		this.plants = obj.plants
 	}
 }
+
+var gardens = [];
 
 document.addEventListener("DOMContentLoaded", function(event) { 
   attachGardensListeners();
@@ -115,7 +120,9 @@ function removeGardenPlants(node) {
 		$(this.parentNode);
 }
 
-function gardenLiMaker(garden) {
+function gardenLiMaker(el) {
+	var garden = new Garden(el);
+	gardens.push(garden);
 	return `<div><li><a href='/gardens/${garden.id}' class='garden_li'>${garden.name}</a> - ${garden.plants.length} Plants Live Here</li></div>`;
 }
 
