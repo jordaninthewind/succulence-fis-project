@@ -1,10 +1,13 @@
-<h2>All Plants</h2>
-
-<h3>Lowest Demand Plant: <%= Plant.low_demand.name %></h3>
-<h4>Water Frequency: <%= Plant.low_demand.water_frequency%></h4>
-
+<h3>All Plants</h3>
+<div class="row">
+	<div id="plant_commentary" class="col-sm-6">
+		<h5>Not Looking to Spend too Much Time or Energy?</h5>
+		<h5><strong> -- Easiest Plant to Care For: <%= Plant.low_demand.name %> -- </strong></h5>
+		<h5>Water Frequency: Every <%= Plant.low_demand.water_frequency%> Days</h5>
+	</div>
+</div>
 <br>
-<div class="col-sm-4">
+<div class="col-sm-2">
 	<ul id="plants-index">
 		<% @plants.each do |plant| %>
 		<li><%= link_to plant.name, plant_path(plant) %> <%if current_user.admin %><%= link_to "Edit", edit_admin_plant_path(plant) %><%end%></li>

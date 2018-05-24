@@ -10,10 +10,10 @@ class Plant {
   }
 
   dataBlob() {
-	return `<br><div><em><strong>Name:</strong> ${this.name}</em></div>
-			    <div><em><strong>Genus:</strong> ${this.genus}</em></div>
+	return     `<div><img class="image_border" src='${this.image_url}' width="170px" height="170px"></div>
+			<br><div><em><strong>Name:</strong> ${this.name}</em></div>
 			    <div><em><strong>Watering Frequency:</strong> ${this.water_frequency}</em></div>
-				<div><img src='${this.image_url}' width="150px" height="150px"></div>`;
+				<div><em><strong>Genus:</strong> ${this.genus}</em></div>`;
   }
 }
 

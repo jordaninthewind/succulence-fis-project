@@ -12,8 +12,9 @@ class Garden {
 
 var gardens = [];
 
-document.addEventListener("DOMContentLoaded", function(event) { 
-  attachGardensListeners();
+$(window).on('load', function(){
+// document.addEventListener("DOMContentLoaded", function(event) { 
+  attachGardensListeners()
 });
 
 
