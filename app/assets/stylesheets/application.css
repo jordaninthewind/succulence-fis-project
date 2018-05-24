@@ -19,9 +19,11 @@ body {
 }
 
 #title {
-	font-family: Lobster;
+	font-family: Pacifico;
 	font-size: 3.5em;
-	color: #ffb1ff;
+	color: #ffaaff;
+	/*font-weight: bold;*/
+	filter: drop-shadow(10px 10px 7px #ccf);
 }
 
 #footer {
@@ -35,19 +37,17 @@ body {
 #header {
 	position: fixed;
 	top: 20px;
-	/*background-color: white;*/	
-	border-bottom: : 1px solid black;
+	border-bottom: : 1px solid #ffaaff;
 	width: 100%;
 }
 
 #garden_plant_container {
 	margin-top: 7%;
 	font-family: Helvetica;
-	/*border: 1px solid lightgrey;*/
 }
 
 .alert_class {
-	/*font-color: red;*/
+	font-color: red;
 	font-size: 1.2em;
 	font-weight: bold;
 }
@@ -61,6 +61,19 @@ body {
 
 #plant_commentary {
 	margin-left: 10px;
-	background-color: lightpink;
+	background-color: #ffaaff;
+	color: #fff;
 	text-align: center;
+	border: 2px solid white;
+	border-radius: 50px;
+	filter: drop-shadow(10px 10px 7px #ccf);
+}
+
+.viewer {
+	width: 200px;
+	height: 200px;
+	padding: 5px 5px 5px 5px;
+	border: 2px solid #ffaaff;
+	border-radius: 20px;
+	align-content: center;
 }
