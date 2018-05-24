@@ -10,17 +10,10 @@ class Plant {
   }
 
   dataBlob() {
-	var html = `<div><em><strong>Name:</strong> ${this.name}</em></div>
-			<div><em><strong>Genus:</strong> ${this.genus}</em></div>
-			<div><em><strong>Watering Frequency:</strong> ${this.water_frequency}</em></div>`
-
-	// if (this.image_url) {
-		// debugger;
-		html += `<div><img src='${this.image_url}' width="150px" height="150px"></div>`;
-	// }
-	// console.log(html);
-	// debugger;
-	return html;
+	return `<br><div><em><strong>Name:</strong> ${this.name}</em></div>
+			    <div><em><strong>Genus:</strong> ${this.genus}</em></div>
+			    <div><em><strong>Watering Frequency:</strong> ${this.water_frequency}</em></div>
+				<div><img src='${this.image_url}' width="150px" height="150px"></div>`;
   }
 }
 
@@ -35,9 +28,12 @@ function attachPlantsListeners() {
 	
 }
 
+// function removeGardenPlants () {
+//
+// }
+
 // function addNewPlantForm() {
 // 	$("#")
-
 // }
 
 function getPlants() {
@@ -53,10 +49,6 @@ function getPlants() {
 		  });
 }
 
-// function plantLiMaker(plant) {
-// 	return `<br><div><strong>Genus:</strong> ${plant.genus} - <strong>Watering Frequency:</strong> Every ${plant.water_frequency} Days</div><br>`
-// }
-
 function getPlantInfo() {
 	$("ul#plants-index li a").on('click', function(e) {
 		e.preventDefault();
@@ -64,12 +56,8 @@ function getPlantInfo() {
 		var url = $(this).attr('href');
 		fetch(`${url}.json`, {credentials: 'same-origin'})
 			.then((res) => res.json())
-			// .then((object) => $(this).after(plantLiMaker(object)))
 			.then((object) => $(this).after(plantPartialUpdater(object)))
 			});
-
-		// var newPlant = new Plant(plant);
-		// console.log(newPlant)
 	};
 
 

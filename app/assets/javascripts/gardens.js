@@ -120,11 +120,11 @@ function removeGardenPlants(node) {
 		$(this.parentNode);
 }
 
-function gardenLiMaker(el) {
-	var garden = new Garden(el);
-	gardens.push(garden);
-	return `<div><li><a href='/gardens/${garden.id}' class='garden_li'>${garden.name}</a> - ${garden.plants.length} Plants Live Here</li></div>`;
-}
+// function gardenLiMaker(el) {
+// 	var garden = new Garden(el);
+// 	gardens.push(garden);
+// 	return `<div><li><a href='/gardens/${garden.id}' class='garden_li'>${garden.name}</a> - ${garden.plants.length} Plants Live Here</li></div>`;
+// }
 
 function gardenPlantsLiMaker(plant) {
 	return `<div>   - <a href='/garden_plants/${plant.garden_plant_id} '>${plant.plant.name}</a></div>`;

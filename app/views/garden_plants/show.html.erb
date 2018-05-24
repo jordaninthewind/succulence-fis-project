@@ -3,6 +3,8 @@
 <!-- <%#= render partial: 'plants/plant', :locals => {:plant => @garden_plant.plant} %> -->
 
 <!-- <section class="thumbnail col-sm-3"> -->
+	<br>
+	<p>Plant Type: <%=@garden_plant.plant.name %></p>
 	<p>Planted On: <%= normalize_time(@garden_plant.created_at) %> </p>
 	<p>Last Watered: <%= normalize_time(@garden_plant.last_watered) %></p>
 
