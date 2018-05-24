@@ -127,7 +127,7 @@ function gardenLiMaker(el) {
 }
 
 function gardenPlantsLiMaker(plant) {
-	return `<div>   - <a href='/garden_plants/${plant.garden_plant_id} '>${plant.plant.name}</a>GP ID: ${plant.garden_plant_id}</div>`; //- ${plant.last_watered}</div>
+	return `<div>   - <a href='/garden_plants/${plant.garden_plant_id} '>${plant.plant.name}</a></div>`;
 }
 
 function loadGardenPlantPartial(el) {

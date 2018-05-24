@@ -4,10 +4,18 @@
 <h4>Water Frequency: <%= Plant.low_demand.water_frequency%></h4>
 
 <br>
-<ul id="plants-index">
-
-	<% @plants.each do |plant| %>
-	<li><%= link_to plant.name, plant_path(plant) %> <%if current_user.admin %><%= link_to "Edit", edit_admin_plant_path(plant) %><%end%></li>
-	<% end %>
-	
-</ul>
+<div class="col-sm-4">
+	<ul id="plants-index">
+		<% @plants.each do |plant| %>
+		<li><%= link_to plant.name, plant_path(plant) %> <%if current_user.admin %><%= link_to "Edit", edit_admin_plant_path(plant) %><%end%></li>
+		<% end %>
+		
+	</ul>
+</div>
+<div class="col-sm-6">
+	<div class="plant_show_partial">
+	More details here
+	</div>
+	<br><br><br>
+	<%= link_to "View Gardens", gardens_path %>
+</div>

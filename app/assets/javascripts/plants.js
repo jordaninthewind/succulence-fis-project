@@ -2,8 +2,16 @@
 // All this logic will automatically be available in application.js.
 
 class Plant {
-	constructor(name) {
-		this.name = name;
+	constructor(obj) {
+		this.name = obj.name,
+		this.genus = obj.genus,
+		this.water_frequency = obj.water_frequency
+	}
+
+	dataBlob() {
+		return `<div><em><strong>Name:</strong> ${this.name}</em></div>
+				<div><em><strong>Genus:</strong> ${this.genus}</em></div>
+				<div><em><strong>Watering Frequency:</strong> ${this.water_frequency}</em></div>`
 	}
 }
 
@@ -36,9 +44,9 @@ function getPlants() {
 		  });
 }
 
-function plantLiMaker(plant) {
-	return `<br><div><strong>Genus:</strong> ${plant.genus} - <strong>Watering Frequency:</strong> Every ${plant.water_frequency} Days</div><br>`
-}
+// function plantLiMaker(plant) {
+// 	return `<br><div><strong>Genus:</strong> ${plant.genus} - <strong>Watering Frequency:</strong> Every ${plant.water_frequency} Days</div><br>`
+// }
 
 function getPlantInfo() {
 	$("ul#plants-index li a").on('click', function(e) {
@@ -47,10 +55,16 @@ function getPlantInfo() {
 		var url = $(this).attr('href');
 		fetch(`${url}.json`, {credentials: 'same-origin'})
 			.then((res) => res.json())
-			.then((object) => $(this).after(plantLiMaker(object)))
+			// .then((object) => $(this).after(plantLiMaker(object)))
+			.then((object) => $(this).after(plantPartialUpdater(object)))
 			});
 
 		// var newPlant = new Plant(plant);
 		// console.log(newPlant)
 	};
 
+
+function plantPartialUpdater(plant) {
+	var currentPlant = new Plant(plant);
+	$("div.plant_show_partial").html(currentPlant.dataBlob());
+}

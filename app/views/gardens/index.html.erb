@@ -1,7 +1,7 @@
 <div class="col-sm-6">
 <h3><div><%= link_to "Make New Garden", new_garden_path, id: "newGarden" %></div></h3>
 <%unless current_user.gardens%>
-<h2>All <%if current_user.username != "" %><%= current_user.username + "'s " %><% end %>Gardens: </h2>
+<h2>All <%if current_user %><%= current_user.username + "'s " %><% end %>Gardens: </h2>
 <%end%>
 <br>
 
@@ -17,5 +17,4 @@
 	<div id="garden_plant_viewer">
 		- Will Update Here - 
 	</div>
-	
 </div>
