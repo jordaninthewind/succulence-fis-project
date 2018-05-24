@@ -1,5 +1,7 @@
-<div class="col-sm-3">
-<h3><div><%= link_to "Make New Garden", new_garden_path, id: "newGarden" %></div></h3>
+<!-- <div class="col-xs-1"></div> -->
+
+<div class="col-xs-4">
+<div class="h3"><%= link_to "Make New Garden", new_garden_path, id: "newGarden" %></div>
 <%unless current_user.gardens%>
 <h2>All <%if current_user %><%= current_user.username + "'s " %><% end %>Gardens: </h2>
 <%end%>
@@ -7,12 +9,12 @@
 
 <ul id="garden_plants">
 <% @gardens.each do |garden| %>
-<li><%= link_to garden.name, garden_path(garden), class: 'garden_li', id: garden.id %> - <%= garden.garden_plants.count %> Plants Live Here</li>
+<li><%= link_to garden.name, garden_path(garden), class: 'garden_li', id: garden.id %> - <%= garden.garden_plants.count %> Plants</li>
 <% end %>
 </ul>
 </div>
 
-<div class="col-sm-6" id="garden_plant_container">
+<div class="col-xs-6" id="garden_plant_container">
 	<strong>Your Plant Info:</strong><br>
 	<div id="garden_plant_viewer" class="viewer">
 		- Will Update Here - 

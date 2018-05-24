@@ -10,7 +10,7 @@ class Plant {
   }
 
   dataBlob() {
-	return     `<div><img class="image_border" src='${this.image_url}' width="170px" height="170px"></div>
+	return     `<div><img class="image_border" src='${this.image_url}' width="200px" height="200px"></div>
 			<br><div><em><strong>Name:</strong>${this.name}</em></div>
 			    <div><em><strong>Watering Frequency:</strong> ${this.water_frequency}</em></div>
 				<div><em><strong>Genus:</strong> ${this.genus}</em></div>`;

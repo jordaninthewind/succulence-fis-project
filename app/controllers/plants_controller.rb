@@ -2,7 +2,7 @@ class PlantsController < ApplicationController
 	before_action :set_plant, except: [:new, :create, :index]
 
 	def index
-		@plants = Plant.all
+		@plants = Plant.all.sort_by { |plant| plant.name }
 
 		respond_to do |format|
 			format.html

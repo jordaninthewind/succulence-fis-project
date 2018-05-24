@@ -16,13 +16,13 @@
 
 body {
 	margin-top: 120px;
+	width: 1200px;
 }
 
 #title {
 	font-family: Pacifico;
 	font-size: 3.5em;
 	color: #ffaaff;
-	/*font-weight: bold;*/
 	filter: drop-shadow(10px 10px 7px #ccf);
 }
 
@@ -76,4 +76,10 @@ body {
 	border: 2px solid #ffaaff;
 	border-radius: 20px;
 	align-content: center;
+}
+
+.med-title {
+	font-family: Pacifico;
+	font-size: 2em
+	color: #ffaaff;
 }
