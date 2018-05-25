@@ -10,17 +10,20 @@ class Garden {
 	}
 }
 
+var gardens = [];
+var gardenLoadTimes = 0;
+
 $(window).on('load', function(){
 // document.addEventListener("DOMContentLoaded", function(event) { 
-  bindGardensListeners()
+  attachGardensListeners()
 });
 
 
-function bindGardensListeners() {
+function attachGardensListeners() {
 	console.log('gardens listener')
 	addGardenInput();
 	loadGardenPlants();
-	// gardenLoadTimes++;
+	gardenLoadTimes++;
 	// getGardens()
 }
 
@@ -50,27 +53,31 @@ function newGardenSubmit(e) {
 
 	  if (input) {
 		$.post('/gardens', gardenName)
-		  .then(function(res) {
-			$("ul#garden_plants").append(gardenLiMaker(res));
-			$("form").remove();
-		  })
+			.then(function(res) {
+				$("ul#garden_plants").append(gardenLiMaker(res));
+				$("form").remove();
+			})
+		
+	  } else {
+		console.log("You got it wrong.");
 	  }
 }
 
 // FUNCTIONS TO LOAD GARDEN PLANTS - Not necessary because of event listener complications
 
-var getGardens = () => {
+function getGardens() {
 	$("#garden_plants").empty();
 	fetch('/gardens.json', {credentials: 'same-origin'})
-		.then(res => {
-			return res.json() })
-		.then(json => {
-			json.forEach(garden => {
+		.then(function(res) {
+			return res.json();
+		})
+		.then(function(json) {
+			json.forEach((garden) => {
 				$("ul#garden_plants").append(gardenLiMaker(garden));
 
 		});
 	});
-	// bindGardensListeners();
+	attachGardensListeners();
 }
 
 // function addGardenPlantListener() {
@@ -78,23 +85,25 @@ var getGardens = () => {
 // }
 
 function loadGardenPlants() {
-  $('#garden_plants li a').one('click', function(e){
-	e.preventDefault();
-	const li = $(this.parentNode);
-	let url = $(this).attr('href');
-	fetch(`${url}.json`, {credentials: 'same-origin'})
-		.then((res) => res.json())
-		.then(object =>{
-			object.plants.forEach(function(plant) {
-				li.append(gardenPlantsLiMaker(plant));
-				$(li.context.lastChild).on('click', function(e) {
-					e.preventDefault();
-					const li = this;
-					loadGardenPlantPartial(li);
+	$('#garden_plants li a').on('click', function(e){
+		e.preventDefault();
+		const li = $(this.parentNode);
+		var url = $(this).attr('href');
+		fetch(`${url}.json`, {credentials: 'same-origin'})
+			.then((res) => res.json())
+			.then(function (object){
+				object.plants.forEach(function(plant) {
+					li.append(gardenPlantsLiMaker(plant));
+					$(li.context.lastChild).on('click', function(e) {
+						e.preventDefault();
+						const li = this;
+						loadGardenPlantPartial(li);
+					})
 				})
-			})
-		})
-	})
+			})		//$(this).after(plantLiMaker(object)))
+
+	$(this).off();
+	});
 }
 
 function removeGardenPlants(node) {
@@ -113,7 +122,6 @@ function gardenPlantsLiMaker(plant) {
 
 function loadGardenPlantPartial(el) {
 	const url = el.childNodes[1].href;
-	// const html = 
 	fetch(url, {credentials: 'same-origin'})
 		.then((res) => res.text())
 		.then((html) => $('#garden_plant_viewer').html(html))

@@ -15,11 +15,9 @@
  */
 
 body {
-	margin-top: 120px;
-	width: 1200px;
-	background-image: url('backgound-succulents.jpg');
-	background-repeat: no-repeat;
-	background-size: 35.5%;
+	margin-top: 8%;
+	/*width: 1200px;*/
+
 }
 
 #title {
@@ -37,11 +35,17 @@ body {
 	width: 100%;
 }
 
-#header {
+.navbar {
+	overflow: hidden;
+	background-image: url('backgound-succulents.jpg');
+	background-repeat: no-repeat;
+	background-size: 30%;
 	position: fixed;
-	top: 20px;
-	border-bottom: : 1px solid #ffaaff;
+	background-color: white;
+	top: 0;
 	width: 100%;
+	z-index: 10;
+	border-bottom: 1px dashed #ffaaff;
 }
 
 #garden_plant_container {
@@ -56,14 +60,14 @@ body {
 }
 
 .image_border {
-    border: 10px dotted #ffaaff;
+    border: 10px dotted #aaffaa;
     border-radius: 35px;
 }
 
 #plant_commentary {
 	margin-left: 10px;
-	background-color: #ffaaff;
-	color: #fff;
+	background-color: #aaaaff;
+	color: #000;
 	text-align: center;
 	border: 2px solid white;
 	border-radius: 50px;
@@ -72,9 +76,9 @@ body {
 
 .viewer {
 	width: 200px;
-	height: 200px;
+	/*height: 200px;*/
 	padding: 5px 5px 5px 5px;
-	border: 2px solid #ffaaff;
+	border: 2px solid #aaffaa;
 	border-radius: 20px;
 	align-content: center;
 }
