@@ -1,21 +1,37 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-class Plant {
-  constructor(obj) {
+// class Plant {
+//   constructor(obj) {
+// 	this.name = obj.name,
+// 	this.genus = obj.genus,
+// 	this.water_frequency = obj.water_frequency,
+// 	this.image_url = obj.image_url
+//   }
+
+//   dataBlob() {
+// 	return     `<div><img class="image_border" src='${this.image_url}' width="200px" height="200px"></div>
+// 			<br><div><em><strong>Name:</strong>${this.name}</em></div>
+// 			    <div><em><strong>Watering Frequency:</strong> ${this.water_frequency}</em></div>
+// 				<div><em><strong>Genus:</strong> ${this.genus}</em></div>`;
+//   }
+// }
+
+function Plant(obj) {
 	this.name = obj.name,
 	this.genus = obj.genus,
 	this.water_frequency = obj.water_frequency,
 	this.image_url = obj.image_url
-  }
+}
 
-  dataBlob() {
+Plant.prototype.dataBlob = function() {
 	return     `<div><img class="image_border" src='${this.image_url}' width="200px" height="200px"></div>
 			<br><div><em><strong>Name:</strong>${this.name}</em></div>
 			    <div><em><strong>Watering Frequency:</strong> ${this.water_frequency}</em></div>
 				<div><em><strong>Genus:</strong> ${this.genus}</em></div>`;
-  }
 }
+
+
 
 document.addEventListener("DOMContentLoaded", function(event) { 
   attachPlantsListeners();
@@ -24,7 +40,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 function attachPlantsListeners() {
 	console.log('plants listener')
-	getPlantInfo();	
+	// getPlants();
+	getPlantInfo();
 }
 
 // function removeGardenPlants () {
@@ -46,6 +63,7 @@ function getPlants() {
 				plantLiMaker(plant)
 			});
 		  });
+		// getPlantInfo();	
 }
 
 function getPlantInfo() {
@@ -61,7 +79,6 @@ function getPlantInfo() {
 
 
 function plantPartialUpdater(plant) {
-	debugger;
 	var currentPlant = new Plant(plant);
 	$("div.plant_show_partial").html(currentPlant.dataBlob());
 }

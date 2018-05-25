@@ -11,6 +11,7 @@ class Garden {
 }
 
 var gardens = [];
+var gardenLoadTimes = 0;
 
 $(window).on('load', function(){
 // document.addEventListener("DOMContentLoaded", function(event) { 
@@ -22,6 +23,7 @@ function attachGardensListeners() {
 	console.log('gardens listener')
 	addGardenInput();
 	loadGardenPlants();
+	gardenLoadTimes++;
 	// getGardens()
 }
 
@@ -30,7 +32,7 @@ function attachGardensListeners() {
 function addGardenInput() {
 	$("a#newGarden").on("click", function(e) {
 		e.preventDefault();
-			$("#newGarden").after("<form action='/gardens' id='garden_name' name='garden'><input type='text' id='name' placeholder='Garden Name' onsubmit='newGardenSubmit(event)'><button onclick='newGardenSubmit(event)'>Make Garden</button></form>");
+			$("#newGarden").after("<div><form action='/gardens' id='garden_name' name='garden'><input type='text' id='name' placeholder='Garden Name' onsubmit='newGardenSubmit(event)'><button onclick='newGardenSubmit(event)'>Make Garden</button></form></div>");
 			$("a#newGarden").off();
 			removeGardenInput();
 	})
@@ -46,7 +48,6 @@ function removeGardenInput() {
 
 function newGardenSubmit(e) {
 	e.preventDefault();
-
 	let input = $("input#name").val();
 	const gardenName = {"garden": {"name": input}};
 
@@ -55,7 +56,6 @@ function newGardenSubmit(e) {
 			.then(function(res) {
 				$("ul#garden_plants").append(gardenLiMaker(res));
 				$("form").remove();
-				gardenInputs = 0;
 			})
 		
 	  } else {
@@ -65,31 +65,30 @@ function newGardenSubmit(e) {
 
 // FUNCTIONS TO LOAD GARDEN PLANTS - Not necessary because of event listener complications
 
-// function getGardens() {
-// 	$("#garden_plants").empty();
-// 	fetch('/gardens.json', {credentials: 'same-origin'})
-// 		.then(function(res) {
-// 			return res.json();
-// 		})
-// 		.then(function(json) {
-// 			json.forEach((garden) => {
-// 				// debugger;
-// 				$("ul#garden_plants").append(gardenLiMaker(garden));
+function getGardens() {
+	$("#garden_plants").empty();
+	fetch('/gardens.json', {credentials: 'same-origin'})
+		.then(function(res) {
+			return res.json();
+		})
+		.then(function(json) {
+			json.forEach((garden) => {
+				$("ul#garden_plants").append(gardenLiMaker(garden));
 
-// 			});
-// 		  });
-// }
+		});
+	});
+	attachGardensListeners();
+}
 
 // function addGardenPlantListener() {
 
 // }
 
 function loadGardenPlants() {
-	$('#garden_plants li a').on('click', function(e) { //find out how to remove event listener
+	$('#garden_plants li a').on('click', function(e){
 		e.preventDefault();
 		const li = $(this.parentNode);
-		var url = $(this).attr('href')
-		var returnHTML;
+		var url = $(this).attr('href');
 		fetch(`${url}.json`, {credentials: 'same-origin'})
 			.then((res) => res.json())
 			.then(function (object){
@@ -100,7 +99,6 @@ function loadGardenPlants() {
 						const li = this;
 						loadGardenPlantPartial(li);
 					})
-					// debugger;
 				})
 			})		//$(this).after(plantLiMaker(object)))
 
@@ -108,7 +106,6 @@ function loadGardenPlants() {
 
 	$(this).on('click', function(e) {
 		e.preventDefault();
-		debugger;
 		// find which node to empty
 
 		// removeGardenPlants();
@@ -117,15 +114,14 @@ function loadGardenPlants() {
 }
 
 function removeGardenPlants(node) {
-		debugger;
-		$(this.parentNode);
+	$(this.parentNode);
 }
 
-// function gardenLiMaker(el) {
-// 	var garden = new Garden(el);
-// 	gardens.push(garden);
-// 	return `<div><li><a href='/gardens/${garden.id}' class='garden_li'>${garden.name}</a> - ${garden.plants.length} Plants Live Here</li></div>`;
-// }
+function gardenLiMaker(el) {
+	var garden = new Garden(el);
+	gardens.push(garden);
+	return `<div><li><a href='/gardens/${garden.id}' class='garden_li'>${garden.name}</a> - ${garden.plants.length} Plants</li></div>`;
+}
 
 function gardenPlantsLiMaker(plant) {
 	return `<div>   - <a href='/garden_plants/${plant.garden_plant_id} '>${plant.plant.name}</a></div>`;
@@ -137,6 +133,5 @@ function loadGardenPlantPartial(el) {
 	fetch(url, {credentials: 'same-origin'})
 		.then((res) => res.text())
 		.then((html) => $('#garden_plant_viewer').html(html));
-		// .then((html) => console.log(html));
-
+		.then((html) => console.log(html));
 }
