@@ -33,12 +33,13 @@ Plant.prototype.dataBlob = function() {
 
 
 
-document.addEventListener("DOMContentLoaded", function(event) { 
-  attachPlantsListeners();
+document.addEventListener("DOMContentLoaded", function(e) { 
+  e.preventDefault();
+  bindPlantsListeners();
   // getPlants();
 });
 
-function attachPlantsListeners() {
+function bindPlantsListeners() {
 	console.log('plants listener')
 	// getPlants();
 	getPlantInfo();

@@ -19,7 +19,7 @@ body {
 	width: 1200px;
 	background-image: url('backgound-succulents.jpg');
 	background-repeat: no-repeat;
-	background-size: 35%;
+	background-size: 35.5%;
 }
 
 #title {
@@ -56,10 +56,8 @@ body {
 }
 
 .image_border {
-    border-color: rgb(0,0,0);
-    border-width: 10px;
-    border-style: dotted;
-    border-radius: 25px;
+    border: 10px dotted #ffaaff;
+    border-radius: 35px;
 }
 
 #plant_commentary {
@@ -85,4 +83,14 @@ body {
 	font-family: Pacifico;
 	font-size: 2em
 	color: #ffaaff;
+	align-self: center;
+}
+
+.registration-style {
+	font-family: Pacifico;
+	color: #ffaaff;
+	filter: drop-shadow(5px 5px 5px #ccf);
+	border: 0px solid #fff;
+	border-radius: 20px;
+	
 }

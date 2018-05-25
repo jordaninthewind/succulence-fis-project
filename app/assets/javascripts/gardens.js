@@ -10,20 +10,17 @@ class Garden {
 	}
 }
 
-var gardens = [];
-var gardenLoadTimes = 0;
-
 $(window).on('load', function(){
 // document.addEventListener("DOMContentLoaded", function(event) { 
-  attachGardensListeners()
+  bindGardensListeners()
 });
 
 
-function attachGardensListeners() {
+function bindGardensListeners() {
 	console.log('gardens listener')
 	addGardenInput();
 	loadGardenPlants();
-	gardenLoadTimes++;
+	// gardenLoadTimes++;
 	// getGardens()
 }
 
@@ -32,9 +29,9 @@ function attachGardensListeners() {
 function addGardenInput() {
 	$("a#newGarden").on("click", function(e) {
 		e.preventDefault();
-			$("#newGarden").after("<div><form action='/gardens' id='garden_name' name='garden'><input type='text' id='name' placeholder='Garden Name' onsubmit='newGardenSubmit(event)'><button onclick='newGardenSubmit(event)'>Make Garden</button></form></div>");
-			$("a#newGarden").off();
-			removeGardenInput();
+		$("#newGarden").after("<div><form action='/gardens' id='garden_name' name='garden'><input type='text' id='name' placeholder='Garden Name' onsubmit='newGardenSubmit(event)'><button onclick='newGardenSubmit(event)'>Make Garden</button></form></div>");
+		$("a#newGarden").off();
+		removeGardenInput();
 	})
 }
 
@@ -53,31 +50,27 @@ function newGardenSubmit(e) {
 
 	  if (input) {
 		$.post('/gardens', gardenName)
-			.then(function(res) {
-				$("ul#garden_plants").append(gardenLiMaker(res));
-				$("form").remove();
-			})
-		
-	  } else {
-		console.log("You got it wrong.");
+		  .then(function(res) {
+			$("ul#garden_plants").append(gardenLiMaker(res));
+			$("form").remove();
+		  })
 	  }
 }
 
 // FUNCTIONS TO LOAD GARDEN PLANTS - Not necessary because of event listener complications
 
-function getGardens() {
+var getGardens = () => {
 	$("#garden_plants").empty();
 	fetch('/gardens.json', {credentials: 'same-origin'})
-		.then(function(res) {
-			return res.json();
-		})
-		.then(function(json) {
-			json.forEach((garden) => {
+		.then(res => {
+			return res.json() })
+		.then(json => {
+			json.forEach(garden => {
 				$("ul#garden_plants").append(gardenLiMaker(garden));
 
 		});
 	});
-	attachGardensListeners();
+	// bindGardensListeners();
 }
 
 // function addGardenPlantListener() {
@@ -85,32 +78,23 @@ function getGardens() {
 // }
 
 function loadGardenPlants() {
-	$('#garden_plants li a').on('click', function(e){
-		e.preventDefault();
-		const li = $(this.parentNode);
-		var url = $(this).attr('href');
-		fetch(`${url}.json`, {credentials: 'same-origin'})
-			.then((res) => res.json())
-			.then(function (object){
-				object.plants.forEach(function(plant) {
-					li.append(gardenPlantsLiMaker(plant));
-					$(li.context.lastChild).on('click', function(e) {
-						e.preventDefault();
-						const li = this;
-						loadGardenPlantPartial(li);
-					})
+  $('#garden_plants li a').one('click', function(e){
+	e.preventDefault();
+	const li = $(this.parentNode);
+	let url = $(this).attr('href');
+	fetch(`${url}.json`, {credentials: 'same-origin'})
+		.then((res) => res.json())
+		.then(object =>{
+			object.plants.forEach(function(plant) {
+				li.append(gardenPlantsLiMaker(plant));
+				$(li.context.lastChild).on('click', function(e) {
+					e.preventDefault();
+					const li = this;
+					loadGardenPlantPartial(li);
 				})
-			})		//$(this).after(plantLiMaker(object)))
-
-	$(this).off();
-
-	$(this).on('click', function(e) {
-		e.preventDefault();
-		// find which node to empty
-
-		// removeGardenPlants();
+			})
 		})
-	});
+	})
 }
 
 function removeGardenPlants(node) {
@@ -132,6 +116,6 @@ function loadGardenPlantPartial(el) {
 	// const html = 
 	fetch(url, {credentials: 'same-origin'})
 		.then((res) => res.text())
-		.then((html) => $('#garden_plant_viewer').html(html));
+		.then((html) => $('#garden_plant_viewer').html(html))
 		.then((html) => console.log(html));
 }
