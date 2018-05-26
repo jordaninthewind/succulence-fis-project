@@ -7,6 +7,7 @@
 // 	this.genus = obj.genus,
 // 	this.water_frequency = obj.water_frequency,
 // 	this.image_url = obj.image_url
+// 	plants.push(this);
 //   }
 
 //   dataBlob() {
@@ -18,6 +19,8 @@
 // }
 
 var plant = {name: 'Plant One', genus: 'plantus', water_frequncy: 15};
+
+var plants = []
 
 function Plant(obj) {
 	this.name = obj.name,

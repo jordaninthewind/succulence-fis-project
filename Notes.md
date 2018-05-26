@@ -7,9 +7,12 @@ To Dos for JS FE:
 	- Work in Listeners Reattach
 	- Add Plant in JS
 	- Edit Garden Name in JS
+	- Add 'high maintenance/low maintenance' in view
 	- 
 
-
+V2 To Dos:
+	- Fix Admin Functionality
+	- 
 
 <!-- Notes during assessment:
 
