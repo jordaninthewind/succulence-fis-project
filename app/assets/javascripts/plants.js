@@ -59,11 +59,9 @@ function bindPlantsListeners() {
 function getPlants() {
 	$("ul#plants-index").empty();
 	fetch('/plants.json', {credentials: 'same-origin'})
-		.then(function(res) {
-			return res.json();
-		})
+		.then(res => { res.json() })
 		.then(function(json) {
-			json.forEach((plant) => {
+			json.forEach((obj) => {
 				plantLiMaker(plant)
 			});
 		  });

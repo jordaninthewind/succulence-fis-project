@@ -1,4 +1,17 @@
-Notes during assessment:
+Notes for JS FE:
+
+To Dos for JS FE:
+	<!-- - Update Readme/Install Guide/Contributors Guide -->
+	- Update Seed File
+	- Clean Up Gardens
+	- Work in Listeners Reattach
+	- Add Plant in JS
+	- Edit Garden Name in JS
+	- 
+
+
+
+<!-- Notes during assessment:
 
 - Refer URL in Partial	
 
@@ -43,4 +56,4 @@ Little Details
 - Add time formatting for views
 
 V2 Ideas
-- Add regions for dynamic watering schedules
+- Add regions for dynamic watering schedules -->

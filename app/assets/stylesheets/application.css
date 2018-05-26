@@ -16,20 +16,19 @@
 
 body {
 	margin-top: 8%;
-	/*width: 1200px;*/
-
+	width: 1200px;
 }
 
 #title {
 	font-family: Pacifico;
 	font-size: 3.5em;
 	color: #ffaaff;
-	filter: drop-shadow(50px 15px 25px #fff);
+	filter: drop-shadow(50px 15px 5px #fff);
 }
 
 #footer {
 	position: fixed;
-	bottom: 10px;
+	bottom: 0px;
 	background-color: white;
 	border-top: 1px solid lightgrey;	
 	width: 100%;
@@ -37,6 +36,7 @@ body {
 
 .navbar {
 	overflow: hidden;
+	padding-left: 60px;
 	background-image: url('backgound-succulents.jpg');
 	background-repeat: no-repeat;
 	background-size: 30%;

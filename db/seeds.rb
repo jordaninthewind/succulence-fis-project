@@ -1,6 +1,6 @@
 DATA_plants = {
     :plant_keys =>
-        ["name", "species", "genus", "water_frequency"],
+        ["name", "genus", "water_frequency", "image_url"],
     :plants => [
         ["Copper Leaf", "Multicaulus", "Echeveria", 15],
         ["Papierrosie", "Arachnoidea", "Hawarthia", 10],
