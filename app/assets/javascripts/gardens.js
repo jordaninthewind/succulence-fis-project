@@ -15,7 +15,7 @@ var gardenLoadTimes = 0;
 
 $(window).on('load', function(){
 // document.addEventListener("DOMContentLoaded", function(event) { 
-  attachGardensListeners()
+  // attachGardensListeners()
 });
 
 

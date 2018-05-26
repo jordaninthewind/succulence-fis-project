@@ -2,8 +2,8 @@ Notes for JS FE:
 
 To Dos for JS FE:
 	<!-- - Update Readme/Install Guide/Contributors Guide -->
-	- Update Seed File
-	- Clean Up Gardens
+	<!-- - Update Seed File -->
+	- Clean Up gardens.js
 	- Work in Listeners Reattach
 	- Add Plant in JS
 	- Edit Garden Name in JS

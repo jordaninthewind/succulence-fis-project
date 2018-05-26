@@ -43,11 +43,12 @@ Plant.prototype.lineFormat = function() {
 				<div><em><strong>Genus:</strong> ${this.genus}</em></div>`;
 }
 
-document.addEventListener("DOMContentLoaded", function(e) { 
-  e.preventDefault();
-  bindPlantsListeners();
+// document.addEventListener("DOMContentLoaded", function(e) { 
+// $(window).on('load', function(e){
+  // e.preventDefault();
+  
   // getPlants();
-});
+// });
 
 function bindPlantsListeners() {
 	console.log('plants listener')
