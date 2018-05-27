@@ -18,10 +18,6 @@
 //   }
 // }
 
-var plant = {name: 'Plant One', genus: 'plantus', water_frequncy: 15};
-
-var plants = []
-
 function Plant(obj) {
 	this.name = obj.name,
 	this.genus = obj.genus,
@@ -44,7 +40,7 @@ Plant.prototype.lineFormat = function() {
 }
 
 // document.addEventListener("DOMContentLoaded", function(e) { 
-// $(window).on('load', function(e){
+// $(window).on('ready', function(e){
   // e.preventDefault();
   
   // getPlants();
@@ -52,13 +48,8 @@ Plant.prototype.lineFormat = function() {
 
 function bindPlantsListeners() {
 	console.log('plants listener')
-	// getPlants();
 	getPlantInfo();
 }
-
-// function addNewPlantForm() {
-// 	$("#")
-// }
 
 function getPlants() {
 	$("ul#plants-index").empty();
@@ -67,9 +58,8 @@ function getPlants() {
 		.then(function(json) {
 			json.forEach((obj) => {
 				plantLiMaker(plant)
-			});
-		  });
-		// getPlantInfo();	
+		});
+	});
 }
 
 function getPlantInfo() {
@@ -88,3 +78,9 @@ function plantPartialUpdater(obj) {
 	var currentPlant = new Plant(obj);
 	$("div.plant_show_partial").html(currentPlant.dataBlob());
 }
+
+// Possible Features to Add
+
+// function addNewPlantForm() {
+// 	$("#")
+// }

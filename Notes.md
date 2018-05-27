@@ -8,11 +8,11 @@ To Dos for JS FE:
 	- Add Plant in JS
 	- Edit Garden Name in JS
 	- Add 'high maintenance/low maintenance' in view
-	- 
+	- Add Photo to Garden, make space in view
 
 V2 To Dos:
 	- Fix Admin Functionality
-	- 
+	- Add Plant Pictures either in DB or via IMGUR/3rd Party Hosting
 
 <!-- Notes during assessment:
 
