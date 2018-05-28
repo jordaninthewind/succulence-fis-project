@@ -42,13 +42,12 @@ Plant.prototype.lineFormat = function() {
 // document.addEventListener("DOMContentLoaded", function(e) { 
 // $(window).on('ready', function(e){
   // e.preventDefault();
-  
-  // getPlants();
 // });
 
 function bindPlantsListeners() {
 	console.log('plants listener')
 	getPlantInfo();
+	// getPlants();
 }
 
 function getPlants() {

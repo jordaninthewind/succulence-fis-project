@@ -115,12 +115,29 @@ function loadGardenPlantPartial(el) {
 		.then((html) => console.log(html));
 }
 
+
+function editGardenName() {
+	$("span#garden_name").one("click", function() {
+		const url = `/gardens/${$(this).attr('data-id')}`
+		$(this).append(`<form onsubmit="updateGardenName(); return false"><input type='text' id=${url}' placeholder='${$(this).html()}'></form>`)
+	})
+}
+
+function updateGardenName(garden_url) {
+	let garden_data = $("input").val();
+	$.ajax({
+		method: 'PUT',
+		url: garden_url,
+		data: {"garden": {"name": garden_data}}
+	}).done(
+	() => $("input").remove()
+	)
+
+	$("span#garden_name").html(garden_data)
+	editGardenName();
+}
+
 // Possible Features
-
-// function editGardenName() {
-// 	$("")
-// }
-
 
 // function removeGardenPlants(node) {
 // 	$(this.parentNode);

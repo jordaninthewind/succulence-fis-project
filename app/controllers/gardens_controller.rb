@@ -26,7 +26,10 @@ before_action :is_owner, except: [:new, :create, :index]
 	def update
 		@garden.update(garden_params)
 
-		redirect_to @garden
+		respond_to do |format|
+			format.html
+			format.json
+		end
 	end
 
 	def show

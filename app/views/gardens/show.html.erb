@@ -1,4 +1,4 @@
-<h3>Garden Name: <%= @garden.name %> - <%= link_to "Edit Garden", edit_garden_path(@garden) %> - 
+<h3>Garden Name: <span data-id='<%=@garden.id%>' id='garden_name'><%= @garden.name %></span> - <%= link_to "Edit Garden", edit_garden_path(@garden), class: "edit_garden" %> - 
  	<%= link_to "Delete Garden", garden_path(@garden), method: :delete, data: { confirm: 'Are you sure?' } %>
 </h3> 
 
@@ -26,5 +26,5 @@
 <br>
 
 <script>
-	editGardenName();
+editGardenName();
 </script>

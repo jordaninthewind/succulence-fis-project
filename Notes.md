@@ -3,12 +3,13 @@ Notes for JS FE:
 To Dos for JS FE:
 	<!-- - Update Readme/Install Guide/Contributors Guide -->
 	<!-- - Update Seed File -->
-	- Clean Up gardens.js
-	- Work in Listeners Reattach
-	- Add Plant in JS
+	<!-- - Clean Up gardens.js -->
+	<!-- - Work in Listeners Reattach -->
+	- Add Plant Index in JS
 	- Edit Garden Name in JS
 	- Add 'high maintenance/low maintenance' in view
 	- Add Photo to Garden, make space in view
+	- Add JS water_plant function in garden view
 
 V2 To Dos:
 	- Fix Admin Functionality
