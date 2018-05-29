@@ -1,6 +1,9 @@
 {Questions for 1:1}
 
 - Attaching listeners thanks to TurboLinks/in Views individually
+- Improvements? Requirements?
+- Turbolinks?
+
 
 Notes for JS FE:
 

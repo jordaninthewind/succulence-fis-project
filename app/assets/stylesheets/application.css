@@ -21,7 +21,7 @@ body {
 
 #title {
 	font-family: Pacifico;
-	font-size: 2.5em;
+	font-size: 3em;
 	color: #ffaaff;
 	filter: drop-shadow(50px 15px 5px #fff);
 }
@@ -39,7 +39,7 @@ body {
 	padding-left: 60px;
 	background-image: url('backgound-succulents.jpg');
 	background-repeat: no-repeat;
-	background-size: 30%;
+	background-size: 33%;
 	position: fixed;
 	background-color: white;
 	top: 0;
@@ -65,6 +65,7 @@ body {
 }
 
 #plant_commentary {
+	width: 200px;
 	margin-left: 10px;
 	background-color: #aaaaff;
 	color: #000;

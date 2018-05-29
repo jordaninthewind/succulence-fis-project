@@ -10,9 +10,6 @@ class Garden {
 	}
 }
 
-var gardens = [];
-var gardenLoadTimes = 0;
-
 $(window).on('ready', function(){
 // document.addEventListener("DOMContentLoaded", function(event) { 
   // attachGardensListeners()
@@ -23,7 +20,6 @@ function attachGardensListeners() {
 	console.log('gardens listener')
 	addGardenInput();
 	loadGardenPlants();
-	gardenLoadTimes++;
 	// getGardens()
 }
 
@@ -60,7 +56,7 @@ function newGardenSubmit(e) {
 	}
 }
 
-// FUNCTIONS TO LOAD GARDEN PLANTS - Not necessary because of event listener complications
+// FUNCTION TO LOAD GARDEN
 
 function getGardens() {
 	$("#garden_plants").empty();
@@ -74,6 +70,14 @@ function getGardens() {
 		});
 	});
 }
+
+function gardenLiMaker(el) {
+	var garden = new Garden(el);
+	gardens.push(garden);
+	return `<div><li><a href='/gardens/${garden.id}' class='garden_li'>${garden.name}</a> - ${garden.plants.length} Plants</li></div>`;
+}
+
+// FUNCTIONS TO LOAD GARDEN PLANTS
 
 function loadGardenPlants() {
 	$('#garden_plants li a').one('click', function(e){
@@ -95,11 +99,7 @@ function loadGardenPlants() {
 	});
 }
 
-function gardenLiMaker(el) {
-	var garden = new Garden(el);
-	gardens.push(garden);
-	return `<div><li><a href='/gardens/${garden.id}' class='garden_li'>${garden.name}</a> - ${garden.plants.length} Plants</li></div>`;
-}
+
 
 function gardenPlantsLiMaker(plant) {
 	return `<div>   - <a href='/garden_plants/${plant.garden_plant_id} '>${plant.plant.name}</a></div>`;
