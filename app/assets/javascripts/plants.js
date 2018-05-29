@@ -81,5 +81,5 @@ function plantPartialUpdater(obj) {
 // Possible Features to Add
 
 // function addNewPlantForm() {
-// 	$("#")
+// 	$("div#plant_form")
 // }

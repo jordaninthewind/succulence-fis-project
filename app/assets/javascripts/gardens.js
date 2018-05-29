@@ -119,7 +119,7 @@ function loadGardenPlantPartial(el) {
 function editGardenName() {
 	$("span#garden_name").one("click", function() {
 		const url = `/gardens/${$(this).attr('data-id')}`
-		$(this).append(`<form onsubmit="updateGardenName(); return false"><input type='text' id=${url}' placeholder='${$(this).html()}'></form>`)
+		$(this).append(`<form id="garden_edit" onsubmit="updateGardenName(); return false"><input type='text' id=${url}' placeholder='${$(this).html()}'></form>`)
 	})
 }
 
@@ -130,7 +130,7 @@ function updateGardenName(garden_url) {
 		url: garden_url,
 		data: {"garden": {"name": garden_data}}
 	}).done(
-	() => $("input").remove()
+	() => $("form#garden_edit").remove()
 	)
 
 	$("span#garden_name").html(garden_data)

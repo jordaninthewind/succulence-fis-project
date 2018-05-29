@@ -1,3 +1,7 @@
+{Questions for 1:1}
+
+- Attaching listeners thanks to TurboLinks/in Views individually
+
 Notes for JS FE:
 
 To Dos for JS FE:
@@ -5,15 +9,16 @@ To Dos for JS FE:
 	<!-- - Update Seed File -->
 	<!-- - Clean Up gardens.js -->
 	<!-- - Work in Listeners Reattach -->
-	- Add Plant Index in JS
-	- Edit Garden Name in JS
-	- Add 'high maintenance/low maintenance' in view
+	- Add New Plant form in Gardens.js
+	<!-- - Edit Garden Name in JS -->
+		- Fix Null Response
 	- Add Photo to Garden, make space in view
 	- Add JS water_plant function in garden view
 
 V2 To Dos:
 	- Fix Admin Functionality
 	- Add Plant Pictures either in DB or via IMGUR/3rd Party Hosting
+	- Add 'high maintenance/low maintenance' in view
 
 <!-- Notes during assessment:
 

@@ -4,7 +4,6 @@
 <div class="col-sm-3">
 <ul id="garden_plants">
 <% @gardens.each do |garden| %>
-<%binding.pry%>
 <li><%= link_to garden.name, garden_path(garden), class: 'garden_li', id: garden.id %> - <%= garden.garden_plants.count %> Plants</li>
 <% end %>
 </ul>
