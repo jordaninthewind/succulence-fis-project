@@ -56,7 +56,7 @@ function newGardenSubmit(e) {
 			.then(function(res) {
 				$("ul#garden_plants").append(gardenLiMaker(res));
 				$("form").remove();
-			})
+		})
 	}
 }
 
@@ -73,8 +73,6 @@ function getGardens() {
 				$("ul#garden_plants").append(gardenLiMaker(garden));
 		});
 	});
-	// attachGardensListeners();
-	
 }
 
 function loadGardenPlants() {
