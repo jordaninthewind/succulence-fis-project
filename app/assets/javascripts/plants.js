@@ -27,27 +27,26 @@ function Plant(obj) {
 
 Plant.prototype.dataBlob = function() {
 	return     `<div><img class="image_border" src='${this.image_url}' width="200px" height="200px"></div>
-			<br><div><em><strong>Name:</strong>${this.name}</em></div>
+			<br><div><em><strong>Name: </strong>${this.name}</em></div>
 			    <div><em><strong>Watering Frequency:</strong> ${this.water_frequency}</em></div>
 				<div><em><strong>Genus:</strong> ${this.genus}</em></div>`;
 }
 
 Plant.prototype.lineFormat = function() {
 	return     `<div class="row"><div class="col-sm-4"<img class="image_border" src='${this.image_url}' width="200px" height="200px"></div>
-			<br><div class="col-sm-6"><div><em><strong>Name:</strong>${this.name}</em></div>
+			<br><div class="col-sm-6"><div><em><strong>Name:</strong> ${this.name}</em></div>
 			    <div><em><strong>Watering Frequency:</strong> ${this.water_frequency}</em></div>
 				<div><em><strong>Genus:</strong> ${this.genus}</em></div>`;
 }
 
-// document.addEventListener("DOMContentLoaded", function(e) { 
-// $(window).on('ready', function(e){
+// document.addEventListener("DOMContentLoaded", function(e) {
+// $(document).ready(function(e){
   // e.preventDefault();
 // });
 
 function bindPlantsListeners() {
 	console.log('plants listener')
 	getPlantInfo();
-	// getPlants();
 }
 
 function getPlants() {
@@ -74,6 +73,7 @@ function getPlantInfo() {
 
 
 function plantPartialUpdater(obj) {
+	// debugger;
 	var currentPlant = new Plant(obj);
 	$("div.plant_show_partial").html(currentPlant.dataBlob());
 }

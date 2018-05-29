@@ -5,6 +5,7 @@
 - Turbolinks?
 
 
+
 Notes for JS FE:
 
 To Dos for JS FE:
@@ -14,7 +15,7 @@ To Dos for JS FE:
 	<!-- - Work in Listeners Reattach -->
 	- Add New Plant form in Gardens.js
 	<!-- - Edit Garden Name in JS -->
-		- Fix Null Response
+		- Fix Null Response by Adding Conditional to Plant Name Presence
 	- Add Photo to Garden, make space in view
 	- Add JS water_plant function in garden view
 

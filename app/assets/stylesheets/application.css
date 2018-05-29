@@ -16,7 +16,8 @@
 
 body {
 	margin-top: 8%;
-	width: 1200px;
+	/*width: 1200px;*/
+	width: 50%;
 }
 
 #title {
@@ -54,8 +55,8 @@ body {
 }
 
 .alert_class {
-	font-color: red;
-	font-size: 1.2em;
+	color: red;
+	font-size: 1em;
 	font-weight: bold;
 }
 

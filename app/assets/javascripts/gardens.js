@@ -10,10 +10,10 @@ class Garden {
 	}
 }
 
-$(window).on('ready', function(){
+// $(document).ready(function(){
 // document.addEventListener("DOMContentLoaded", function(event) { 
   // attachGardensListeners()
-});
+// });
 
 
 function attachGardensListeners() {
@@ -28,7 +28,7 @@ function attachGardensListeners() {
 function addGardenInput() {
 	$("a#newGarden").on("click", function(e) {
 		e.preventDefault();
-		$("#newGarden").after("<div><form action='/gardens' id='garden_name' name='garden'><input type='text' id='name' placeholder='Garden Name' size='10' onsubmit='newGardenSubmit(event)'><button onclick='newGardenSubmit(event)'>Make Garden</button></form></div>");
+		$("#newGarden").after("<div><form action='/gardens' id='garden_name' name='garden'><input type='text' id='name' placeholder='New Name' size='10' onsubmit='newGardenSubmit(event)'><button onclick='newGardenSubmit(event)'>Make Garden</button></form></div>");
 		$("a#newGarden").off();
 		removeGardenInput();
 	})
@@ -38,6 +38,7 @@ function removeGardenInput() {
 	$("a#newGarden").one("click", function(e) {
 		e.preventDefault();
 		$("form#garden_name").empty();
+		$(".alert_class").empty();
 		addGardenInput();
 	});
 }
@@ -46,14 +47,15 @@ function newGardenSubmit(e) {
 	e.preventDefault();
 	let input = $("input#name").val();
 	const gardenName = {"garden": {"name": input}};
-
+	$(".alert_class").empty();
 	  if (input) {
 		$.post('/gardens', gardenName)
 			.then(function(res) {
 				$("ul#garden_plants").append(gardenLiMaker(res));
 				$("form").remove();
-		})
-	}
+		})} else {
+				$(".alert_class").html("Name Can't Be Blank");
+		}
 }
 
 // FUNCTION TO LOAD GARDEN
@@ -73,7 +75,6 @@ function getGardens() {
 
 function gardenLiMaker(el) {
 	var garden = new Garden(el);
-	gardens.push(garden);
 	return `<div><li><a href='/gardens/${garden.id}' class='garden_li'>${garden.name}</a> - ${garden.plants.length} Plants</li></div>`;
 }
 
