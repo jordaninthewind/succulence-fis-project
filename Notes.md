@@ -3,8 +3,10 @@
 - Attaching listeners thanks to TurboLinks/in Views individually
 - Improvements? Requirements?
 - Turbolinks?
+- Overall functionality of the site? Trimmed dead code? Concern myself with cleaning up loose ends now?
 
 
+- CarrierWave
 
 Notes for JS FE:
 
@@ -16,13 +18,13 @@ To Dos for JS FE:
 	- Add New Plant form in Gardens.js
 	<!-- - Edit Garden Name in JS -->
 		- Fix Null Response by Adding Conditional to Plant Name Presence
-	- Add Photo to Garden, make space in view
 	- Add JS water_plant function in garden view
 
 V2 To Dos:
 	- Fix Admin Functionality
 	- Add Plant Pictures either in DB or via IMGUR/3rd Party Hosting
 	- Add 'high maintenance/low maintenance' in view
+	- Add Photo to Garden, make space in view
 
 <!-- Notes during assessment:
 

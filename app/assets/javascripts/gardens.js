@@ -10,10 +10,10 @@ class Garden {
 	}
 }
 
-// $(document).ready(function(){
+$(document).ready(function(){
 // document.addEventListener("DOMContentLoaded", function(event) { 
-  // attachGardensListeners()
-// });
+  attachGardensListeners()
+});
 
 
 function attachGardensListeners() {
@@ -118,22 +118,26 @@ function loadGardenPlantPartial(el) {
 function editGardenName() {
 	$("span#garden_name").one("click", function() {
 		const url = `/gardens/${$(this).attr('data-id')}`
-		$(this).append(`<form id="garden_edit" onsubmit="updateGardenName(); return false"><input type='text' id=${url}' placeholder='${$(this).html()}'></form>`)
+		$(this).append(`<form id="garden_edit" onsubmit="updateGardenName(); return false"><input type='text' id=${url}' placeholder='Type Garden Name Here'></form>`)
 	})
 }
 
 function updateGardenName(garden_url) {
 	let garden_data = $("input").val();
-	$.ajax({
-		method: 'PUT',
-		url: garden_url,
-		data: {"garden": {"name": garden_data}}
-	}).done(
-	() => $("form#garden_edit").remove()
-	)
+	if (garden_data) {
+		$("div.alert_class").empty();
+		$.ajax({
+			method: 'PUT',
+			url: garden_url,
+			data: {"garden": {"name": garden_data}}
+		}).done(
+			() => $("form#garden_edit").remove()
+		);
 
-	$("span#garden_name").html(garden_data)
-	editGardenName();
+		$("span#garden_name").html(garden_data);
+		editGardenName();
+	}
+	
 }
 
 // Possible Features
