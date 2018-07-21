@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180524012638) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "garden_plants", force: :cascade do |t|
     t.integer "garden_id"
     t.integer "plant_id"
@@ -46,8 +49,6 @@ ActiveRecord::Schema.define(version: 20180524012638) do
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "provider"
-    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

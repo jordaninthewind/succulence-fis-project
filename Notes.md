@@ -6,7 +6,7 @@
 - Overall functionality of the site? Trimmed dead code? Concern myself with cleaning up loose ends now?
 
 
-- CarrierWave
+- =CarrierWave
 
 Notes for JS FE:
 

@@ -5,7 +5,7 @@ class Garden {
 	constructor(obj) {
 		this.name = obj.name,
 		this.id = obj.id,
-		this.user_id = obj.user_id,
+		this.userId = obj.user_id,
 		this.plants = obj.plants
 	}
 }
@@ -45,7 +45,7 @@ function removeGardenInput() {
 
 function newGardenSubmit(e) {
 	e.preventDefault();
-	let input = $("input#name").val();
+	const input = $("input#name").val();
 	const gardenName = {"garden": {"name": input}};
 	$(".alert_class").empty();
 	  if (input) {
@@ -74,7 +74,7 @@ function getGardens() {
 }
 
 function gardenLiMaker(el) {
-	var garden = new Garden(el);
+	const garden = new Garden(el);
 	return `<div><li><a href='/gardens/${garden.id}' class='garden_li'>${garden.name}</a> - ${garden.plants.length} Plants</li></div>`;
 }
 
@@ -84,11 +84,12 @@ function loadGardenPlants() {
 	$('#garden_plants li a').one('click', function(e){
 		e.preventDefault();
 		const li = $(this.parentNode);
-		var url = $(this).attr('href');
+		const url = $(this).attr('href');
 		fetch(`${url}.json`, {credentials: 'same-origin'})
 			.then(res => res.json())
 			.then(object => {
-				object.plants.forEach(function(plant) {
+				const sortedPlants = object.plants.sort((a, b) => { return a.plant.name > b.plant.name });
+				sortedPlants.forEach(function(plant) {
 					li.append(gardenPlantsLiMaker(plant));
 					$(li.context.lastChild).on('click', function(e) {
 						e.preventDefault();
