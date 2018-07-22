@@ -18,12 +18,13 @@ body {
 	margin-top: 8%;
 	/*width: 1200px;*/
 	width: 50%;
+	color: #faf;
 }
 
 #title {
 	font-family: Pacifico;
 	font-size: 3em;
-	color: #ffaaff;
+	/*color: #faf;*/
 	filter: drop-shadow(50px 15px 5px #fff);
 }
 
@@ -46,7 +47,7 @@ body {
 	top: 0;
 	width: 100%;
 	z-index: 10;
-	border-bottom: 1px dashed #ffaaff;
+	border-bottom: 1px dashed #faf;
 }
 
 #garden_plant_container {
@@ -61,14 +62,14 @@ body {
 }
 
 .image_border {
-    border: 10px dotted #aaffaa;
+    border: 10px dotted #afa;
     border-radius: 35px;
 }
 
 #plant_commentary {
 	width: 200px;
 	margin-left: 10px;
-	background-color: #aaaaff;
+	background-color: #aaf;
 	color: #000;
 	text-align: center;
 	border: 2px solid white;
@@ -80,7 +81,7 @@ body {
 	width: 200px;
 	/*height: 200px;*/
 	padding: 5px 5px 5px 5px;
-	border: 2px solid #aaffaa;
+	border: 2px solid #afa;
 	border-radius: 20px;
 	align-content: center;
 }
@@ -88,13 +89,13 @@ body {
 .med-title {
 	font-family: Pacifico;
 	font-size: 2em
-	color: #ffaaff;
+	/*color: #ffaaff;*/
 	align-self: center;
 }
 
 .registration-style {
 	font-family: Pacifico;
-	color: #ffaaff;
+	/*color: #ffaaff;*/
 	filter: drop-shadow(5px 5px 5px #ccf);
 	border: 0px solid #fff;
 	border-radius: 20px;
