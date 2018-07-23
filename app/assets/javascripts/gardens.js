@@ -86,7 +86,7 @@ function loadGardenPlants() {
 		const li = $(this.parentNode);
 		const url = $(this).attr('href');
 		fetch(`${url}.json`, {credentials: 'same-origin'})
-			.then(res => res.json())
+			.then(res => return res.json())
 			.then(object => {
 				const sortedPlants = object.plants.sort((a, b) => { return a.plant.name > b.plant.name });
 				sortedPlants.forEach(function(plant) {
