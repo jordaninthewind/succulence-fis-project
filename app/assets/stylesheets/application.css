@@ -15,9 +15,6 @@
  */
 
 body {
-  display: flex;
-  flex-flow: column;
-  align-content: space-between;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -25,12 +22,16 @@ body {
   color: #faf;
 }
 
+.container {
+	column-count: 2;
+}
+
+
+
 #title {
-	font-size: 3em;
-	z-index: 1;
 	position: relative;
-	top: 5%;
-	filter: drop-shadow(50px 15px 5px #fff);
+	font-size: 3em;
+	/*filter: drop-shadow(50px 15px 5px #fff);*/
 }
 
 #footer {
@@ -43,27 +44,23 @@ body {
 
 #title-image {
 	height: 5vh;
-	z-index: 0;
+	/*position: relative;*/
+	/*top: 0px;*/
 }
 
 .navbar {
-	/*overflow: hidden;*/
-	/*padding-left: 60px;*/
-	/*background-image: url('backgound-succulents.jpg');*/
-	background-repeat: no-repeat;
-	background-size: 30vh;
-	background-position: center;
-	/*position: fixed;*/
-	background-color: white;
-	top: 5px;
+	/*top: 5px;*/
 	width: 100%;
-	z-index: 10;
-	border-bottom: 1px dashed #faf;
+	margin-bottom: 5px;
 }
 
 #garden_plant_container {
 	margin-top: 7%;
 	font-family: Helvetica;
+}
+
+#title-image-overlay {
+	
 }
 
 .alert_class {
@@ -74,6 +71,7 @@ body {
 
 .image_border {
     border: 10px dotted #afa;
+    margin-top: 10px;
     border-radius: 35px;
 }
 

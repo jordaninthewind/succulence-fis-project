@@ -1,14 +1,12 @@
-<nav class="navbar navbard-default" id="header" style="border-bottom: 1px dashed #ffaaff;">
-	<div class="container-fluid"></div>
-	<div>
+<nav id="header" style="border-bottom: 1px dashed #ffaaff;">
+	<div style="overflow:auto;">
 		<h3 id="title"> Succulence App </h3>
 		<%= image_tag("background-succulents.jpg", id: 'title-image') %>
 	</div>
-		<div class="col-md-4" style="margin-top: 25px;">
-			<%= display_sign_up %>
-			<%= display_sign_in %>
-			<%= plants_link %><br> 
-			<%= gardens_link %>
+		<div class="navbar">
+			<%= display_sign_up %><br>
+			<%= display_sign_in %><br>
+			<%= plants_link %> - <%= gardens_link %>
 		</div>
 	</div>
 </nav>
