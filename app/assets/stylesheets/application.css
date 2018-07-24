@@ -26,14 +26,12 @@ body {
 .container {
 	column-count: 2;
 	column-width: 30%;
-	/*background-color: lightgrey;*/
 	height: 40vh;
 	min-height: 25vh;
 }
 
 #title {
 	position: relative;
-	/*top: 0px;*/
 }
 
 #title h1 {
@@ -56,9 +54,7 @@ body {
 }
 
 .navbar {
-	/*width: 100%;*/
 	position: relative;
-	/*padding-top: 20px;*/
 }
 
 

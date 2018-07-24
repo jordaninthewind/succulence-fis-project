@@ -6269,3 +6269,176 @@ Processing by RegistrationsController#new as HTML
 Completed 200 OK in 129ms (Views: 128.7ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-07-24 11:22:20 -0700
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (3.9ms)
+  Rendered layouts/_errors.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 116ms (Views: 113.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-24 11:22:55 -0700
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (5.9ms)
+  Rendered layouts/_header.html.erb (12.0ms)
+  Rendered layouts/_errors.html.erb (4.4ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+Completed 200 OK in 514ms (Views: 510.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-24 11:25:37 -0700
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (22.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (116.1ms)
+  Rendered layouts/_header.html.erb (17.3ms)
+  Rendered layouts/_errors.html.erb (5.9ms)
+  Rendered layouts/_footer.html.erb (4.6ms)
+Completed 200 OK in 1010ms (Views: 984.7ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mGarden Load (0.6ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" ORDER BY "gardens"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-07-24 11:56:30 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (4.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (25.6ms)
+  Rendered layouts/_header.html.erb (5.5ms)
+  Rendered layouts/_errors.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 281ms (Views: 267.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 11:56:30 -0700
+Processing by GardensController#index as JSON
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-07-24 11:56:37 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZmDkTKrIeMYxPq1x3fVBqlRcky7nWTlfBbZBLVIw+f5VSM79RIpIiuRQzIVfqajNhbbSWkoPHDSafeRAkaQ4A==", "user"=>{"email"=>"jordan@jordan.gov", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "jordan@jordan.gov"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 26ms (ActiveRecord: 1.4ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZmDkTKrIeMYxPq1x3fVBqlRcky7nWTlfBbZBLVIw+f5VSM79RIpIiuRQzIVfqajNhbbSWkoPHDSafeRAkaQ4A==", "user"=>{"email"=>"jordan@jordan.gov", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_errors.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 197ms (Views: 66.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 11:56:37 -0700
+Processing by GardensController#index as JSON
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-07-24 11:56:39 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M+vzA+hZNAmpXBaEbF8qlSv65n6GMJPSufW8uUjCHv6/J1OpL+A8yJoJrwO+VlkwtL1Pe1SFy0cXipIs/8xN+Q==", "user"=>{"email"=>"jordan@jordan.gov", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "jordan@jordan.gov"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 6ms (ActiveRecord: 2.5ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M+vzA+hZNAmpXBaEbF8qlSv65n6GMJPSufW8uUjCHv6/J1OpL+A8yJoJrwO+VlkwtL1Pe1SFy0cXipIs/8xN+Q==", "user"=>{"email"=>"jordan@jordan.gov", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_errors.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 192ms (Views: 60.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 11:56:39 -0700
+Processing by GardensController#index as JSON
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-07-24 11:56:41 -0700
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (12.8ms)
+  Rendered layouts/_header.html.erb (4.6ms)
+  Rendered layouts/_errors.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 161ms (Views: 159.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 11:56:42 -0700
+Processing by GardensController#index as JSON
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-07-24 11:56:49 -0700
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cCGMO28s6AekgfAIXShxjdoPNLElKtXmzzw9iyA8aKn87SyRqJXgxpfUSY+PIQIoRUidtPefjXNhQxMelzI7rg==", "user"=>{"username"=>"jordan", "email"=>"joradn@jordan.net", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameter: :password_confirmation
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "joradn@jordan.net"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "jordan"], ["email", "joradn@jordan.net"], ["encrypted_password", "$2a$11$lBgww24XcJKrFlJWVlkI2eI1Rl.gv0lgYhQbUt58G7N4XvR9VGbsO"], ["created_at", "2018-07-24 18:56:49.479278"], ["updated_at", "2018-07-24 18:56:49.479278"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 163ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-24 11:56:49 -0700
+Processing by WelcomeController#home as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gardens
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 11:56:49 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 9]]
+  Rendered gardens/index.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_errors.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 56ms (Views: 47.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 11:56:49 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mGarden Load (1.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 9]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.47ms)
+Completed 200 OK in 14ms (Views: 5.5ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/plants" for 127.0.0.1 at 2018-07-24 16:11:44 -0700
+Processing by PlantsController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.6ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendering plants/index.html.erb within layouts/application
+  [1m[36mPlant Load (2.2ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE (water_frequency > 15)[0m
+  [1m[36mCACHE Plant Load (0.0ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE (water_frequency > 15)[0m
+  Rendered plants/index.html.erb within layouts/application (18.0ms)
+  Rendered layouts/_header.html.erb (4.7ms)
+  Rendered layouts/_errors.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 207ms (Views: 155.1ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 16:11:45 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.5ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 9]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 17ms (Views: 7.9ms | ActiveRecord: 1.5ms)
+
+

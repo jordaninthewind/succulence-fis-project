@@ -11,7 +11,6 @@ class Garden {
 }
 
 $(document).ready(function(){
-// document.addEventListener("DOMContentLoaded", function(event) { 
   attachGardensListeners()
 });
 
@@ -20,7 +19,7 @@ function attachGardensListeners() {
 	console.log('gardens listener')
 	addGardenInput();
 	loadGardenPlants();
-	// getGardens()
+	getGardens()
 }
 
 // FUNCTIONS TO ADD INPUT FORM AND MAKE NEW GARDEN
