@@ -1,3 +1,5 @@
+require 'pry'
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and 
@@ -8,7 +10,7 @@ class User < ApplicationRecord
   validates :password, presence: true
 
   has_many :gardens
-  has_many :garden_plants, through: :gardens  
+  has_many :garden_plants, through: :gardens
 
    def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -16,6 +18,7 @@ class User < ApplicationRecord
         user.uid = auth.uid
         user.email = auth.info.email
         user.password = Devise.friendly_token[0,20]
+        user.skip_confirmation!
       end
   end
 end

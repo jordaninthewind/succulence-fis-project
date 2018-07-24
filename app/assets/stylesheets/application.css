@@ -26,13 +26,35 @@ body {
 	column-count: 2;
 }
 
-
-
 #title {
 	position: relative;
-	font-size: 3em;
-	/*filter: drop-shadow(50px 15px 5px #fff);*/
+	/*top: 0px;*/
 }
+
+#title h1 {
+	font-size: 3em;
+	z-index: 2;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+}
+
+#title img {
+	height: 85px;
+	z-index: 1;
+	top: 25vh;
+	right: 50%;
+	left: 50%;
+	border-bottom: 1px dashed #ffaaff;
+}
+
+.navbar {
+	/*width: 100%;*/
+	position: relative;
+}
+
 
 #footer {
 	position: fixed;
@@ -42,24 +64,12 @@ body {
 	width: 100%;
 }
 
-#title-image {
-	height: 5vh;
-	/*position: relative;*/
-	/*top: 0px;*/
-}
-
-.navbar {
-	/*top: 5px;*/
-	width: 100%;
-	margin-bottom: 5px;
-}
-
 #garden_plant_container {
 	margin-top: 7%;
 	font-family: Helvetica;
 }
 
-#title-image-overlay {
+.medium-text {
 	
 }
 
@@ -103,7 +113,7 @@ body {
 }
 
 .registration-style {
-	font-family: Pacifico;
+	/*font-family: Pacifico;*/
 	/*color: #ffaaff;*/
 	filter: drop-shadow(5px 5px 5px #ccf);
 	border: 0px solid #fff;

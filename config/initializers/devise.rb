@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '31029b007f2427afca253d034db4acfa0ba6266da51321d7ba3ee05d865672f97c2455c5c1fc521e7151a3d5afc60c3b3fa38164e57367cb72911993962a2ee7'
+  config.secret_key = '31029b007f2427afca253d034db4acfa0ba6266da51321d7ba3ee05d865672f97c2455c5c1fc521e7151a3d5afc60c3b3fa38164e57367cb72911993962a2ee7'
   
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -88,7 +88,7 @@ Devise.setup do |config|
   # Notice that if you are skipping storage for all authentication paths, you
   # may want to disable generating routes to Devise's sessions controller by
   # passing skip: :sessions to `devise_for` in your config/routes.rb
-  config.skip_session_storage = [:http_auth]
+  # config.skip_session_storage = [:http_auth]
 
   # By default, Devise cleans up the CSRF token on authentication to
   # avoid CSRF token fixation attacks. This means that, when using AJAX
@@ -142,7 +142,7 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = true
+  # config.reconfirmable = true
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
