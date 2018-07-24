@@ -26,8 +26,9 @@ body {
 .container {
 	column-count: 2;
 	column-width: 30%;
-	column-gap: 5%;
 	/*background-color: lightgrey;*/
+	height: 40vh;
+	min-height: 25vh;
 }
 
 #title {
@@ -36,7 +37,7 @@ body {
 }
 
 #title h1 {
-	font-size: 3em;
+	font-size: 39px;
 	z-index: 2;
 	position: absolute;
 	top: 0;
@@ -57,6 +58,7 @@ body {
 .navbar {
 	/*width: 100%;*/
 	position: relative;
+	padding-top: 20px;
 }
 
 
@@ -72,6 +74,7 @@ body {
 #garden_plant_container {
 	margin-top: 7%;
 	font-family: Helvetica;
+	margin-left: auto;
 }
 
 .medium-text {
