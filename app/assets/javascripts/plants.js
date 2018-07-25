@@ -25,19 +25,26 @@ function Plant(obj) {
 	this.image_url = obj.image_url
 }
 
-Plant.prototype.dataBlob = function() {
-	return     `<div><img class="image_border" src='${this.image_url}' width="200px" height="200px"></div>
-			<br><div><em><strong>Name: </strong>${this.name}</em></div>
-			    <div><em><strong>Watering Frequency:</strong> ${this.water_frequency}</em></div>
-				<div><em><strong>Genus:</strong> ${this.genus}</em></div>`;
+Plant.prototype.dataBlobPic = function() {
+	return     `<div class="col-left">
+					<img class="image_border" src='${this.image_url}' width="200px" height="200px">
+				</div>`;
 }
 
-Plant.prototype.lineFormat = function() {
-	return     `<div class="row"><div class="col-sm-4"<img class="image_border" src='${this.image_url}' width="200px" height="200px"></div>
-			<br><div class="col-sm-6"><div><em><strong>Name:</strong> ${this.name}</em></div>
-			    <div><em><strong>Watering Frequency:</strong> ${this.water_frequency}</em></div>
-				<div><em><strong>Genus:</strong> ${this.genus}</em></div>`;
+Plant.prototype.dataBlobInfo = function() {
+	return     `<div id="plant-info" class="col-center"><br><br><br>
+					<div><em><strong>Name: </strong>${this.name}</em></div>
+			    	<div><em><strong>Watering Frequency:</strong> ${this.water_frequency}</em></div>
+					<div><em><strong>Genus:</strong> ${this.genus}</em></div>
+				</div>`;
 }
+
+// Plant.prototype.lineFormat = function() {
+// 	return     `<div ><div><img class="image_border" src='${this.image_url}' width="200px" height="200px"></div>
+// 			<br><div ><div><em><strong>Name:</strong> ${this.name}</em></div>
+// 			    <div><em><strong>Watering Frequency:</strong> ${this.water_frequency}</em></div>
+// 				<div><em><strong>Genus:</strong> ${this.genus}</em></div>`;
+// }
 
 function bindPlantsListeners() {
 	console.log('plants listener')
@@ -61,7 +68,7 @@ function getPlantInfo() {
 
 		var url = $(this).attr('href');
 		fetch(`${url}.json`, {credentials: 'same-origin'})
-			.then((res) => res.json())
+			.then((res) => {return res.json()})
 			.then((object) => $(this).after(plantPartialUpdater(object)))
 			});
 	};
@@ -69,7 +76,8 @@ function getPlantInfo() {
 
 function plantPartialUpdater(obj) {
 	var currentPlant = new Plant(obj);
-	$("div.plant_show").html(currentPlant.dataBlob());
+	$("div.plant_show").html(currentPlant.dataBlobPic());
+	$("div.plant-show-detail").html(currentPlant.dataBlobInfo());
 }
 
 // Possible Features to Add

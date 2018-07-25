@@ -1,6 +1,8 @@
-<% if @errors %><% @errors.messages.each do |e| %>
-<%= content_tag(:li, e.join(" ").gsub("_", " ").capitalize) %>
-<% end %><% end %>
+<% if @errors %>
+	<% @errors.messages.each do |e| %>
+		<%= content_tag(:li, e.join(" ").gsub("_", " ").capitalize) %>
+	<% end %>
+<% end %>
 
 <h3>Make a New Plant:</h3> 
 

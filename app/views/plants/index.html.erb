@@ -4,13 +4,14 @@
 	<div id="plant_container" class="container">
 		<% @plants.each do |plant| %>
 
-		<div><%= link_to plant.name, plant_path(plant), {:style=>'color:#77d;'} %><%if current_user.admin %><%= link_to "Edit", edit_admin_plant_path(plant) %><%end%></div>
+		<div><%= link_to plant.name, plant_path(plant), {:style=>'color:#77d;text-decoration:none;'} %><%if current_user.admin %><%= link_to "Edit", edit_admin_plant_path(plant) %><%end%></div>
 		<% end %>
 		
 	</div>
 	<%= link_to "View Gardens", gardens_path, { :style=>"font-size:2em;"} %>
-	<div>
-		<div class="plant_show col-left">More details here</div>
+	<div class="plant-grid">
+		<div class="plant_show">More details here</div>
+		<div class="plant-show-detail"></div>
 		<div id="plant_commentary" class="col-right">
 			<h5>Not Looking to Spend too Much Time or Energy?</h5>
 			<h5><strong> -- Easiest Plant to Care For: <%= Plant.low_demand.name %> -- </strong></h5>
@@ -18,6 +19,9 @@
 		</div>
 	</div>
 </div>
+
+
+
 
 <script>
   bindPlantsListeners();

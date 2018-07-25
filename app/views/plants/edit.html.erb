@@ -1,6 +1,5 @@
 Edit Plant:
 
-<%#= render partial: 'form', locals: {:plant => @plant} %>
 <%= form_for @plant, :url => {:controller => 'plants', :action => 'update'} do |f| %> <br>
 
 <%= f.label 'Common Name:' %>
