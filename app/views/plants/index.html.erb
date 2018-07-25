@@ -1,28 +1,22 @@
 <div class="medium-text">All Plants</div>
 
-<div class="container">
-	<ul id="plants-index">
+<div>
+	<div id="plant_container" class="container">
 		<% @plants.each do |plant| %>
 
-		<li><%= link_to plant.name, plant_path(plant) %> <%if current_user.admin %><%= link_to "Edit", edit_admin_plant_path(plant) %><%end%></li>
+		<div><%= link_to plant.name, plant_path(plant), {:style=>'color:#77d;'} %><%if current_user.admin %><%= link_to "Edit", edit_admin_plant_path(plant) %><%end%></div>
 		<% end %>
 		
-	</ul>
-
-	<div class="plant_show_partial">
-	More details here
-	<br><br><br><br><br><br><br><br><br><br>
 	</div>
-	<br>
-	<div class="row">
-		<div id="plant_commentary" class="col-sm-6">
+	<%= link_to "View Gardens", gardens_path, { :style=>"font-size:2em;"} %>
+	<div>
+		<div class="plant_show col-left">More details here</div>
+		<div id="plant_commentary" class="col-right">
 			<h5>Not Looking to Spend too Much Time or Energy?</h5>
 			<h5><strong> -- Easiest Plant to Care For: <%= Plant.low_demand.name %> -- </strong></h5>
 			<h5>Water Frequency: Every <%= Plant.low_demand.water_frequency%> Days</h5>
 		</div>
 	</div>
-	<br>
-	<%= link_to "View Gardens", gardens_path %>
 </div>
 
 <script>

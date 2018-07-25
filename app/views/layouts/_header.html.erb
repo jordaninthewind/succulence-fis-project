@@ -1,12 +1,14 @@
 <nav id="header">
 	<div id="title">
-		<h1> Succulence App </h1>
-		<%= image_tag("background-succulents.jpg", id: 'title-image') %>
+		<h1>Succulence App</h1>
+		<a href="/"><%= image_tag("background-succulents.jpg", id: 'title-image') %></a>
 	</div>
 		<div class="navbar">
 			<%= display_sign_up %>
 			<%= display_sign_in %>
-			<%= plants_link %> - <%= gardens_link %>
+			<%= plants_link %>
+				<%if current_user %> - <%end%>
+			<%= gardens_link %>
 		</div>
 	</div>
 </nav>

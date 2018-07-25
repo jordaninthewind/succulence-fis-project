@@ -26,12 +26,11 @@ body {
 .container {
 	column-count: 2;
 	column-width: 30%;
-	height: 40vh;
-	min-height: 25vh;
 }
 
 #title {
 	position: relative;
+	padding-bottom: 5px;
 }
 
 #title h1 {
@@ -42,6 +41,7 @@ body {
 	right: 0;
 	left: 0;
 	bottom: 0;
+
 }
 
 #title img {
@@ -55,6 +55,7 @@ body {
 
 .navbar {
 	position: relative;
+	padding-bottom: 10px;
 }
 
 
@@ -70,16 +71,23 @@ body {
 #garden_plant_container {
 	margin-top: 7%;
 	font-family: Helvetica;
-	margin-left: auto;
+}
+
+#plant_container {
+	background-color: #eee;
+	border-radius: 50px;
+	padding: 10px 0 10px 0;
+	border: 5px dotted purple;
 }
 
 .medium-text {
-
+	font-size: 30px;
+	font-family: Pacifico;
 }
 
-.alert_class {
+.field_with_errors, .flash_notice {
 	color: red;
-	font-size: 1em;
+	font-size: 1.5em;
 	font-weight: bold;
 }
 
@@ -102,25 +110,30 @@ body {
 
 .viewer {
 	width: 200px;
-	/*height: 200px;*/
 	padding: 5px 5px 5px 5px;
 	border: 2px solid #afa;
 	border-radius: 20px;
 	align-content: center;
 }
 
-.med-title {
-	font-family: Pacifico;
-	font-size: 2em;
-	/*color: #ffaaff;*/
-	align-self: center;
-}
-
 .registration-style {
-	/*font-family: Pacifico;*/
-	/*color: #ffaaff;*/
 	filter: drop-shadow(5px 5px 5px #ccf);
 	border: 0px solid #fff;
 	border-radius: 20px;
 	
+}
+
+.col-left {
+	width: 30%;
+	display: inline-block;
+	padding-right: 20px;
+	float: left;
+}
+
+.col-right {
+	position: relative;
+	width: 30%;
+	display: inline-block;
+	margin-left: 20px;
+	float: right;
 }

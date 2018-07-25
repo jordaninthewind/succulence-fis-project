@@ -39,18 +39,13 @@ Plant.prototype.lineFormat = function() {
 				<div><em><strong>Genus:</strong> ${this.genus}</em></div>`;
 }
 
-// document.addEventListener("DOMContentLoaded", function(e) {
-// $(document).ready(function(e){
-  // e.preventDefault();
-// });
-
 function bindPlantsListeners() {
 	console.log('plants listener')
 	getPlantInfo();
 }
 
 function getPlants() {
-	$("ul#plants-index").empty();
+	$("div#plant_container").empty();
 	fetch('/plants.json', {credentials: 'same-origin'})
 		.then(res => { res.json() })
 		.then(function(json) {
@@ -61,7 +56,7 @@ function getPlants() {
 }
 
 function getPlantInfo() {
-	$("ul#plants-index li a").on('click', function(e) {
+	$("div#plant_container div a").on('click', function(e) {
 		e.preventDefault();
 
 		var url = $(this).attr('href');
@@ -73,9 +68,8 @@ function getPlantInfo() {
 
 
 function plantPartialUpdater(obj) {
-	// debugger;
 	var currentPlant = new Plant(obj);
-	$("div.plant_show_partial").html(currentPlant.dataBlob());
+	$("div.plant_show").html(currentPlant.dataBlob());
 }
 
 // Possible Features to Add

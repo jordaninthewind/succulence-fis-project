@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # devise_for :users
   root 'welcome#home'
 
   devise_for :users, :controllers => { :registrations => "registrations", :omniauth_callbacks => "callbacks" }
