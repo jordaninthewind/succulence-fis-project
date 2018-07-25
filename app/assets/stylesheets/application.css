@@ -76,15 +76,21 @@
 		font-family: Helvetica;
 	}
 
-	#plant_container {
+	#plant-container {
 		background-color: #eee;
 		border-radius: 50px;
 		padding: 10px 0 10px 0;
 		border: 5px dotted purple;
 	}
 
+	hr {
+	    border: 0;
+	    height: 0; /* Firefox... */
+    	box-shadow: 0 0 10px 1px #aaf;
+	}
+
 	.medium-text {
-		font-size: 30px;
+		font-size: 25px;
 		font-family: Pacifico;
 	}
 
@@ -100,30 +106,27 @@
 	    border-radius: 35px;
 	}
 
-	#plant_commentary {
+	#plant-commentary {
 		width: auto;
-		height: 200px;
-		margin-left: 10px;
-		background-color: rgba(170,170,255,.6);
+		height: auto;
+		background-color: rgba(170,170,255,.5);
 		color: white;
-		font-size: 13px;
-		text-align: center;
+		font-size: 1.5em;
 		border: 2px solid white;
 		border-radius: 20px;
-		/*filter: drop-shadow(10px 10px 7px #ccf);*/
+		filter: drop-shadow(0 0 10px rgba(170,170,255,.5));
+		grid-column: 1 / 3;
 	}
 
 	#plant-info {
-		margin-top: 10px;
 		width: auto;
-		height: 200px;
+		height: auto;
 		margin-left: 10px;
 		color: #000;
 		font-size: 13px;
 		text-align: center;
-		border: 2px solid #faf;
-		border-radius: 50px;
-		filter: drop-shadow(10px 10px 7px #ccf);
+		/*border: 2px solid #faf;*/
+		/*filter: drop-shadow(10px 10px 7px #ccf);*/
 	}
 
 	.viewer {
@@ -143,23 +146,8 @@
 
 	.plant-grid {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		grid-auto-rows: 200px;
-		/*minmax(100px, auto);*/
-	}
-
-	.col-left {
-		grid-column: 2;
-		grid-row: 1;
-	}
-
-	.col-center {
-		grid-column: 1;
-		grid-row: 1;
-	}
-
-	.col-right {
-		grid-column: 3;
-		grid-row: 1;
+		grid-template-columns: repeat(2, 1fr);
+		grid-auto-rows: minmax(100px, auto);	
+		grid-gap: 10px;
 	}
 }
