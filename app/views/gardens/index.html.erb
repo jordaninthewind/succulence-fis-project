@@ -1,6 +1,7 @@
-<h2 class="med-title" style="color: #ffaaff">All Gardens</h2>
-<div class="h3"><%= link_to "Add New Garden", new_garden_path, id: "newGarden" %></div><br><br>
-  <div class="container">
+<h2 class="medium-text">All Gardens</h2>
+<%= link_to "Add New Garden", new_garden_path, id: "newGarden" %>
+<br>
+  <div class="garden-grid">
 	<h2>Gardens:</h2><br>
 	  <% if @gardens.count == 0 %>
 	  	<div> You don't have any gardens yet! </div>
