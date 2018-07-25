@@ -1,15 +1,15 @@
 <h2 class="med-title" style="color: #ffaaff">All Gardens</h2>
 <div class="h3"><%= link_to "Add New Garden", new_garden_path, id: "newGarden" %></div><br><br>
   <div class="container">
-	<div id="garden_plants">
-	  <h2>Gardens:</h2><br>
+	<h2>Gardens:</h2><br>
 	  <% if @gardens.count == 0 %>
 	  	<div> You don't have any gardens yet! </div>
 	  <%end%>
+	<div id="garden_plants">  
 	  <% @gardens.each do |garden| %>
-	  	<a><%= link_to garden.name, garden_path(garden), class: 'garden_li', id: garden.id %> - <%= garden.garden_plants.count %> Plants</a>
+	  	<div><%= link_to garden.name, garden_path(garden), class: 'garden_li', id: garden.id %> - <%= garden.garden_plants.count %> Plants</div>
 	  <% end %>
-	  </div>
+	</div>
 
 	<div id="garden_plant_container">
 	  <div class="med-title">

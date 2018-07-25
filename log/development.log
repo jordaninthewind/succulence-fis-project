@@ -9975,3 +9975,923 @@ Processing by GardensController#index as JSON
 Completed 200 OK in 12ms (Views: 1.9ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/plants" for 127.0.0.1 at 2018-07-24 22:00:18 -0700
+Processing by PlantsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPlant Load (0.6ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendering plants/index.html.erb within layouts/application
+  [1m[36mPlant Load (0.5ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE (water_frequency > 15)[0m
+  [1m[36mCACHE Plant Load (0.0ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE (water_frequency > 15)[0m
+  Rendered plants/index.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+  Rendered layouts/_errors.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 164ms (Views: 156.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:00:18 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.9ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.1ms)
+Completed 200 OK in 15ms (Views: 4.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:00:20 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered gardens/index.html.erb within layouts/application (5.6ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_errors.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 55ms (Views: 47.2ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:00:20 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 11ms (Views: 4.2ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/gardens" for 127.0.0.1 at 2018-07-24 22:00:23 -0700
+Processing by GardensController#create as */*
+  Parameters: {"garden"=>{"name"=>"Home"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Home"], ["user_id", 10], ["created_at", "2018-07-25 05:00:23.298928"], ["updated_at", "2018-07-25 05:00:23.298928"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers]   [1m[36mGardenPlant Load (0.7ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers] Rendered GardenSerializer with ActiveModelSerializers::Adapter::Attributes (10.71ms)
+Completed 200 OK in 62ms (Views: 10.4ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:00:25 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.5ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (4.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  Rendered gardens/index.html.erb within layouts/application (17.5ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_errors.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 101ms (Views: 85.7ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:00:25 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.5ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (1.4ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.99ms)
+Completed 200 OK in 18ms (Views: 7.0ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:00:25 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  Rendered gardens/index.html.erb within layouts/application (9.2ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_errors.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 89ms (Views: 74.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:00:26 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.6ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.4ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.07ms)
+Completed 200 OK in 16ms (Views: 5.8ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:00:26 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  Rendered gardens/index.html.erb within layouts/application (8.1ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_errors.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 76ms (Views: 60.0ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:00:26 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (1.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.4ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.25ms)
+Completed 200 OK in 19ms (Views: 6.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:00:26 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (1.5ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  Rendered gardens/index.html.erb within layouts/application (13.3ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_errors.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 72ms (Views: 57.4ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:00:26 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (1.5ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (1.4ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.89ms)
+Completed 200 OK in 18ms (Views: 8.0ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:00:26 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (1.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  Rendered gardens/index.html.erb within layouts/application (12.3ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_errors.html.erb (7.0ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 87ms (Views: 69.7ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:00:26 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (2.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.9ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.28ms)
+Completed 200 OK in 18ms (Views: 8.5ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:00:27 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (1.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  Rendered gardens/index.html.erb within layouts/application (11.6ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_errors.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 73ms (Views: 59.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:00:27 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.7ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.09ms)
+Completed 200 OK in 19ms (Views: 11.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:00:27 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  Rendered gardens/index.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_errors.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 76ms (Views: 57.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:00:27 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.4ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.71ms)
+Completed 200 OK in 12ms (Views: 5.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:00:27 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.6ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  Rendered gardens/index.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_errors.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 72ms (Views: 57.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:00:28 -0700
+Processing by GardensController#index as JSON
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:00:28 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.6ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.25ms)
+Completed 200 OK in 30ms (Views: 9.8ms | ActiveRecord: 2.1ms)
+
+
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  Rendered gardens/index.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_errors.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 99ms (Views: 55.4ms | ActiveRecord: 22.3ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:00:28 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (1.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:00:28 -0700
+[active_model_serializers]   [1m[36mGardenPlant Load (0.6ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+Processing by GardensController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.97ms)
+Completed 200 OK in 17ms (Views: 8.9ms | ActiveRecord: 3.6ms)
+
+
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.6ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  Rendered gardens/index.html.erb within layouts/application (9.9ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_errors.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 68ms (Views: 60.0ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:00:28 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.53ms)
+Completed 200 OK in 11ms (Views: 3.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:00:28 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  Rendered gardens/index.html.erb within layouts/application (5.9ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_errors.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 94ms (Views: 71.6ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:00:28 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.8ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:00:28 -0700
+[active_model_serializers]   [1m[36mGardenPlant Load (3.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+Processing by GardensController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (11.73ms)
+Completed 200 OK in 29ms (Views: 15.6ms | ActiveRecord: 6.8ms)
+
+
+  [1m[36mUser Load (10.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  Rendered gardens/index.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_header.html.erb (3.6ms)
+  Rendered layouts/_errors.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 118ms (Views: 83.3ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:00:28 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.5ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  Rendered gardens/index.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_errors.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 79ms (Views: 72.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:00:28 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (1.9ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (2.7ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (8.84ms)
+Completed 200 OK in 28ms (Views: 12.4ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:00:28 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  Rendered gardens/index.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_errors.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 72ms (Views: 56.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:00:28 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.4ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.48ms)
+Completed 200 OK in 19ms (Views: 2.6ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:01:51 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  Rendered gardens/index.html.erb within layouts/application (7.9ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_errors.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 101ms (Views: 78.2ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:01:51 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (2.5ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (1.0ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.52ms)
+Completed 200 OK in 20ms (Views: 7.7ms | ActiveRecord: 7.4ms)
+
+
+Started POST "/gardens" for 127.0.0.1 at 2018-07-24 22:01:55 -0700
+Processing by GardensController#create as */*
+  Parameters: {"garden"=>{"name"=>"Home"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Home"], ["user_id", 10], ["created_at", "2018-07-25 05:01:55.717532"], ["updated_at", "2018-07-25 05:01:55.717532"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers]   [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+[active_model_serializers] Rendered GardenSerializer with ActiveModelSerializers::Adapter::Attributes (1.23ms)
+Completed 200 OK in 11ms (Views: 1.5ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/gardens" for 127.0.0.1 at 2018-07-24 22:02:07 -0700
+Processing by GardensController#create as */*
+  Parameters: {"garden"=>{"name"=>"Somewhere"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Somewhere"], ["user_id", 10], ["created_at", "2018-07-25 05:02:07.272029"], ["updated_at", "2018-07-25 05:02:07.272029"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+[active_model_serializers] Rendered GardenSerializer with ActiveModelSerializers::Adapter::Attributes (1.35ms)
+Completed 200 OK in 9ms (Views: 1.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:02:10 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.5ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+  Rendered gardens/index.html.erb within layouts/application (12.7ms)
+  Rendered layouts/_header.html.erb (4.1ms)
+  Rendered layouts/_errors.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 104ms (Views: 88.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:02:11 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.6ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.7ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.5ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.5ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (11.67ms)
+Completed 200 OK in 21ms (Views: 13.5ms | ActiveRecord: 3.5ms)
+
+
+  [1m[36mGarden Load (0.5ms)[0m  [1m[34mSELECT  "gardens".* FROM "gardens" ORDER BY "gardens"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:02:38 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+  Rendered gardens/index.html.erb within layouts/application (9.9ms)
+  Rendered layouts/_header.html.erb (8.8ms)
+  Rendered layouts/_errors.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 112ms (Views: 91.4ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:02:38 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (5.6ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.8ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers]   [1m[36mGardenPlant Load (1.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.4ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.78ms)
+Completed 200 OK in 27ms (Views: 8.7ms | ActiveRecord: 13.1ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:03:12 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.7ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+  Rendered gardens/index.html.erb within layouts/application (14.0ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_errors.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 99ms (Views: 84.8ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:03:12 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (3.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.5ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (8.87ms)
+Completed 200 OK in 22ms (Views: 12.3ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:03:13 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (1.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+  Rendered gardens/index.html.erb within layouts/application (12.6ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_errors.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 66ms (Views: 52.9ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:03:13 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (1.2ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.6ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers]   [1m[36mGardenPlant Load (1.7ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+[active_model_serializers]   [1m[36mGardenPlant Load (1.7ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.72ms)
+Completed 200 OK in 23ms (Views: 12.1ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:03:14 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.6ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+  Rendered gardens/index.html.erb within layouts/application (12.6ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_errors.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 77ms (Views: 63.7ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:03:14 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.11ms)
+Completed 200 OK in 16ms (Views: 8.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:03:14 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (1.0ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+  Rendered gardens/index.html.erb within layouts/application (13.3ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_errors.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 108ms (Views: 92.3ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:03:14 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+  Rendered gardens/index.html.erb within layouts/application (13.8ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_errors.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 59ms (Views: 52.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:03:14 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.4ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.29ms)
+Completed 200 OK in 20ms (Views: 6.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/plants" for 127.0.0.1 at 2018-07-24 22:03:19 -0700
+Processing by PlantsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPlant Load (1.8ms)[0m  [1m[34mSELECT "plants".* FROM "plants"[0m
+  Rendering plants/index.html.erb within layouts/application
+  [1m[36mPlant Load (0.5ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE (water_frequency > 15)[0m
+  [1m[36mCACHE Plant Load (0.0ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE (water_frequency > 15)[0m
+  Rendered plants/index.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_errors.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 67ms (Views: 53.5ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:03:20 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.7ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.4ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.7ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.47ms)
+Completed 200 OK in 21ms (Views: 14.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:03:22 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+  Rendered gardens/index.html.erb within layouts/application (10.0ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_errors.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 63ms (Views: 54.6ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:03:22 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.4ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.92ms)
+Completed 200 OK in 14ms (Views: 9.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:04:47 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+  Rendered gardens/index.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_errors.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 152ms (Views: 145.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:04:48 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (1.2ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers]   [1m[36mGardenPlant Load (1.0ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.6ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (9.26ms)
+Completed 200 OK in 16ms (Views: 9.4ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/gardens" for 127.0.0.1 at 2018-07-24 22:04:53 -0700
+Processing by GardensController#create as */*
+  Parameters: {"garden"=>{"name"=>"Sumfin"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Sumfin"], ["user_id", 10], ["created_at", "2018-07-25 05:04:53.027413"], ["updated_at", "2018-07-25 05:04:53.027413"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers]   [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 9]]
+[active_model_serializers] Rendered GardenSerializer with ActiveModelSerializers::Adapter::Attributes (1.29ms)
+Completed 200 OK in 8ms (Views: 1.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:05:09 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.5ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 9]]
+  Rendered gardens/index.html.erb within layouts/application (21.9ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_errors.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 158ms (Views: 149.9ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:05:09 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (3.6ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (3.9ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.6ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+[active_model_serializers]   [1m[36mGardenPlant Load (1.0ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 9]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (14.04ms)
+Completed 200 OK in 27ms (Views: 12.1ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:05:11 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.6ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 9]]
+  Rendered gardens/index.html.erb within layouts/application (15.7ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_errors.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 75ms (Views: 59.2ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:05:11 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.6ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.7ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.4ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.8ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.5ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 9]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.05ms)
+Completed 200 OK in 25ms (Views: 14.9ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:05:12 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.5ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 9]]
+  Rendered gardens/index.html.erb within layouts/application (15.4ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_errors.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 84ms (Views: 71.6ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:05:12 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (1.9ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.9ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.7ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 9]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (11.21ms)
+Completed 200 OK in 23ms (Views: 12.7ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:05:12 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (1.3ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 9]]
+  Rendered gardens/index.html.erb within layouts/application (13.2ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_errors.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 67ms (Views: 53.4ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:05:12 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (1.6ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.7ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 9]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (8.57ms)
+Completed 200 OK in 24ms (Views: 11.8ms | ActiveRecord: 6.7ms)
+
+
+Started POST "/gardens" for 127.0.0.1 at 2018-07-24 22:05:22 -0700
+Processing by GardensController#create as */*
+  Parameters: {"garden"=>{"name"=>"Moar"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Moar"], ["user_id", 10], ["created_at", "2018-07-25 05:05:22.898525"], ["updated_at", "2018-07-25 05:05:22.898525"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers]   [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 10]]
+[active_model_serializers] Rendered GardenSerializer with ActiveModelSerializers::Adapter::Attributes (1.25ms)
+Completed 200 OK in 8ms (Views: 1.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:05:24 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.7ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 9]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 10]]
+  Rendered gardens/index.html.erb within layouts/application (17.9ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_errors.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 74ms (Views: 58.9ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:05:24 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.4ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.4ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 9]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 10]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (9.78ms)
+Completed 200 OK in 22ms (Views: 14.6ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:05:57 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (1.1ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 9]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 10]]
+  Rendered gardens/index.html.erb within layouts/application (17.0ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_errors.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 154ms (Views: 144.2ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:05:57 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.4ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.6ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 9]]
+[active_model_serializers]   [1m[36mGardenPlant Load (2.4ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 10]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.57ms)
+Completed 200 OK in 22ms (Views: 13.3ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/gardens" for 127.0.0.1 at 2018-07-24 22:06:01 -0700
+Processing by GardensController#create as */*
+  Parameters: {"garden"=>{"name"=>"MOre"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "gardens" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "MOre"], ["user_id", 10], ["created_at", "2018-07-25 05:06:01.180893"], ["updated_at", "2018-07-25 05:06:01.180893"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers]   [1m[36mGardenPlant Load (0.2ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 11]]
+[active_model_serializers] Rendered GardenSerializer with ActiveModelSerializers::Adapter::Attributes (1.28ms)
+Completed 200 OK in 8ms (Views: 1.5ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/gardens" for 127.0.0.1 at 2018-07-24 22:06:02 -0700
+Processing by GardensController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering gardens/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 9]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 10]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 11]]
+  Rendered gardens/index.html.erb within layouts/application (11.7ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_errors.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 64ms (Views: 50.5ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/gardens.json" for 127.0.0.1 at 2018-07-24 22:06:03 -0700
+Processing by GardensController#index as JSON
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGarden Load (0.4ms)[0m  [1m[34mSELECT "gardens".* FROM "gardens" WHERE "gardens"."user_id" = $1[0m  [["user_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.4ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 6]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.7ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 7]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.7ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 8]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 9]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 10]]
+[active_model_serializers]   [1m[36mGardenPlant Load (0.3ms)[0m  [1m[34mSELECT "garden_plants".* FROM "garden_plants" WHERE "garden_plants"."garden_id" = $1[0m  [["garden_id", 11]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (14.92ms)
+Completed 200 OK in 28ms (Views: 16.0ms | ActiveRecord: 8.0ms)
+
+
