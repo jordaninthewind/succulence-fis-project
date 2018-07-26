@@ -50,7 +50,7 @@ function newGardenSubmit(e) {
 	  if (input) {
 		$.post('/gardens', gardenName)
 			.then(function(res) {
-				$("a#garden_plants").append(gardenListMaker(res));
+				$("a#garden-plants").append(gardenListMaker(res));
 				$("form").remove();
 		})} else {
 				$(".alert_class").html("Name Can't Be Blank");
@@ -60,14 +60,14 @@ function newGardenSubmit(e) {
 // FUNCTION TO LOAD GARDEN
 
 function getGardens() {
-	$("#garden_plants").empty();
+	$("#garden-plants").empty();
 	fetch('/gardens.json', {credentials: 'same-origin'})
 		.then(function(res) {
 			return res.json();
 		})
 		.then(function(json) {
 			json.forEach((garden) => {
-				$("#garden_plants").append(gardenListMaker(garden));
+				$("#garden-plants").append(gardenListMaker(garden));
 		});
 	});
 }
@@ -110,7 +110,7 @@ function loadGardenPlantPartial(el) {
 	const url = el.childNodes[1].href;
 	fetch(url, {credentials: 'same-origin'})
 		.then((res) => res.text())
-		.then((html) => $('#garden_plant_viewer').html(html))
+		.then((html) => $('#garden-plant-viewer').html(html))
 		.then((html) => console.log(html));
 }
 

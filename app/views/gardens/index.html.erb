@@ -1,25 +1,19 @@
-<h2 class="medium-text">All Gardens</h2>
-<%= link_to "Add New Garden", new_garden_path, id: "newGarden" %>
-<br>
+<h2 class="medium-text">Select a Garden <strong>or</strong> <%= link_to "Add New Garden", new_garden_path, id: "newGarden" %></h2>
   <div class="garden-grid">
-	<h2>Gardens:</h2><br>
+	<h2>All Gardens:</h2><br>
 	  <% if @gardens.count == 0 %>
 	  	<div> You don't have any gardens yet! </div>
 	  <%end%>
-	<div id="garden_plants">  
+	<div id="garden_plants" class="" style="grid-column:1;grid-row:2;">  
 	  <% @gardens.each do |garden| %>
 	  	<div><%= link_to garden.name, garden_path(garden), class: 'garden_li', id: garden.id %> - <%= garden.garden_plants.count %> Plants</div>
 	  <% end %>
 	</div>
-
+	<div class="medium-text" style="grid-column:2;grid-row:1;"><strong>Your Plant Info:</strong></div><br>
 	<div id="garden_plant_container">
-	  <div class="med-title">
+	  <div >
 	  <br>
 	  </div>
-	  <div><strong>Your Plant Info:</strong></div><br>
-		
-	  <div id="garden_plant_viewer" class="viewer">
-			- Will Update Here - 
-	  </div>
   </div>
+  <div id="garden_plant_viewer" class="viewer" style="grid-column:2;grid-row:2;"> - Will Update Here - </div>
 </div>

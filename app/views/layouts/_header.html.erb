@@ -1,14 +1,14 @@
 <nav id="header">
 	<div id="title">
-		<h1>Succulence App</h1>
-		<a href="/"><%= image_tag("background-succulents.jpg", id: 'title-image') %></a>
+		<%= image_link_to("background-succulents.jpg", '/', image_tag_options = { }, link_to_options = { }) %>
+		<h1>Succulence</h1>
 	</div>
 		<div class="navbar">
 			<%= display_sign_up %>
 			<%= display_sign_in %>
-			<%= plants_link %>
-				<%if current_user %> - <%end%>
-			<%= gardens_link %>
+			<%if current_user %>
+			<%= plants_link %> - <%= gardens_link %> - <%= link_to "Github", 'http://www.github.com/jordaninthewind/succulence-fis-project', target: :_blank %>
+			<%end%>
 		</div>
 	</div>
 </nav>
