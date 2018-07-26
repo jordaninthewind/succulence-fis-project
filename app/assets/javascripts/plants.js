@@ -50,7 +50,7 @@ function getPlants() {
 }
 
 function getPlantInfo() {
-	$("div#plant-container div a").on('click', function(e) {
+	$("div#plant-container a").on('click', function(e) {
 		e.preventDefault();
 
 		var url = $(this).attr('href');

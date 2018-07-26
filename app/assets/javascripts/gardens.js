@@ -11,9 +11,8 @@ class Garden {
 }
 
 $(document).ready(function(){
-  attachGardensListeners()
+  attachGardensListeners();
 });
-
 
 function attachGardensListeners() {
 	console.log('gardens listener')
@@ -50,7 +49,7 @@ function newGardenSubmit(e) {
 	  if (input) {
 		$.post('/gardens', gardenName)
 			.then(function(res) {
-				$("a#garden-plants").append(gardenListMaker(res));
+				$("div#garden-plants").append(gardenListMaker(res));
 				$("form").remove();
 		})} else {
 				$(".alert_class").html("Name Can't Be Blank");
@@ -61,6 +60,7 @@ function newGardenSubmit(e) {
 
 function getGardens() {
 	$("#garden-plants").empty();
+
 	fetch('/gardens.json', {credentials: 'same-origin'})
 		.then(function(res) {
 			return res.json();
@@ -103,7 +103,7 @@ function loadGardenPlants() {
 
 
 function gardenPlantsLiMaker(plant) {
-	return `<div>   - <a href='/garden_plants/${plant.garden_plant_id} '>${plant.plant.name}</a></div>`;
+	return `<div><a href='/garden_plants/${plant.garden_plant_id}'>${plant.plant.name}</a></div>`;
 }
 
 function loadGardenPlantPartial(el) {

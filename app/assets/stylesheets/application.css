@@ -127,6 +127,14 @@
 		text-align: center;
 	}
 
+	a:hover {
+		color: #faa;
+	}
+
+	a.plant-link {
+		text-decoration: none;
+	}
+
 	.viewer {
 		width: 25vw;
 		max-height: 25vh;

@@ -3,8 +3,7 @@
 <div>
 	<div id="plant-container" class="container">
 		<% @plants.each do |plant| %>
-
-		<div> - <%= link_to plant.name, plant_path(plant), {:style=>'font-size:13px;color:#77d;text-decoration:none;'} %> - <%if current_user.admin %><%= link_to "Edit", edit_admin_plant_path(plant) %><%end%></div>
+			<div class="plant-link"><a href="<%= plant_path(plant) %>" style="text-decoration:none;"><%=plant.name%></a></div>
 		<% end %>
 		
 	</div>
