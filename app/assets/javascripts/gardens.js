@@ -26,8 +26,8 @@ function attachGardensListeners() {
 function addGardenInput() {
 	$("a#newGarden").on("click", function(e) {
 		e.preventDefault();
-		$("#newGarden").after("<div><form action='/gardens' id='garden_name' name='garden'><input type='text' id='name' placeholder='New Name' size='10' onsubmit='newGardenSubmit(event)'><button onclick='newGardenSubmit(event)'>Make Garden</button></form></div>");
-		$("a#newGarden").off();
+		$("div#new-garden-form").append("<form action='/gardens' onsubmit='newGardenSubmit(event)' id='garden_name' name='garden'><input type='text' id='name' placeholder='New Name' size='10'><button>Make Garden</button></form>");
+		$("a#new-garden").off();
 		removeGardenInput();
 	})
 }
@@ -35,8 +35,7 @@ function addGardenInput() {
 function removeGardenInput() {
 	$("a#newGarden").one("click", function(e) {
 		e.preventDefault();
-		$("form#garden_name").empty();
-		$(".alert_class").empty();
+		$("div#new-garden-form").empty();
 		addGardenInput();
 	});
 }
@@ -51,8 +50,9 @@ function newGardenSubmit(e) {
 			.then(function(res) {
 				$("div#garden-plants").append(gardenListMaker(res));
 				$("form").remove();
+				$(".alert-class").html("<h1>Garden Successfully Added!</h1>");
 		})} else {
-				$(".alert_class").html("Name Can't Be Blank");
+				$(".alert-class").html("Name Can't Be Blank");
 		}
 }
 
@@ -74,13 +74,13 @@ function getGardens() {
 
 function gardenListMaker(el) {
 	const garden = new Garden(el);
-	return `<div><a href='/gardens/${garden.id}' class='garden_li'>${garden.name}</a> - ${garden.plants.length} Plants</div>`;
+	return `<div><a href='/gardens/${garden.id}' class='garden_list'>${garden.name}</a> - ${garden.plants.length} Plants</div>`;
 }
 
 // FUNCTIONS TO LOAD GARDEN PLANTS
 
 function loadGardenPlants() {
-	$('#garden_plants li a').one('click', function(e){
+	$('div.garden-list a').one('click', function(e){
 		e.preventDefault();
 		const li = $(this.parentNode);
 		const url = $(this).attr('href');
@@ -103,7 +103,7 @@ function loadGardenPlants() {
 
 
 function gardenPlantsLiMaker(plant) {
-	return `<div><a href='/garden_plants/${plant.garden_plant_id}'>${plant.plant.name}</a></div>`;
+	return `<li><a href='/garden_plants/${plant.garden_plant_id}'>${plant.plant.name}</a></li>`;
 }
 
 function loadGardenPlantPartial(el) {

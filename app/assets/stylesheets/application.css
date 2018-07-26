@@ -132,7 +132,12 @@
 	}
 
 	a.plant-link {
-		text-decoration: none;
+	
+	}
+
+	.alert-class {
+		font-size: 15px;
+		color: red;
 	}
 
 	.viewer {
