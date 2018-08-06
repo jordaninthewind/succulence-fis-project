@@ -3,9 +3,9 @@
 <div class='alert-class'></div>
   <div class="garden-grid">
 	<h2>All Gardens:</h2><br>
-	  <% if @gardens.count == 0 %>
-	  	<div> You don't have any gardens yet! </div>
-	  <% end %>
+	<% if @gardens.count == 0 %>
+	  	<div style="grid-column:1/2;grid-row:2;">You don't have any gardens yet!</div>
+	<% else %>
 	<div id="garden-plants" style="grid-column:1;grid-row:2;">  
 	  <% @gardens.each do |garden| %>
 	  	<div><a href='<%= garden_path(garden) %>' style="text-decoration:none;" class='garden-list'><%=garden.name%></a> - <%= garden.garden_plants.count %> Plants</div>
@@ -18,4 +18,5 @@
 	  </div>
   </div>
   <div id="garden_plant_viewer" class="viewer" style="grid-column:2;grid-row:2;"> - Will Update Here - </div>
+  <% end %>
 </div>

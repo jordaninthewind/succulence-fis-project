@@ -24,11 +24,12 @@ function attachGardensListeners() {
 // FUNCTIONS TO ADD INPUT FORM AND MAKE NEW GARDEN
 
 function addGardenInput() {
-	$("a#newGarden").on("click", function(e) {
+	$("a#new-garden").on("click", function(e) {
 		e.preventDefault();
 		$("div#new-garden-form").append("<form action='/gardens' onsubmit='newGardenSubmit(event)' id='garden_name' name='garden'><input type='text' id='name' placeholder='New Name' size='10'><button>Make Garden</button></form>");
 		$("a#new-garden").off();
 		removeGardenInput();
+		getGardens();
 	})
 }
 
@@ -74,13 +75,13 @@ function getGardens() {
 
 function gardenListMaker(el) {
 	const garden = new Garden(el);
-	return `<div><a href='/gardens/${garden.id}' class='garden_list'>${garden.name}</a> - ${garden.plants.length} Plants</div>`;
+	return `<div><a href='/gardens/${garden.id}' class='garden-list'>${garden.name}</a> - ${garden.plants.length} Plants</div>`;
 }
 
 // FUNCTIONS TO LOAD GARDEN PLANTS
 
 function loadGardenPlants() {
-	$('div.garden-list a').one('click', function(e){
+	$('a.garden-list').one('click', function(e){
 		e.preventDefault();
 		const li = $(this.parentNode);
 		const url = $(this).attr('href');
