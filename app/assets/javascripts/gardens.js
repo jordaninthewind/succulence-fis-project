@@ -102,7 +102,7 @@ function loadGardenPlants() {
 }
 
 
-
+// to update with large buttons on new garden page
 function gardenPlantsLiMaker(plant) {
 	return `<li><a href='/garden_plants/${plant.garden_plant_id}'>${plant.plant.name}</a></li>`;
 }

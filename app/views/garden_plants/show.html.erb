@@ -2,7 +2,7 @@
 
 <!-- <%#= render partial: 'plants/plant', :locals => {:plant => @garden_plant.plant} %> -->
 
-<!-- <section class="thumbnail col-sm-3"> -->
+<section class="thumbnail">
 	<br>
 	<p>Plant Type: <%=@garden_plant.plant.name %></p>
 	<p>Planted On: <%= normalize_time(@garden_plant.created_at) %> </p>
@@ -11,4 +11,4 @@
 	<%= overdue_notice(@garden_plant) %>
 
 	<p><%= link_to "Water Plant", water_plant_path(@garden_plant.garden, @garden_plant) %></p>
-<!-- </section> <br><br> -->
+</section> <br><br>

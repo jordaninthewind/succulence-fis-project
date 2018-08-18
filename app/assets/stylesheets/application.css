@@ -92,6 +92,7 @@
 	.medium-text {
 		font-size: 1.8em;
 		font-family: Pacifico;
+		color: #f99;
 	}
 
 	.field_with_errors, .flash_notice {
@@ -167,5 +168,15 @@
 		grid-template-columns: repeat(2, 1fr);
 		grid-auto-rows: minmax(50px, auto);	
 		grid-gap: 15px;
+	}
+
+	.garden-plants {
+		margin-left: auto;
+		margin-right: auto;
+		padding: 1%;
+		width: 50%;
+		/*background-color: lightgrey;*/
+		border: 2px solid lightgrey;
+		border-radius: 25%;
 	}
 }

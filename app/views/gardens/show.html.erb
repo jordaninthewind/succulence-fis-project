@@ -1,13 +1,12 @@
 <div class=".alert_class"></div>
-<h3>Garden Name: <span data-id='<%=@garden.id%>' id='garden_name'><%= @garden.name %></span> </h3>
-	<h4><%= link_to "Delete Garden", garden_path(@garden), method: :delete, data: { confirm: 'Are you sure?' } %></h4>
-<div id="garden_plants">
+<h3 class="medium-text">Garden Name: <span data-id='<%=@garden.id%>' id='garden_name'><%= @garden.name %></span> </h3>
+<div class="garden-plants">
 <ul><% @garden.garden_plants.reverse.each do |gp| %>
+<!-- Eventual Image <img /> -->
 <li><%= link_to gp.plant.name, plant_path(gp.plant) %>, Last Watered: <%= normalize_time(gp.last_watered) %>
 	- <%= link_to "View Plant", garden_garden_plant_path(@garden, gp) %>
 	<% if overdue_notice(gp) %> - <%= link_to "Water Plant", water_plant_path(@garden, gp) %> - <% end %>
- 	- <%= link_to "Mulch Plant", garden_garden_plant_path(@garden, gp),
-			method: :delete, data: { confirm: 'Are you sure?' } %>
+ 	- <%= link_to "Mulch Plant", garden_garden_plant_path(@garden, gp), method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <p><%= overdue_notice(gp) %></p></li><% end %></ul>
 </div>
@@ -18,7 +17,7 @@
 <%= collection_select :plant, :id, Plant.order('name ASC'), :id, :name %>
 <%= submit_tag "Add Plant" %>
 <% end %>
-
+<h4><%= link_to "Delete This Garden and Its Plants", garden_path(@garden), method: :delete, data: { confirm: 'Are you sure?' } %></h4>
 <!-- <h3>OR</h3> -->
 
 <%#= link_to "Make a New Plant", new_garden_plant_path(@garden) %>
