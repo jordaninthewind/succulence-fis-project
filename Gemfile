@@ -51,6 +51,9 @@ gem 'jquery-rails'
 #serializers for json
 gem 'active_model_serializers'
 
+#admin framework
+gem 'activeadmin'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # Adds support for Capybara system testing and selenium driver
